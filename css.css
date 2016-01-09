@@ -28,8 +28,11 @@
 #copyright {
 	font-family: 'Oswald', 'sans-serif';
 	text-align: right;
-	padding: 20px 30px;
+	padding: 20px 20px;
 	margin: 0;
+	position: fixed;
+	bottom: 0;
+	right: 0;
 }
 
 body {
@@ -44,80 +47,4 @@ body {
 	color: black;
 	font-family: 'Droid Serif', 'serif';
 	font-size: 20px;
-}
-
-#brussellbot {
-	font-weight: 700;
-	font-family: 'Oswald', 'sans-serif';
-	font-size: 120px;
-	margin: 10px;
-	text-align: center;
-	color: #262626;
-}
-
-#download-button {
-	margin: auto;
-	width: 100px;
-	padding: 10px;
-	text-align: center;
-	display: inline;
-}
-
-#download-text {
-	border-style: solid;
-    border-width: 0px 0px 3px;
-    box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.1) inset;
-    color: #FFFFFF;
-    border-radius: 6px;
-    cursor: pointer;
-    overflow: hidden;
-    text-align: center;
-    text-decoration: none;
-    text-overflow: ellipsis;
-    transition: all 200ms ease-in-out 0s;
-    white-space: nowrap;
-    font-family: 'Oswald', 'sans-serif';
-    font-weight: 700;
-    padding: 19px 39px 18px;
-    font-size: 18px;
-	background-color: #C6CCD2;
-    border-color: #AAB3BB;
-}
-
-#downlaod-text:hover, #download-text:focus, #download-text:active {
-	background-color: #B8BFC7;
-    border-color: #AAB3BB;
-}
-
-#header {
-	font-weight: 700;
-	font-family: 'Oswald', 'sans-serif';
-	font-size: 48px;
-	margin: 10px;
-	text-align: center;
-	color: #111;
-}
-
-#featurebox {
-    margin: auto;
-    display: inline-block;
-    width: 600px;
-    padding: 20px 50px;
-	vertical-align: top;
-}
-
-#fbodytext {
-	text-align: center;
-	padding: 0px 0px;
-	color: black;
-	font-family: 'Droid Serif', 'serif';
-	font-size: 18px;
-}
-
-#featurename {
-	font-family: 'Oswald', 'sans-serif';
-	font-size: 24px;
-	margin: 0px;
-	text-align: center;
-	color: #111;
 }
