@@ -6,7 +6,7 @@
     position: fixed;
     width: 180px;
     height: 100%;
-    background-color: #17a2eb;
+    background-color: #2c2c2e;
     text-align: center;
 	border-right: 1px solid #e2e2e2;
 }
@@ -30,7 +30,7 @@
 }
 
 #navbuttonA:hover {
-    background-color: #1cb1ff;
+    background-color: #84848b;
 }
 
 #copyright {
@@ -53,12 +53,12 @@ body {
 
 #bodytext {
     text-align: left;
-    padding-bottom: 10px;
+    padding-bottom: 5px;
     padding-right: 20px;
     padding-left: 20px;
     margin: inherit;
     margin-left: 180px;
-    padding-top: 10px;
+    padding-top: 15px;
     color: white;
 	text-shadow:
 		-1.5px -1.5px 0 #000,  
