@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Anidex Anime Database</title>
+	<meta charset="utf-8">
+	<meta name="description" content="WIP">
+	<meta name="author" content="Brandon Russell">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="settings.css" rel="stylesheet">
+	<link rel="icon" type="image/png" href="../98.png">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js"></script>
+	<script type="text/javascript">
+		function welcomeChange(cb) {
+			if (cb.checked == true) { document.getElementById('welcome').disabled = false;
+			} else { document.getElementById('welcome').disabled = true; }
+		}
+		function generate() {
+			var command = "}settings init ";
+			if (document.getElementById('welcome').value.indexOf(":::") > -1) { alert("The welcome message can't contain ':::'"); return; }
+			if (document.getElementById('bans').checked == true) { command += "true"; }
+			else { command += "false"; }
+			if (document.getElementById('delete').checked == true) { command += ":::true"; }
+			else { command += ":::false"; }
+			if (document.getElementById('namechanges').checked == true) { command += ":::true"; }
+			else { command += ":::false"; }
+			if (document.getElementById('welcomeCB').checked == true && document.getElementById('welcome').value != "") { command += ":::" + document.getElementById('welcome').value; }
+			else { command += ":::false"; }
+			document.getElementById('cmd').innerHTML = command;
+			
+		}
+	</script>
+</head>
+<body>
+<div class="container">
+<div class="page-header" id="header">
+	<h1>Bot-chan Server Settings</h1><hr width="1000px"><br>
+</div>
+<div class="card">
+	<div class="card-block">
+		<h4 class="card-title">Welcome Message</h4>
+		<p class="card-text">This is displayed when a user joins the server. It has the following parameters: <br>
+		<code>$SERVER$</code> The name of the server<br>
+		<code>$USER$</code> The name of the user that joined</p>
+	</div>
+	<div class="card-footer text-muted">
+		}settings edit welcome Hi $USER$! Welcome to $SERVER$ <br> }settings disable welcome
+	</div>
+</div>
+	<div class="card">
+	<div class="card-block">
+		<h4 class="card-title">Ban Alerts</h4>
+		<p class="card-text">When this is enabled the bot will send a message in #general notifying that a user was banned. It will also send a direct message to the banned user letting them know that they were banned.</p>
+	</div>
+	<div class="card-footer text-muted">
+		}settings enable banAlerts <br> }settings disable banAlerts
+	</div>
+</div>
+	<div class="card">
+	<div class="card-block">
+		<h4 class="card-title">Delete Commands</h4>
+		<p class="card-text">If this is enabled and the bot can manage messages, the bot will delete commands leaving only the responses.<br>
+		<b>Note: </b>Commands like <code>]choose</code> and <code>]rps</code> will not be removed as the command is relevant.</p>
+	</div>
+	<div class="card-footer text-muted">
+		}settings enable deleteCmds <br> }settings disable deleteCmds
+	</div>
+</div>
+	<div class="card">
+	<div class="card-block">
+		<h4 class="card-title">Name Changes</h4>
+		<p class="card-text">When enabled, the bot will send a message in #general when a user changes their username. The message will show their old username and new username.</p>
+	</div>
+	<div class="card-footer text-muted">
+		}settings enable nameChanges <br> }settings disable nameChanges
+	</div>
+</div>
+<div class="page-header" id="header">
+	<h1>Initialize Settings</h1><hr width="1000px">
+</div>
+<form role="form" id="stngs">
+	<div class="checkbox">
+		<label>
+			<input id="bans" type="checkbox"> I want the bot to say when a user is banned and alert them
+		</label>
+	</div>
+	<hr>
+	<div class="checkbox">
+		<label>
+			<input id="delete" type="checkbox"> I want the bot to delete certain commands when it has permission
+		</label>
+	</div>
+	<hr>
+	<div class="checkbox">
+		<label>
+			<input id="namechanges" type="checkbox"> I want the bot to notify when a users change their username in chat
+		</label>
+	</div>
+	<hr>
+	<div class="form-group">
+		<input type="checkbox" onchange="welcomeChange(this)" id="welcomeCB"> Welcome Message
+		<input type="text" maxlength="500" class="form-control" id="welcome" value="" placeholder="Hi $USER$! Welcome to $SERVER$" disabled>
+	</div>
+</form>
+<button style="display:block;margin:auto;" onclick="generate()" class="btn btn-primary">Generate Command</button>
+<br>
+<code><p id="cmd"></p></code>
+	<br><br><br><br>
+</div>
+</body>
+</html>
