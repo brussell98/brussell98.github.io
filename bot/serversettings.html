@@ -17,18 +17,22 @@
 			} else { document.getElementById('welcome').disabled = true; }
 		}
 		function generate() {
-			var command = "}settings init ";
-			if (document.getElementById('welcome').value.indexOf(":::") > -1) { alert("The welcome message can't contain ':::'"); return; }
-			if (document.getElementById('bans').checked == true) { command += "true"; }
-			else { command += "false"; }
-			if (document.getElementById('delete').checked == true) { command += ":::true"; }
-			else { command += ":::false"; }
-			if (document.getElementById('namechanges').checked == true) { command += ":::true"; }
-			else { command += ":::false"; }
-			if (document.getElementById('welcomeCB').checked == true && document.getElementById('welcome').value != "") { command += ":::" + document.getElementById('welcome').value; }
-			else { command += ":::false"; }
-			document.getElementById('cmd').innerHTML = command;
-			
+			var p = prompt("Once custom settings are enabled for your server you will need to use the leave command ( }leave ) to make the bot leave the server. This ensures that the entry is removed from the databse. To proceed input the leave command.", "Answer");
+			if (p == "}leave") {
+				var command = "}settings init ";
+				if (document.getElementById('welcome').value.indexOf(":::") > -1) { alert("The welcome message can't contain ':::'"); return; }
+				if (document.getElementById('bans').checked == true) { command += "true"; }
+				else { command += "false"; }
+				if (document.getElementById('delete').checked == true) { command += ":::true"; }
+				else { command += ":::false"; }
+				if (document.getElementById('namechanges').checked == true) { command += ":::true"; }
+				else { command += ":::false"; }
+				if (document.getElementById('welcomeCB').checked == true && document.getElementById('welcome').value != "") { command += ":::" + document.getElementById('welcome').value; }
+				else { command += ":::false"; }
+				document.getElementById('cmd').innerHTML = command;
+			} else {
+				document.getElementById('cmd').innerHTML = "Incorrect answer";
+			}
 		}
 	</script>
 	<script>
