@@ -53,7 +53,7 @@
 		<code>$USER$</code> The name of the user that joined</p>
 	</div>
 	<div class="card-footer text-muted">
-		}settings edit welcome Hi $USER$! Welcome to $SERVER$ <br> }settings disable welcome
+		}settings welcomemsg **NEW FRIEND DETECTED:** $User$ <br> }settings disable welcomemsg <br> }settings enable welcomemsg
 	</div>
 </div>
 	<div class="card">
@@ -62,7 +62,7 @@
 		<p class="card-text">When this is enabled the bot will send a message in #general notifying that a user was banned. It will also send a direct message to the banned user letting them know that they were banned.</p>
 	</div>
 	<div class="card-footer text-muted">
-		}settings enable banAlerts <br> }settings disable banAlerts
+		}settings enable banalerts <br> }settings disable banalerts
 	</div>
 </div>
 	<div class="card">
@@ -72,7 +72,7 @@
 		<b>Note: </b>Commands like <code>]choose</code> and <code>]rps</code> will not be removed as the command is relevant.</p>
 	</div>
 	<div class="card-footer text-muted">
-		}settings enable deleteCmds <br> }settings disable deleteCmds
+		}settings enable deletecmds <br> }settings disable deletecmds
 	</div>
 </div>
 	<div class="card">
@@ -81,7 +81,7 @@
 		<p class="card-text">When enabled, the bot will send a message in #general when a user changes their username. The message will show their old username and new username.</p>
 	</div>
 	<div class="card-footer text-muted">
-		}settings enable nameChanges <br> }settings disable nameChanges
+		}settings enable namechanges <br> }settings disable namechanges
 	</div>
 </div>
 <div class="page-header" id="header">
@@ -102,7 +102,7 @@
 	<hr>
 	<div class="checkbox">
 		<label>
-			<input id="namechanges" type="checkbox"> I want the bot to notify when a users change their username in chat
+			<input id="namechanges" type="checkbox"> I want the bot to notify when a user changes their username in chat
 		</label>
 	</div>
 	<hr>
