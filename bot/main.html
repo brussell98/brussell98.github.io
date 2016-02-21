@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Bot-chan for Discord</title>
+	<meta name="author" content="Brandon Russell">
+	<meta name="description" content="Everything you need to know about Bot-chan">
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			 $(".button-collapse").sideNav();
+		});
+	</script>
+	<style>
+		body {
+			display: flex;
+			min-height: 100vh;
+			flex-direction: column;
+		}
+
+		main {
+			flex: 1 0 auto;
+		}
+	</style>
+</head>
+<body>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+	<header><div class="navbar-fixed"><nav>
+	<div class="nav-wrapper light-blue darken-1">
+		<a href="main.html" class="brand-logo center">Bot-chan</a>
+		<a href="#" data-activates="mobile-nav" class="button-collapse"><i class="material-icons">&nbsp;menu</i></a>
+		<ul id="nav-mobile" class="left hide-on-med-and-down">
+			<li class="active"><a href="main.html"><i class="material-icons left">home</i>Home</a></li>
+			<li><a href="commands.html"><i class="material-icons left">list</i>Commands</a></li>
+			<li><a href="serversettings.html"><i class="material-icons left">settings</i>Settings</a></li>
+		</ul>
+		<ul class="side-nav" id="mobile-nav">
+			<li class="active"><a href="main.html"><i class="material-icons left">home</i>Home</a></li>
+			<li><a href="commands.html"><i class="material-icons left">list</i>Commands</a></li>
+			<li><a href="serversettings.html"><i class="material-icons left">settings</i>Settings</a></li>
+		</ul>
+	</div>
+	</nav></div></header>
+	<main>
+	<div class="section no-pad-bot" id="index-banner">
+	<div class="container">
+		<br><br>
+		<h1 class="header center light-blue-text text-darken-1">The Best Bot on Discord</h1>
+		<div class="row center">
+			<h5 class="header col s12 light">I usually develop this bot when I'm tired and I don't test anything so you <i>know</i> it's going to be great.</h5>
+		</div>
+		<div class="row center">
+			<a href="https://www.carbonitex.net/discord/bots.php" id="add-button" class="btn-large waves-effect waves-light light-blue"><i class="material-icons left">add</i>Add to Server</a>
+		</div>
+		<br><br>
+	</div>
+	</div>
+
+	<div class="container">
+	<div class="section">
+
+	  <div class="row">
+		<div class="col s12 m4">
+		  <div class="icon-block">
+			<h2 class="center light-blue-text text-darken-1"><i class="material-icons small">fast_forward</i></h2>
+			<h5 class="center">Good Response Times</h5>
+			<p class="medium">Bot-chan is hosted on a server instead of my home PC. This means that you don't have to worry about the bot being onffline or being slow to respond. (Does not account for other APIs slowing it down)</p>
+		  </div>
+		</div>
+
+		<div class="col s12 m4">
+		  <div class="icon-block">
+			<h2 class="center light-blue-text text-darken-1"><i class="material-icons small">lock</i></h2>
+			<h5 class="center">Permission Based</h5>
+			<p class="medium">All commands are based on the permissions of the user. This means the bot can be used without <b>any</b> setup. Of course, if you want to use all features of the bot head over to the settings page.</p>
+		  </div>
+		</div>
+
+		<div class="col s12 m4">
+		  <div class="icon-block">
+			<h2 class="center light-blue-text text-darken-1"><i class="material-icons small">settings</i></h2>
+			<h5 class="center">Customizable</h5>
+			<p class="medium">You can change the settings of the bot for each server. Some things include ignoring channels, custom welcome messages, and ban alerts. Head over to the settings page for more information.</p>
+		  </div>
+		</div>
+	  </div>
+
+	</div>
+	<div class="divider"></div><br><br>
+	<h4 class="center">Features</h4>
+	<div class="section">
+
+	  <div class="row">
+		<div class="col s12 m3">
+		  <div class="icon-block">
+			<h2 class="center light-blue-text text-darken-1"><i class="material-icons small">chat_bubble</i></h2>
+			<h5 class="center">Cleverbot</h5>
+			<p class="medium">By far the most used feature, the cleverbot module allows you to have conversations with the bot. Just do <i>@Bot-chan &lt;your text here&gt;</i>.</p>
+		  </div>
+		</div>
+
+		<div class="col s12 m3">
+		  <div class="icon-block">
+			<h2 class="center light-blue-text text-darken-1"><i class="material-icons small">announcement</i></h2>
+			<h5 class="center">Server Anouncements</h5>
+			<p class="medium">Server moderators can use the bot to send a message to all users on the server via a private message.</p>
+		  </div>
+		</div>
+
+		<div class="col s12 m3">
+		  <div class="icon-block">
+			<h2 class="center light-blue-text text-darken-1"><i class="material-icons small">search</i></h2>
+			<h5 class="center">My Anime List Search</h5>
+			<p class="medium">The bot can get information on an anime or manga from MAL.</p>
+		  </div>
+		</div>
+
+		<div class="col s12 m3">
+		  <div class="icon-block">
+			<h2 class="center light-blue-text text-darken-1"><i class="material-icons small">color_lens</i></h2>
+			<h5 class="center">Role colors</h5>
+			<p class="medium">Want to give users custom role colors? You can use the bot to set the hex color of a role or give a user their own color.</p>
+		  </div>
+		</div>
+	  </div>
+
+	</div>
+	<!-- TODO: Rate waifu, osu!, prune with user or images or term, lottories, kick/ban with message -->
+	</div>
+	<br><br>
+	</main>
+
+	<footer class="page-footer light-blue darken-2">
+		<div class="footer-copyright">
+			<div class="container">
+			© 2016 Brandon Russell
+			<a class="grey-text text-lighten-4 right" href="http://brussell98.github.io/">My Projects</a>
+			</div>
+		</div>
+	</footer>
+</body>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-72190085-1', 'auto');
+  ga('send', 'pageview');
+</script>
+</html>
