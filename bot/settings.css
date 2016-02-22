@@ -4,27 +4,17 @@ form {
 	text-align: left;
 }
 
-body {
-	margin-top: 30px !important;
-}
+body { margin-top: 30px !important; }
 
-#header {
-	text-align: center;
-}
+#header { text-align: center; }
 
 .card {
 	width: 1000px;
 	margin: auto;
 }
 
-form {
-	display: block;
-}
+form { display: block; }
 
-.checkbox, .form-group {
-	margin-left: 10px;
-}
+.checkbox, .form-group { margin-left: 10px; }
 
-#cmd {
-	text-align: center;
-}
+#cmd { text-align: center; }
