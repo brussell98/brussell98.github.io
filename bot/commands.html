@@ -44,24 +44,63 @@
 	</div>
 	</nav></div></header>
 	<main>
-	<div class="container">
+	<div style="margin-left:8%;margin-right:8%;">
 		<br>
 		<h2 class="header center light-blue-text text-darken-1">Commands</h2>
 		<div class="card">
 			<div class="col s12">
 				<ul class="tabs" style="overflow:hidden;">
-					<li class="tab col s4"><a href="#cat1" class="active blue-text text-darken-1  waves-effect">Category 1</a></li>
-					<li class="tab col s4"><a href="#cat2" class="blue-text text-darken-1 waves-effect">Category 2</a></li>
-					<li class="tab col s4"><a href="#cat3" class="blue-text text-darken-1 waves-effect">Category 3</a></li>
+					<li class="tab col s4"><a href="#norm" class="active blue-text text-darken-1  waves-effect">Normal</a></li>
+					<li class="tab col s4"><a href="#mod" class="blue-text text-darken-1 waves-effect">Moderation</a></li>
+					<li class="tab col s4"><a href="#plan" class="blue-text text-darken-1 waves-effect">Planned</a></li>
 				</ul>
 			</div>
-			<div id="cat1" class="col s12">
+			<div id="norm" class="col s12">
 				<table class="striped">
 					<thead>
 						<tr>
 							<th>Command</th>
 							<th>Description</th>
 							<th>Example</th>
+							<th>Aliases</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>@Bot-chan <i>Text</i></td>
+							<td>Doing this will let you talk to the bot. Doesn't work in PMs.</td>
+							<td>@Bot-chan are you real?</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>]help [<i>command</i>]</td>
+							<td>Get a list of commands or information on a specific command.</td>
+							<td>]help prune</td>
+							<td>h, commands</td>
+						</tr>
+						<tr>
+							<td>]id [channel]</td>
+							<td>Get your user ID. If the suffix is "channel" get the channel's ID.</td>
+							<td>]id channel</td>
+							<td>myid</td>
+						</tr>
+						<tr>
+							<td>]ping</td>
+							<td>Check if the bot is working. Tells you response time in ms.</td>
+							<td>]ping</td>
+							<td>p</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div id="mod" class="col s12">
+				<table class="striped">
+					<thead>
+						<tr>
+							<th>Command</th>
+							<th>Description</th>
+							<th>Example</th>
+							<th>Aliases</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -72,20 +111,6 @@
 						</tr>
 						<tr>
 							<td></td>
-							<td></td>
-							<td></td>
-						</tr>
-						<tr>
-							<td></td>
-							<td></td>
-							<td></td>
-						</tr>
-						<tr>
-							<td></td>
-							<td></td>
-							<td></td>
-						</tr>
-						<tr>
 							<td></td>
 							<td></td>
 							<td></td>
@@ -93,75 +118,25 @@
 					</tbody>
 				</table>
 			</div>
-			<div id="cat2" class="col s12">
+			<div id="plan" class="col s12">
 				<table class="striped">
 					<thead>
 						<tr>
 							<th>Command</th>
 							<th>Description</th>
 							<th>Example</th>
+							<th>Aliases</th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr>
-							<td>Command <<i>required</i>> [<i>optional</i>]</td>
-							<td>This is where the description goes. It can be quite long if needed.</td>
-							<td>Example usage goes here</td>
-						</tr>
-						<tr>
-							<td>ct 2</td>
 							<td></td>
-							<td></td>
-						</tr>
-						<tr>
 							<td></td>
 							<td></td>
 							<td></td>
 						</tr>
 						<tr>
 							<td></td>
-							<td></td>
-							<td></td>
-						</tr>
-						<tr>
-							<td></td>
-							<td></td>
-							<td></td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-			<div id="cat3" class="col s12">
-				<table class="striped">
-					<thead>
-						<tr>
-							<th>Command</th>
-							<th>Description</th>
-							<th>Example</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>Command <<i>required</i>> [<i>optional</i>]</td>
-							<td>This is where the description goes. It can be quite long if needed.</td>
-							<td>Example usage goes here</td>
-						</tr>
-						<tr>
-							<td></td>
-							<td>cat 3</td>
-							<td></td>
-						</tr>
-						<tr>
-							<td></td>
-							<td></td>
-							<td></td>
-						</tr>
-						<tr>
-							<td></td>
-							<td></td>
-							<td></td>
-						</tr>
-						<tr>
 							<td></td>
 							<td></td>
 							<td></td>
