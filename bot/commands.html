@@ -109,12 +109,6 @@
 							<td></td>
 						</tr>
 						<tr>
-							<td>]letsplay [<i>game</i>]</td>
-							<td>Ask if anyone wants to play a game.</td>
-							<td>]letsplay CS:GO</td>
-							<td>lp, play</td>
-						</tr>
-						<tr>
 							<td>]dice [<i>(rolls)</i>d<i>(sides)</i>]</td>
 							<td>Roll a dice with 6 sides or as specified.</td>
 							<td>]dice 2d12</td>
@@ -162,6 +156,84 @@
 							<td>]8ball</td>
 							<td>8, ball</td>
 						</tr>
+						<tr>
+							<td>]anime <<i>search</i>></td>
+							<td>Get info on an anime from MAL.</td>
+							<td>]anime Boku Dake</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>]manga <<i>search</i>></td>
+							<td>Get info on a manga from MAL.</td>
+							<td>]manga hero academia</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>]coinflip</td>
+							<td>Flip a coin.</td>
+							<td>]coinflip</td>
+							<td>coin, flip</td>
+						</tr>
+						<tr>
+							<td>]avatar [<i>user</i>]</td>
+							<td>Get a user's avatar.</td>
+							<td>]avatar Bruss</td>
+							<td>a</td>
+						</tr>
+						<tr>
+							<td>]rps</td>
+							<td>Rock, paper, scissors.</td>
+							<td>]rps</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>]weather <<i>city | zip code</i>> [,<i>country code</i>]</td>
+							<td>Get the weather for a place. Uses Open Weather Map.</td>
+							<td>]weather new york,us</td>
+							<td>w</td>
+						</tr>
+						<tr>
+							<td>]botserver</td>
+							<td>Get an invite to the Bot-chan server.</td>
+							<td>]botserver</td>
+							<td>server</td>
+						</tr>
+						<tr>
+							<td>]numberfacts [<i>number</i>]</td>
+							<td>Facts on a number.</td>
+							<td>]numberfacts 42</td>
+							<td>num, number</td>
+						</tr>
+						<tr>
+							<td>]catfacts</td>
+							<td>Catfacts!</td>
+							<td>]catfacts</td>
+							<td>cat, meow, neko</td>
+						</tr>
+						<tr>
+							<td>]ratewaifu</td>
+							<td>Rate a waifu. Works on users too!</td>
+							<td>]ratewaifu Rikka</td>
+							<td>r, rate, waifu</td>
+						</tr>
+						<tr>
+							<td>]image <<i>subreddit</i>> [--nsfw] [--day | --week | --month | --year | --all]</td>
+							<td>Get a random image from Imgur.</td>
+							<td>]image awwnime --month</td>
+							<td>imgur</td>
+						</tr>
+						<tr>
+							<td>]osu sig [<i>user</i>] [<i>color as hex</i>]</td>
+							<td>Generate an osu!next signature for a user.</td>
+							<td>]osu sig brussell98 #e57373</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>]osu user/best/recent [<i>user</i>]</td>
+							<td>user: Gets a user's stats. best: Gets a user's top 5 plays. recent: Gets a user's 5 most recent plays.</td>
+							<td>]osu best brussell98</td>
+							<td></td>
+						</tr>
 					</tbody>
 				</table>
 			</div>
@@ -177,15 +249,105 @@
 					</thead>
 					<tbody>
 						<tr>
-							<td>Command <<i>required</i>> [<i>optional</i>]</td>
-							<td>This is where the description goes. It can be quite long if needed.</td>
-							<td>Example usage goes here</td>
+							<td>}help [<i>command</i>]</td>
+							<td>Get a list of commands or info on a specific command.</td>
+							<td>}help ban</td>
+							<td>h, commands</td>
+						</tr>
+						<tr>
+							<td>}leave</td>
+							<td>Leaves the server.</td>
+							<td>}leave</td>
+							<td>l</td>
+						</tr>
+						<tr>
+							<td>}stats</td>
+							<td>Get stats on the bot.</td>
+							<td>}stats</td>
+							<td>s, stat, status</td>
+						</tr>
+						<tr>
+							<td>}clean <<i>1-100</i>></td>
+							<td>Clean bot messages.</td>
+							<td>}clean 10</td>
+							<td>c</td>
+						</tr>
+						<tr>
+							<td>}prune <<i>1-100</i>> [[term] | user <<i>@user</i>> | images]</td>
+							<td>Prune messages from the channel.</td>
+							<td>}prune 10 meme }prune 15 @Brussell }prune 1 image</td>
+							<td>p</td>
+						</tr>
+						<tr>
+							<td>}playing [<i>game</i>]</td>
+							<td>Have the bot play with you. Bot owner can change game.</td>
+							<td>}playing with dank memes</td>
+							<td>play</td>
+						</tr>
+						<tr>
+							<td>}announce <<i>message</i>></td>
+							<td>Announce a message to all memebrs on your server. (PM)</td>
+							<td>}announce Bot-chan best bot tbh</td>
+							<td>a, ann</td>
+						</tr>
+						<tr>
+							<td>}changelog</td>
+							<td>Get the two most recent changelogs.</td>
+							<td>}chanelogs</td>
+							<td>change, logs, chanelogs</td>
+						</tr>
+						<tr>
+							<td>}color <<i>role name</i>> <<i>hex color</i>></td>
+							<td>Change a role's color.</td>
+							<td>}color Admin #e57373</td>
+							<td>rolec, rolecolor</td>
+						</tr>
+						<tr>
+							<td>}givecolor <<i>@users</i>> <<i>color as hex</i>></td>
+							<td>Give a user a role color.</td>
+							<td>}givecolor @Brussell #e57373</td>
+							<td>gc, setcolor</td>
+						</tr>
+						<tr>
+							<td>}removecolor clean | @users | #hexcolor</td>
+							<td>clean: Delete unused colors that were left behind. users: Remove the user's colors. #hexcolor: Remove this color.</td>
+							<td>}removecolor #e57373</td>
+							<td>rc, takecolor, rmcolor, deletecolor</td>
+						</tr>
+						<tr>
+							<td>}settings <<i>enable</i> | <i>disable</i> | <i>welcomemsg</i> | <i>init</i>> <<i>setting</i> | <i>message</i>></td>
+							<td>For adjusting server settings.</td>
+							<td>}settings enable banalerts</td>
+							<td>config</td>
+						</tr>
+						<tr>
+							<td>}settings check</td>
+							<td>Check the settings for the server.</td>
+							<td>}settings check</td>
+							<td>config</td>
+						</tr>
+						<tr>
+							<td>}kick <<i>@users</i>> [<i>message</i>]</td>
+							<td>Kick users with a message.</td>
+							<td>}kick @Brussell being too good at making bots.</td>
 							<td></td>
 						</tr>
 						<tr>
+							<td>}ban <<i>@users</i>> [<i>message</i>]</td>
+							<td>Ban users with a message and delete 1 day's worth of messages from them.</td>
+							<td>}ban @Brussell being too good at making bots.</td>
 							<td></td>
+						</tr>
+						<tr>
+							<td>}ignore</td>
+							<td>Have the bot ignore a channel. Mod commands will still be processed.</td>
+							<td>}ignore</td>
 							<td></td>
-							<td></td>
+						</tr>
+						<tr>
+							<td>}unignore</td>
+							<td>Have the bot stop ignoring a channel.</td>
+							<td>}unignore</td>
 							<td></td>
 						</tr>
 					</tbody>
@@ -202,12 +364,6 @@
 						</tr>
 					</thead>
 					<tbody>
-						<tr>
-							<td></td>
-							<td></td>
-							<td></td>
-							<td></td>
-						</tr>
 						<tr>
 							<td></td>
 							<td></td>
