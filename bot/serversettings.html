@@ -3,38 +3,10 @@
 <head>
 	<title>Per-Server Settings</title>
 	<meta charset="utf-8">
-	<meta name="description" content="Info on server settings for the Discord bot by brussell98">
-	<meta name="author" content="Brandon Russell">
+	<meta name="description" content="Info on server settings for the Discord bot Bot-chan by brussell98">
+	<meta name="author" content="Brussell">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link href="settings.css" rel="stylesheet">
 	<link rel="icon" type="image/png" href="../98.png">
-	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js"></script>
-	<script type="text/javascript">
-		function welcomeChange(cb) {
-			if (cb.checked == true) { document.getElementById('welcome').disabled = false;
-			} else { document.getElementById('welcome').disabled = true; }
-		}
-		function generate() {
-			var p = prompt("Once custom settings are enabled for your server you will need to use the leave command ( }leave ) to make the bot leave the server. This ensures that the entry is removed from the databse. To proceed input the leave command.", "Answer");
-			if (p == "}leave") {
-				var command = "}settings init ";
-				if (document.getElementById('welcome').value.indexOf(":::") > -1) { alert("The welcome message can't contain ':::'"); return; }
-				if (document.getElementById('bans').checked == true) { command += "true"; }
-				else { command += "false"; }
-				if (document.getElementById('delete').checked == true) { command += ":::true"; }
-				else { command += ":::false"; }
-				if (document.getElementById('namechanges').checked == true) { command += ":::true"; }
-				else { command += ":::false"; }
-				if (document.getElementById('welcomeCB').checked == true && document.getElementById('welcome').value != "") { command += ":::" + document.getElementById('welcome').value; }
-				else { command += ":::false"; }
-				document.getElementById('cmd').innerHTML = command;
-			} else {
-				document.getElementById('cmd').innerHTML = "Incorrect answer";
-			}
-		}
-	</script>
 	<script>
 		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -44,85 +16,7 @@
 		ga('send', 'pageview');
 	</script>
 </head>
-<body>
-<div class="container">
-<div class="page-header" id="header">
-	<h1>Bot-chan Server Settings</h1><hr width="1000px"><br>
-</div>
-<div class="card">
-	<div class="card-block">
-		<h4 class="card-title">
-			Welcome Message
-		</h4>
-		<p class="card-text">
-			This is displayed when a user joins the server. It has the following parameters: <br>
-			<code>$SERVER$</code> The name of the server<br>
-			<code>$USER$</code> The name of the user that joined
-		</p>
-	</div>
-	<div class="card-footer text-muted">
-		}settings welcomemsg **NEW FRIEND DETECTED:** $User$ <br> }settings disable welcomemsg <br> }settings enable welcomemsg
-	</div>
-</div>
-<div class="card">
-	<div class="card-block">
-		<h4 class="card-title">Ban Alerts</h4>
-		<p class="card-text">When this is enabled the bot will send a message in #general notifying that a user was banned. It will also send a direct message to the banned user letting them know that they were banned.</p>
-	</div>
-	<div class="card-footer text-muted">
-		}settings enable banalerts <br> }settings disable banalerts
-	</div>
-</div>
-<div class="card">
-	<div class="card-block">
-		<h4 class="card-title">Delete Commands</h4>
-		<p class="card-text">If this is enabled and the bot can manage messages, the bot will delete commands leaving only the responses.<br>
-		<b>Note: </b>Commands like <code>]choose</code> and <code>]rps</code> will not be removed as the command is relevant.</p>
-	</div>
-	<div class="card-footer text-muted">
-		}settings enable deletecmds <br> }settings disable deletecmds
-	</div>
-</div>
-<div class="card">
-	<div class="card-block">
-		<h4 class="card-title">Name Changes</h4>
-		<p class="card-text">When enabled, the bot will send a message in #general when a user changes their username. The message will show their old username and new username.</p>
-	</div>
-	<div class="card-footer text-muted">
-		}settings enable namechanges <br> }settings disable namechanges
-	</div>
-</div>
-<div class="page-header" id="header">
-	<h1>Initialize Settings</h1><hr width="1000px">
-</div>
-<form role="form" id="stngs">
-	<div class="checkbox">
-		<label>
-			<input id="bans" type="checkbox"> I want the bot to say when a user is banned and alert them
-		</label>
-	</div>
-	<hr>
-	<div class="checkbox">
-		<label>
-			<input id="delete" type="checkbox"> I want the bot to delete certain commands when it has permission
-		</label>
-	</div>
-	<hr>
-	<div class="checkbox">
-		<label>
-			<input id="namechanges" type="checkbox"> I want the bot to notify when a user changes their username in chat
-		</label>
-	</div>
-	<hr>
-	<div class="form-group">
-		<input type="checkbox" onchange="welcomeChange(this)" id="welcomeCB"> Welcome Message
-		<input type="text" maxlength="500" class="form-control" id="welcome" value="" placeholder="Hi $USER$! Welcome to $SERVER$" disabled>
-	</div>
-</form>
-<button style="display:block;margin:auto;" onclick="generate()" class="btn btn-primary">Generate Command</button>
-<br>
-<code><p id="cmd"></p></code>
-	<br><br><br><br>
-</div>
+<body style="background-color: rgb(255, 253, 196);">
+	<h1 style="font-family: sans-serif; text-align: center; font-size: 5rem; margin-top: 20rem;">Undergoing re-write</h1>
 </body>
 </html>

@@ -1,70 +1,67 @@
-#navbar {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: auto;
-    position: fixed;
-    width: 180px;
-    height: 100%;
-    background-color: #2c2c2e;
-    text-align: center;
-	border-right: 1px solid #e2e2e2;
-}
-
-#navbutton {
-    border-bottom: 1px solid #e2e2e2;
-}
-
-#navbutton:first-child {
-    padding-bottom: 0px;
-}
-
-#navbuttonA {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 7px 20px;
-    text-decoration: none;
-    font-family: 'Oswald', 'sans-serif';
-    font-size: 20px;
-}
-
-#navbuttonA:hover {
-    background-color: #84848b;
-}
-
-#copyright {
-    font-family: 'Raleway', 'sans-serif';
-    text-align: left;
-    font-size: 14px;
-    padding: 8px 8px;
-    margin: 0;
-    color: white;
-    position: fixed;
-    bottom: 0;
-    left: 4;
-}
-
 body {
-    margin: 0;
-    text-align: center;
-    background-color: #141414;
+	margin: 0;
 }
 
-#bodytext {
-    text-align: left;
-    padding-bottom: 5px;
-    padding-right: 20px;
-    padding-left: 20px;
-    margin: inherit;
-    margin-left: 180px;
-    padding-top: 15px;
-    color: white;
-	text-shadow:
-		-1.5px -1.5px 0 #000,  
-		1.5px -1.5px 0 #000,
-		-1.5px 1.5px 0 #000,
-		1.5px 1.5px 0 #000;
-    font-family: 'Raleway', 'sans-serif';
-    font-size: 24px;
+main {
+	margin: auto;
+	width: 45rem;
+	background-color: #f2f2f2;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
 }
+
+.container {
+	padding: 2.5rem;
+	padding-top: 0;
+}
+
+.name-container {
+	padding-top: 1rem;
+}
+
+.name {
+	font-family: 'Source Sans Pro', sans-serif;
+	font-size: 2.5rem;
+	text-align: center;
+	color: rgb(255, 48, 25);
+	text-shadow: 1.3px 1.3px 0 rgba(150, 150, 150, 1);
+}
+
+.about {
+	font-family: 'Source Sans Pro', sans-serif;
+	font-size: 1rem;
+	text-align: center;
+}
+
+.project-list {
+	list-style-type: none;
+	padding: 0;
+}
+
+.project-list li {
+	margin-top: 1rem;
+	text-align: center;
+}
+
+.project-list > li > a:link,
+.project-list > li > a:active,
+.project-list > li > a:visited,
+.project-list > li > a:hover {
+	text-decoration: none;
+	color: inherit;
+	font-family: 'Source Sans Pro', sans-serif;
+	font-size: 1.5rem;
+	font-weight: 300;
+	text-align: center;
+	padding-bottom: .1rem;
+	border-bottom: 1px solid rgb(47,47,47);
+	transition: border-bottom 0.5s;
+	-webkit-transition: border-bottom 0.5s;
+	-moz-transition: border-bottom 0.5s;
+}
+
+.project-list > li > a:hover { border-bottom: 1px solid rgb(255, 48, 25); }
