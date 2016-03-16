@@ -1,67 +1,63 @@
 body {
+	font-family: 'Papyrus', cursive;
+	font-weight: 900;
+	font-size: 500%;
+	text-align: justify;
+	text-shadow: 25px 25px 5px rgba(255, 255, 109, 1);
+	background-color: rgb(255,0,199);
+	text-decoration: overline;
+	text-rendering: optimizeSpeed;
+	text-decoration-style: wavy;
+	text-decoration-color: #f00;
+	background-image: url('magnify.gif');
+}
+
+marquee {
 	margin: 0;
-}
-
-main {
-	margin: auto;
-	width: 45rem;
-	background-color: #f2f2f2;
-	height: 100%;
+	z-index: 100;
 	position: absolute;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
+	color: #00ffd9;
+	background-color: rgba(59,255,0,.5);
 }
 
-.container {
-	padding: 2.5rem;
-	padding-top: 0;
+div {
+	margin-left: 30%;
+	color: white;
+	border-style: inset;
+	border-width: 50px;
+	border-color: red;
+	-webkit-animation: cssAnimation 1.514s infinite linear;
+	-moz-animation: cssAnimation 1.514s infinite linear;
+	-o-animation: cssAnimation 1.514s infinite linear;
+}
+@-webkit-keyframes cssAnimation {
+	from { -webkit-transform: rotate(4deg) scale(0.913) skew(2deg) translate(0px); }
+	to { -webkit-transform: rotate(0deg) scale(1.2) skew(20deg) translate(0px); }
+}
+@-moz-keyframes cssAnimation {
+	from { -moz-transform: rotate(4deg) scale(0.913) skew(2deg) translate(0px); }
+	to { -moz-transform: rotate(0deg) scale(1.2) skew(20deg) translate(0px); }
+}
+@-o-keyframes cssAnimation {
+	from { -o-transform: rotate(4deg) scale(0.913) skew(2deg) translate(0px); }
+	to { -o-transform: rotate(0deg) scale(1.2) skew(20deg) translate(0px); }
 }
 
-.name-container {
-	padding-top: 1rem;
+a {
+	color: hotpink;
 }
 
-.name {
-	font-family: 'Source Sans Pro', sans-serif;
-	font-size: 2.5rem;
-	text-align: center;
-	color: rgb(255, 48, 25);
-	text-shadow: 1.3px 1.3px 0 rgba(150, 150, 150, 1);
+p::after, h1::after {
+	content: "High guise";
+	color: blue;
 }
 
-.about {
-	font-family: 'Source Sans Pro', sans-serif;
-	font-size: 1rem;
-	text-align: center;
+p::before, h1::before {
+	content: "I am gr8 designer higher me";
+	color: green;
 }
 
-.project-list {
-	list-style-type: none;
-	padding: 0;
+a::before, a::after {
+	content: "LIIINNNKKKKKSSS";
+	color: orange;
 }
-
-.project-list li {
-	margin-top: 1rem;
-	text-align: center;
-}
-
-.project-list > li > a:link,
-.project-list > li > a:active,
-.project-list > li > a:visited,
-.project-list > li > a:hover {
-	text-decoration: none;
-	color: inherit;
-	font-family: 'Source Sans Pro', sans-serif;
-	font-size: 1.5rem;
-	font-weight: 300;
-	text-align: center;
-	padding-bottom: .1rem;
-	border-bottom: 1px solid rgb(47,47,47);
-	transition: border-bottom 0.5s;
-	-webkit-transition: border-bottom 0.5s;
-	-moz-transition: border-bottom 0.5s;
-}
-
-.project-list > li > a:hover { border-bottom: 1px solid rgb(255, 48, 25); }

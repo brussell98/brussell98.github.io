@@ -2,36 +2,44 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>Brandon Russell's Projects</title>
-	<meta name="author" content="Brandon Russell">
+	<title>Brussell's Projects</title>
+	<meta name="author" content="Brussell">
 	<meta name="description" content="About me and my projects.">
 	<link type="text/css" href="css.css" rel="stylesheet">
-	<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400' rel='stylesheet' type='text/css'>
+	<script src="http://code.jquery.com/jquery-2.2.1.min.js"></script>
+	<script type="text/javascript">
+		$('document').ready(function() {
+			var wow = $("#wowSound")[0];
+			$(".wow a").mouseenter(function() {
+				wow.play();
+			});
+		});
+	</script>
 </head>
 <body>
-<main>
-	<div class="container">
-		<div class="name-container">
-			<p class="name">Brandon Russell</p>
-		</div>
-		<div class="about-container">
-			<p class="about">Analytics virality non-disclosure agreement monetization return on investment interaction design venture. Startup market focus advisor niche market sales angel investor stock paradigm shift responsive web design user experience channels. Bandwidth entrepreneur equity assets deployment beta. MVP conversion bootstrapping non-disclosure agreement social proof handshake value proposition deployment. (Yes this is a placeholder until I finish this)</p>
-		</div>
-		<div class="projects">
-		<ul class="project-list">
-			<li><a href="bot/main">Bot-chan for Discord</a></li>
-			<li><a href="autodiscord/main">AutoDiscord Client</a></li>
-		</ul>
-		</div>
-	</div>
-</main>
+<marquee scrollamount="100" behavior="alternate">AND HIS NAME IS JOHN CENA</marquee>
+<marquee scrollamount="100" behavior="alternate" style="top:400px;">AND HIS NAME IS JOHN CENA</marquee>
+<marquee scrollamount="100" behavior="alternate" style="top:900px;">AND HIS NAME IS JOHN CENA</marquee>
+<div class="wewlads wow">
+	<h1>Brussell</h1>
+	<p>Hi! I'm a high schooler from Arkansas who makes random things in my free time. I also play a lot of games so feel free to <a href="http://steamcommunity.com/id/brussell98">add me on steam</a>. Below you can find some of the things I've made that are public.</p>
+<div class="projects">
+	<ul class="project-list wow">
+		<li><a href="bot/main">Bot-chan for Discord</a></li>
+		<li><a href="https://github.com/brussell98/AutoDiscord">AutoDiscord Client</a></li>
+	</ul>
+</div>
+<audio id="wowSound" preload="auto">
+	<source src="wow.mp3"></source>
+	<source src="wow.ogg"></source>
+</audio>
 </body>
-<script>
+<!--<script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
   ga('create', 'UA-72190085-1', 'auto');
   ga('send', 'pageview');
-</script>
+</script>-->
 </html>
