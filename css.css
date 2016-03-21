@@ -1,63 +1,80 @@
-body {
-	font-family: 'Papyrus', cursive;
-	font-weight: 900;
-	font-size: 500%;
-	text-align: justify;
-	text-shadow: 25px 25px 5px rgba(255, 255, 109, 1);
-	background-color: rgb(255,0,199);
-	text-decoration: overline;
-	text-rendering: optimizeSpeed;
-	text-decoration-style: wavy;
-	text-decoration-color: #f00;
-	background-image: url('magnify.gif');
+@import url(https://fonts.googleapis.com/css?family=Signika:600);
+@import url(https://fonts.googleapis.com/css?family=Fjalla+One);
+body { margin: 0; }
+
+.header {
+	background-color: #2944D6;
+	width: 100%;
 }
 
-marquee {
+.header h1 {
+	text-align: center;
 	margin: 0;
-	z-index: 100;
-	position: absolute;
-	color: #00ffd9;
-	background-color: rgba(59,255,0,.5);
-}
-
-div {
-	margin-left: 30%;
+	padding: 30px;
 	color: white;
-	border-style: inset;
-	border-width: 50px;
-	border-color: red;
-	-webkit-animation: cssAnimation 1.514s infinite linear;
-	-moz-animation: cssAnimation 1.514s infinite linear;
-	-o-animation: cssAnimation 1.514s infinite linear;
-}
-@-webkit-keyframes cssAnimation {
-	from { -webkit-transform: rotate(4deg) scale(0.913) skew(2deg) translate(0px); }
-	to { -webkit-transform: rotate(0deg) scale(1.2) skew(20deg) translate(0px); }
-}
-@-moz-keyframes cssAnimation {
-	from { -moz-transform: rotate(4deg) scale(0.913) skew(2deg) translate(0px); }
-	to { -moz-transform: rotate(0deg) scale(1.2) skew(20deg) translate(0px); }
-}
-@-o-keyframes cssAnimation {
-	from { -o-transform: rotate(4deg) scale(0.913) skew(2deg) translate(0px); }
-	to { -o-transform: rotate(0deg) scale(1.2) skew(20deg) translate(0px); }
+	font-size: 100px;
+	font-family: 'Signika', sans-serif;
 }
 
-a {
-	color: hotpink;
+.projects {
+	background-color: #2037b3;
+	width: 100%;
 }
 
-p::after, h1::after {
-	content: "High guise";
-	color: blue;
+.projects ul {
+	list-style: none;
+	margin: 0;
+	display: flex;
+	flex-wrap: nowrap;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
 }
 
-p::before, h1::before {
-	content: "I am gr8 designer higher me";
-	color: green;
+.projects ul li {
+	flex-basis: 20%;
+	align-self: center;
+	font-size: 26px;
+	color: white;
+	text-align: center;
+	font-family: 'Fjalla One', sans-serif;
+	padding: 5px 0;
 }
 
-a::before, a::after {
-	content: "LIIINNNKKKKKSSS";
-	color: orange;
+.projects ul li:hover {
+	background-color: #2944D6;
+	cursor: pointer;
+}
+
+.projects ul li.active {
+	background-color: white;
+	color: #2944D6;
+	border-radius: 5px 5px 0 0;
+}
+
+div h2 {
+	text-align: center;
+	color: #2944D6;
+	font-family: 'Signika', sans-serif;
+	font-size: 54px;
+	margin-top: 30px;
+	margin-bottom: 15px;
+}
+
+.divider::after {
+	content: ' ';
+	position: absolute;
+	top: 322px;
+	left: 35%;
+	right: 35%;
+	background-color: #2944D6;
+	height: 3px !important;
+	border-radius: 2px;
+}
+
+div p {
+	font-family: sans-serif;
+	font-size: 18px;
+	margin: 30px 20%;
 }
