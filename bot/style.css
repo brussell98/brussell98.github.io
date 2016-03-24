@@ -1,0 +1,187 @@
+/* Imports and root */
+
+@import url(https://fonts.googleapis.com/css?family=Exo:400,300|Open+Sans:400,300);
+*, *::before, *::after { box-sizing: border-box }
+
+body {
+    font-family: "Open Sans", sans-serif;
+    margin: 0;
+    padding: 44.5px 20px 0;
+    background: #F7F7F7;
+}
+h1 {
+    font-weight: 300;
+    margin: 0 0 10px;
+}
+h1::before, h1::after { content: " — " }
+p, ul, ol {
+    margin: 10px 0;
+}
+li {
+    margin: 0;
+}
+code {
+    background: #F7F7F7;
+    display: inline-block;
+    border: 1px solid #E7E7E7;
+    border-radius: 2px;
+    font-family: monospace;
+}
+
+/**** Begin layout stuff ****/
+
+/* Navbar */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99;
+    width: 100%;
+    background: #0094FF;
+    color: #FFF;
+    text-shadow: 0 -1px #0064CF;
+    border-bottom: 2px solid #0064CF;
+}
+nav .wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+nav .wrap * {
+    margin: 0;
+    font-family: "Open Sans", sans-serif;
+}
+nav ul {
+    padding: 0;
+    display: flex;
+    list-style: none;
+}
+nav li, nav h2 {
+    font-size: 1em;
+    vertical-align: middle;
+    font-weight: 400;
+}
+nav h2 {
+    padding-left: 10px;
+    font-size: 1.35em;
+}
+nav a {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+    padding: 10px;
+    box-shadow: inset 0 0 #0064CF;
+    transition: 200ms;
+}
+nav a:hover, nav .active {
+    box-shadow: inset 0 -50px #0064CF;
+}
+
+/* Jumbo view thing */
+header {
+    box-sizing: content-box;
+    background: #0094FF;
+    width: calc(100% + 20px);
+    margin: 0 -20px;
+    height: 400px;
+    display: table;
+    color: #FFF;
+    padding: 0 10px;
+    text-shadow: 0 -1px #0064CF;
+    box-shadow: 0 100px #0094FF;
+}
+header .wrap {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+}
+header .logo {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 0;
+    border-radius: 50%;
+}
+header .add {
+    display: inline-block;
+    color: #FFF;
+    text-decoration: none;
+    margin-top: 0.5em;
+    margin-bottom: .25em;
+    padding: 10px;
+    border: 2px solid #0064CF;
+    box-shadow: inset 0 0 #0064CF;
+    transition: 200ms;
+}
+header .add:hover {
+    box-shadow: inset 180px 0 #0064CF;
+}
+
+/* Main content */
+main {
+    background: #FFF;
+    margin: -10px auto 0;
+    padding: 20px 20px 40px;
+    max-width: 800px;
+    text-align: center;
+    box-shadow: 0 20px 0 10px rgba(0,0,0,0.1);
+}
+main h2 {
+    margin: 20px 0;
+    font-weight: 300;
+    font-size: 2em;
+}
+main h2::before, main h2::after {
+    content: " — ";
+    color: #CCC;
+}
+main .flex {
+    display: flex;
+    margin: -10px;
+    flex-wrap: wrap;
+}
+main .card {
+    flex: 0 1 33%;
+    padding: 10px;
+}
+.card h3 {
+    margin: 0;
+    padding: 0 0 10px;
+    position: relative;
+    font-weight: 400;
+}
+h3 .fa {
+    margin-right: 0.25em;
+}
+main .add {
+    padding: 10px;
+    border: 2px solid #0064CF;
+    background: #0094FF;
+    color: #FFF;
+    text-shadow: 0 -1px #0064CF;
+    text-decoration: none;
+    box-shadow: inset 0 0 #0064CF;
+    transition: 200ms;
+}
+main .add:hover {
+    box-shadow: inset 195px 0 #0064CF;
+}
+
+footer {
+    background: #0094FF;
+    color: #FFF;
+    text-shadow: 0 -1px #0064CF;
+    margin: 0 -20px -10px;
+    padding: 10px 20px;
+    border-top: 2px solid #0064CF;
+}
+footer .wrap {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 10px 20px;
+}
+footer a {
+    color: inherit;
+}
