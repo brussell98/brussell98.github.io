@@ -76,7 +76,7 @@ nav a {
     box-shadow: inset 0 0 #0064CF;
     transition: 200ms;
 }
-nav a:hover, nav .active {
+nav a:hover, nav a[href="#"] {
     box-shadow: inset 0 -50px #0064CF;
 }
 
