@@ -118,6 +118,50 @@ header .add {
 header .add:hover {
     box-shadow: inset 180px 0 #0064CF;
 }
+header .quote-cycler {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    height: 42.5px;
+    margin: 0px -10px;
+    width: calc(100% + 20px);
+}
+header .quote-cycler-inner {
+    width: calc(8 * 100%);
+    display: flex;
+    overflow: hidden;
+    position: absolute;
+    height: 100%;
+    top: 0px;
+    animation: quote-cycler 30s infinite;
+    background: #0064CF;
+}
+header .quote {
+    display: inline-block;
+    width: calc(100% / 8);
+}
+header .quote p {
+    font-style: italic;
+}
+@keyframes quote-cycler {
+    0%    { left: 0 }
+    11.5% { left: 0 }
+    12.5% { left: -100% }
+    24%   { left: -100% }
+    25%   { left: -200% }
+    36.5% { left: -200% }
+    37.5% { left: -300% }
+    49%   { left: -300% }
+    50%   { left: -400% }
+    61.5% { left: -400% }
+    62.5% { left: -500% }
+    74%   { left: -500% }
+    75%   { left: -600% }
+    86.5% { left: -600% }
+    87.5% { left: -700% }
+    99%  { left: -700% }
+    100% { left: 0 }
+}
 
 /* Main content */
 main {
