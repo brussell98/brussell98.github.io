@@ -1,102 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Per-Server Settings</title>
-	<meta charset="utf-8">
-	<meta name="description" content="Info on server settings for the Discord bot Bot-chan by brussell98">
-	<meta name="author" content="Brussell">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="icon" type="image/png" href="../98.png">
-	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-	<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
-	<script type="text/javascript">
-		$(document).ready(function() {
-			$(".button-collapse").sideNav();
-			$('.collapsible').collapsible({
-				accordion : false
-			});
-		});
-	</script>
-	<style>
-		body {
-			display: flex;
-			min-height: 100vh;
-			flex-direction: column;
-		}
-		main { flex: 1 0 auto; }
-		code { color: rgb(189,60,60); }
-	</style>
+    <meta charset="utf-8">
+    <title>Bot-chan server settings </title>
+    <meta name="author" content="Brussell the Amazing">
+    <meta name="description" content="Info on server settings for the Discord bot Bot-chan by brussell98">
+    <link rel="icon" type="image/png" href="../98.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+    <script src="http://code.jquery.com/jquery-2.2.2.min.js" integrity="sha256-36cp2Co+/62rEAAYHLmRCPIych47CvdM+uTBJwSzWjI=" crossorigin="anonymous"></script>
+    <script src="code.js"></script>
 </head>
 <body>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
-	<header><div class="navbar-fixed"><nav>
-	<div class="nav-wrapper light-blue darken-1">
-		<a href="main.html" class="brand-logo center">Bot-chan</a>
-		<a href="#" data-activates="mobile-nav" class="button-collapse"><i class="material-icons">&nbsp;menu</i></a>
-		<ul id="nav-mobile" class="left hide-on-med-and-down">
-			<li><a href="index.html"><i class="material-icons left">home</i>Home</a></li>
-			<li><a href="commands.html"><i class="material-icons left">list</i>Commands</a></li>
-			<li class="active"><a href="serversettings.html"><i class="material-icons left">settings</i>Settings</a></li>
-		</ul>
-		<ul class="side-nav" id="mobile-nav">
-			<li><a href="index.html"><i class="material-icons left">home</i>Home</a></li>
-			<li><a href="commands.html"><i class="material-icons left">list</i>Commands</a></li>
-			<li class="active"><a href="serversettings.html"><i class="material-icons left">settings</i>Settings</a></li>
-		</ul>
-	</div>
-	</nav></div></header>
-	<main style="margin-left: 20%; margin-right: 20%; margin-top: 1rem;">
-	<h2 class="header center light-blue-text text-darken-1">Settings</h2>
-	<br>
-	<ul class="collapsible popout" data-collapsible="expandable">
-		<li>
-			<div class="collapsible-header"><i class="material-icons">warning</i>Ban Alerts</div>
-			<div class="collapsible-body"><p>A message will be sent to the notification channel and to the user when someone is banned.<br><br><code>enable/disable ban alerts</code></p></div>
-		</li>
-		<li>
-			<div class="collapsible-header"><i class="material-icons">perm_identity</i>Name Changes</div>
-			<div class="collapsible-body"><p>When a user changes their name a message will be sent to the notification channel.<br><br><code>enable/disable name changes</code></p></div>
-		</li>
-		<li>
-			<div class="collapsible-header"><i class="material-icons">chat</i>Welcome Message</div>
-			<div class="collapsible-body"><p>This message is sent to the default channel when a user joins.<br><br><code>disable welcome</code><br><code>welcome Welcome $USER$!</code><br><code>$USER$</code> replaces with the user's name<br><code>$SERVER$</code> replaces with the server's name</p></div>
-		</li>
-		<li>
-			<div class="collapsible-header"><i class="material-icons">delete</i>Delete Commands</div>
-			<div class="collapsible-body"><p>Certain commands can delete the activating message to help clean chat.<br><br><code>enable/disable delete commands</code></p></div>
-		</li>
-		<li>
-			<div class="collapsible-header"><i class="material-icons">notifications</i>Notification Channel</div>
-			<div class="collapsible-body"><p>Set where ban alerts and name changes are shown.<br><br><code>notify here</code></p></div>
-		</li>
-		<li>
-			<div class="collapsible-header"><i class="material-icons">speaker_notes_off</i>Ignored Channels</div>
-			<div class="collapsible-body"><p>When a channel is ignored the bot will not respond to commands unless they are listed under &quot;mod commands&quot;.<br><br><code>}ignore</code><br><code>}unignore</code></p></div>
-		</li>
-		<li>
-			<div class="collapsible-header"><i class="material-icons">mood_bad</i>Allow NSFW</div>
-			<div class="collapsible-body"><p>Change wether or not the <code>image</code> command can post NSFW tagged images.<br><br><code>enable/disable allow NSFW</code></p></div>
-		</li>
-	</ul>
-	<br><br>
-	</main>
-
-	<footer class="page-footer light-blue darken-2">
-		<div class="footer-copyright">
-			<div class="container">
-			© 2016 Brandon Russell
-			<a class="grey-text text-lighten-4 right" href="http://brussell98.github.io/">My Projects</a>
-			</div>
-		</div>
-	</footer>
+    <nav>
+        <div class="wrap">
+            <h2>Bot-chan</h2>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="commands.html">Commands</a></li>
+                <li><a href="#">Settings</a></li>
+            </ul>
+        </div>
+    </nav>
+    <header>
+        <div class="wrap">
+            <h1>Server Settings</h1>
+            <p>Customize Bot-chan for your needs</p>
+        </div>
+    </header>
+    <main>
+        <h3><i class="fa fa-exclamation-triangle"></i>Ban Alerts</h3>
+        <p>A message will be sent to the notification channel and to the user when someone is banned.</p>
+        <p><code>enable/disable ban alerts</code></p>
+        <h3><i class="fa fa-user"></i>Name Changes</h3>
+        <p>When a user changes their name a message will be sent to the notification channel.</p>
+        <p><code>enable/disable name changes</code></p>
+        <h3><i class="fa fa-comment"></i>Welcome Message</h3>
+        <p>This message is sent to the default channel when a user joins.</p>
+        <p><code>disable welcome</code></p>
+        <p><code>welcome Welcome $USER$!</code></p>
+        <p><code>$USER$</code> replaces with the user's name</p>
+        <p><code>$SERVER$</code> replaces with the server's name</p>
+        <h3><i class="fa fa-trash"></i>Delete Commands</h3>
+        <p>Certain commands can delete the activating message to help clean chat.</p>
+        <p><code>enable/disable delete commands</code></p>
+        <h3><i class="fa fa-bell"></i>Notification Channel</h3>
+        <p>Set where ban alerts and name changes are shown.</p>
+        <p><code>notify here</code></p>
+        <h3><i class="fa fa-times-circle"></i>Ignored Channels</h3>
+        <p>When a channel is ignored the bot will not respond to commands unless they are listed under "mod commands".</p>
+        <p><code>}ignore</code></p>
+        <p><code>}unignore</code></p>
+        <h3><i class="fa fa-frown-o"></i>Allow NSFW</h3>
+        <p>Change whether or not the <code>image</code> command can post NSFW tagged images.</p>
+        <p><code>enable/disable allow NSFW</code></p>
+    </main>
+    <footer>
+        <div class="wrap">
+            <p>Copyright &copy; 2016 Brandon Russell. Website by <a href="https://geo1088.github.io/">Geo1088</a>.</p>
+        </div>
+    </footer>
 </body>
-	<script>
-		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-		ga('create', 'UA-72190085-1', 'auto');
-		ga('send', 'pageview');
-	</script>
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-72190085-1', 'auto');
+ga('send', 'pageview');
+</script>
 </html>
