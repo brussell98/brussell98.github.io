@@ -30,6 +30,15 @@ code {
     border-radius: 2px;
     font-family: monospace;
 }
+table {
+	width: 100%;
+}
+td {
+	padding: 10px 0 10px 0;
+}
+tr:nth-child(even) {
+	background-color: #F3F3F3;
+}
 
 /**** Begin layout stuff ****/
 
@@ -174,6 +183,9 @@ main {
     max-width: 800px;
     text-align: center;
     box-shadow: 0 0 0 2px rgba(0,0,0,0.2)
+}
+main.wide {
+	max-width: 1200px;
 }
 main h2 {
     margin: 20px 0;
