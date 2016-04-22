@@ -185,7 +185,7 @@ main {
     box-shadow: 0 0 0 2px rgba(0,0,0,0.2)
 }
 .wide {
-	max-width: 1200px;
+	max-width: 1200px !important; /* important to override other styles that are more specific */
 }
 main h2 {
     margin: 20px 0;
