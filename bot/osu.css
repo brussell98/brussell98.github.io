@@ -33,14 +33,8 @@ code {
     border-radius: 2px;
     font-family: monospace;
 }
-table {
-	width: 100%;
-}
-td {
-	padding: 10px 0 10px 0;
-}
-tr:nth-child(even) {
-	background-color: #F3F3F3;
+code ~ code {
+	margin-left: 20px;
 }
 
 /**** Begin layout stuff ****/
@@ -56,6 +50,7 @@ nav {
 	background-position: center;
     color: #FFF;
 	height: 50px;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.25);
 }
 nav .wrap {
     display: flex;
@@ -135,32 +130,35 @@ main {
     max-width: 800px;
     text-align: center;
 }
-main.wide {
-	max-width: 1200px;
-}
-main h2 {
-    margin: 20px 0;
-    font-weight: 300;
-    font-size: 2em;
-}
-main h2::before, main h2::after {
-    content: " — ";
-    color: #CCC;
-}
-main .flex {
-    display: flex;
-    margin: -10px;
-    flex-wrap: wrap;
+main span {
+	font-size: 1.5em;
+	color: #FFF;
+	text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+	padding: 4px;
+	display: block;
+	border-radius: 4px;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.25);
+	background: url("../images/tri-left.png") no-repeat, url("../images/tri-right.png") no-repeat top right, #C6147F;
 }
 main .card {
-    flex: 0 1 33%;
     padding: 10px;
+    background-color: #FFF;
+    margin: 4px 0 25px 0;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+}
+.card p {
+	margin-bottom: 15px;
 }
 .card h3 {
     margin: 0;
     padding: 0 0 10px;
     position: relative;
     font-weight: 400;
+}
+.card img {
+	margin-top: 10px;
+	filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.15));
+	-webkit-filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.15));
 }
 
 footer {
@@ -169,6 +167,7 @@ footer {
     color: #FFF;
     margin: 0 -20px -10px;
     padding: 10px 20px;
+	box-shadow: 0 -1px 3px rgba(0,0,0,0.25);
 }
 footer .wrap {
     max-width: 800px;
