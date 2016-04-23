@@ -1,0 +1,180 @@
+@font-face {
+    font-family: 'exo2';
+    src: url('fonts/Exo2-Regular-webfont.eot');
+    src: url('fonts/Exo2-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/Exo2-Regular-webfont.woff') format('woff'),
+         url('fonts/Exo2-Regular-webfont.ttf') format('truetype'),
+         url('fonts/Exo2-Regular-webfont.svg#exo_2regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: "exo2", sans-serif;
+    margin: 0;
+    padding: 50px 20px 0;
+    background: #FFF;
+	background-image: url('../images/tri-back-light.png');
+}
+h1 {
+    font-weight: 400;
+    margin: 0 0 10px;
+}
+p, ul, ol {
+    margin: 10px 0;
+}
+li {
+    margin: 0;
+}
+code {
+    background: #F7F7F7;
+    display: inline-block;
+    border: 1px solid #E7E7E7;
+    border-radius: 2px;
+    font-family: monospace;
+}
+table {
+	width: 100%;
+}
+td {
+	padding: 10px 0 10px 0;
+}
+tr:nth-child(even) {
+	background-color: #F3F3F3;
+}
+
+/**** Begin layout stuff ****/
+
+/* Navbar */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99;
+    width: 100%;
+    background-image: url('../images/tri-back-head.png');
+	background-position: center;
+    color: #FFF;
+	height: 50px;
+}
+nav .wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 5px 20px;
+}
+nav .wrap * {
+    margin: 0;
+    font-family: "exo2", sans-serif;
+}
+nav ul {
+    padding: 0;
+    display: flex;
+    list-style: none;
+}
+nav li, nav h2 {
+    font-size: 1em;
+    vertical-align: middle;
+    font-weight: 400;
+}
+nav h2 {
+    padding-left: 10px;
+    font-size: 1.35em;
+}
+nav a {
+    display: block;
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+    padding: 10px;
+	transition: 0.2s linear;
+}
+nav a[href="#"] {
+    font-weight: bold;
+	color: rgba(255, 255, 255, 1);
+}
+nav a:hover {
+	color: rgba(255, 255, 255, 1);
+}
+
+/* Jumbo view thing */
+header {
+    box-sizing: content-box;
+    width: calc(100% + 20px);
+    margin: 0 -20px;
+    height: 290px;
+    display: table;
+    color: #F562A3;
+    padding: 0 10px;
+}
+header .wrap {
+    display: table-cell;
+    text-align: center;
+}
+header h1 {
+	font-weight: bold;
+	font-size: 2.5em;
+}
+header h1::before {
+	background-image: url('../images/osu.png');
+	background-size: 150px;
+	width: 150px;
+	height: 150px;
+	content: "";
+	left: -20px;
+	top: 60px;
+	display: inline-block;
+	position: relative;
+}
+
+/* Main content */
+main {
+    margin: -10px auto 30px;
+    padding: 20px 20px 30px;
+    max-width: 800px;
+    text-align: center;
+}
+main.wide {
+	max-width: 1200px;
+}
+main h2 {
+    margin: 20px 0;
+    font-weight: 300;
+    font-size: 2em;
+}
+main h2::before, main h2::after {
+    content: " — ";
+    color: #CCC;
+}
+main .flex {
+    display: flex;
+    margin: -10px;
+    flex-wrap: wrap;
+}
+main .card {
+    flex: 0 1 33%;
+    padding: 10px;
+}
+.card h3 {
+    margin: 0;
+    padding: 0 0 10px;
+    position: relative;
+    font-weight: 400;
+}
+
+footer {
+	background-image: url('../images/tri-back-head.png');
+	background-position: center;
+    color: #FFF;
+    margin: 0 -20px -10px;
+    padding: 10px 20px;
+}
+footer .wrap {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+footer a {
+    color: inherit;
+}
