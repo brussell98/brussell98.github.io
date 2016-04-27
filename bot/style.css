@@ -103,13 +103,19 @@ nav .dropdown > a::after {
     width: 0.5em;
     height: 0.5em;
 }
-nav .dropdown ul {
+nav .dropdown {
     position: relative;
+}
+nav .dropdown ul {
+    position: absolute;
+    top: 42px;
     height: 0;
     overflow: hidden;
     opacity: 0;
+    width: auto;
     min-width: 100%;
     transition: opacity 200ms;
+    flex-direction: column;
 }
 nav .dropdown ul li {
     background: inherit;
