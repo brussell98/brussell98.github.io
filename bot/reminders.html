@@ -35,7 +35,13 @@
             <h2>Bot-chan</h2>
             <ul>
                 <li><a href="index.html">Home</a></li>
-                <li><a href="commands.html">Commands</a></li>
+				<li class="dropdown">
+                    <a href="commands.html">Commands</a>
+                    <ul>
+                        <li><a href="#">Reminders</a></li>
+                        <li><a href="osu.html">osu! commands</a></li>
+                    </ul>
+                </li>
                 <li><a href="#">Settings</a></li>
             </ul>
         </div>
@@ -48,7 +54,7 @@
     </header>
     <main>
         <h2>Creating a New Reminder</h2>
-        <p>The command to set a reminder uses the follwing format: <code>]remindme &lt;<i>the reminder here</i>&gt; in &lt;<i>the ammount of time here</i>&gt;</code></p><br>
+        <p>The command to set a reminder uses the following format: <code>]remindme &lt;<i>the reminder here</i>&gt; in &lt;<i>the ammount of time here</i>&gt;</code></p><br>
         <p>For an example fill in the boxes below</p>
         <input type="text" name="reminder" placeholder="reminder" maxlength="1500">
         <span>in</span>
