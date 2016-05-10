@@ -10,9 +10,6 @@
 
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-
-    <script src="http://code.jquery.com/jquery-2.2.2.min.js" integrity="sha256-36cp2Co+/62rEAAYHLmRCPIych47CvdM+uTBJwSzWjI=" crossorigin="anonymous"></script>
-    <script src="code.js"></script>
 </head>
 <body>
     <nav>
@@ -20,7 +17,13 @@
             <h2>Bot-chan</h2>
             <ul>
                 <li><a href="#">Home</a></li>
-                <li><a href="commands.html">Commands</a></li>
+                <li class="dropdown">
+                    <a href="commands.html">Commands</a>
+                    <ul>
+                        <li><a href="reminders.html">Reminders</a></li>
+                        <li><a href="osu.html">osu! commands</a></li>
+                    </ul>
+                </li>
                 <li><a href="serversettings.html">Settings</a></li>
             </ul>
         </div>
@@ -59,7 +62,7 @@
                 </div>
             </div>
             <p>
-                <a href="https://www.carbonitex.net/discord/bots?botchan" class="add"><i class="fa fa-plus"></i>&nbsp; Add to your server</a>
+                <a href="https://discordapp.com/oauth2/authorize?&client_id=168128745893396480&scope=bot&permissions=12659727&redirect_uri=http://brussell98.github.io/bot/commands.html&response_type=none" class="add"><i class="fa fa-plus"></i>&nbsp; Add to your server</a>
             </p>
         </div>
     </header>
@@ -127,7 +130,7 @@
             </div>
         </div>
         <h2>What are you waiting for?</h2>
-        <p><a href="https://www.carbonitex.net/discord/bots?botchan" class="add"><i class="fa fa-plus"></i>&nbsp; Start Using Bot-chan</a></p>
+        <p><a href="https://discordapp.com/oauth2/authorize?&client_id=168128745893396480&scope=bot&permissions=12659727&redirect_uri=http://brussell98.github.io/bot/commands.html&response_type=none" class="add"><i class="fa fa-plus"></i>&nbsp; Start Using Bot-chan</a></p>
     </main>
     <footer>
         <div class="wrap">

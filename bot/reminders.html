@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Bot-chan Reminders</title>
+    <meta name="author" content="Brussell the Amazing">
+    <meta name="description" content="How to use reminders for the Discord bot Bot-chan by brussell98">
+    <link rel="icon" type="image/png" href="../images/98.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+    <script src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("input[type='text']").on('input', function() {
+                var days = $("input[name='days']").val() || 0
+                var hours = $("input[name='hours']").val() || 0
+                var minutes = $("input[name='minutes']").val() || 0
+                var seconds = $("input[name='seconds']").val() || 0
+                var text = $("input[name='reminder']").val();
+
+                if (!text) $('#result').text('Error: No reminder input')
+                else if (days+minutes+hours+seconds<=0) $('#result').text("Error: Time must be greater than 0")
+                else if (days > 14) $('#result').text('Error: Max of 14 days')
+                else $('#result').text(`]remindme ${text} in ${days} days ${hours} hrs ${minutes} mins & ${seconds} secs`)
+            });
+        });
+    </script>
+</head>
+<body>
+    <nav>
+        <div class="wrap">
+            <h2>Bot-chan</h2>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+				<li class="dropdown">
+                    <a href="commands.html">Commands</a>
+                    <ul>
+                        <li><a href="#">Reminders</a></li>
+                        <li><a href="osu.html">osu! commands</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Settings</a></li>
+            </ul>
+        </div>
+    </nav>
+    <header>
+        <div class="wrap">
+            <h1>Reminders</h1>
+            <p>Remind me to replace this</p><!--Note: This is intentional. Not a real note to myself-->
+        </div>
+    </header>
+    <main>
+        <h2>Creating a New Reminder</h2>
+        <p>The command to set a reminder uses the following format: <code>]remindme &lt;<i>the reminder here</i>&gt; in &lt;<i>the ammount of time here</i>&gt;</code></p><br>
+        <p>For an example fill in the boxes below</p>
+        <input type="text" name="reminder" placeholder="reminder" maxlength="1500">
+        <span>in</span>
+        <input style="width:30px;" type="text" name="days" placeholder="0" maxlength="2">
+        <span>days</span>
+        <input style="width:30px;" type="text" name="hours" placeholder="0" maxlength="3">
+        <span>hours</span>
+        <input style="width:30px;" type="text" name="minutes" placeholder="0" maxlength="3">
+        <span>minutes &amp;</span>
+        <input style="width:30px;" type="text" name="seconds" placeholder="0" maxlength="3">
+        <span>seconds</span>
+        <p>Result: <code id="result"></code><p>
+
+        <h2>List Your Reminders</h2>
+        <p>This will tell you what your current reminders are and when they are set for.</p>
+        <p><code>]remindme list</code></p><br>
+        <p>Example response: </p>
+        <pre><u>Here are your reminders:</u>
+watch that thing @ Sun, 24 Apr 2016 05:23:50 GMT
+add that command @ Sat, 23 Apr 2016 08:24:13 GMT
+        </pre>
+
+        <h2>Remove a Reminder</h2>
+        <p>Use this if you want to delete a reminder that you set.</p>
+        <p><code>]remindme remove &lt;<i>the reminder</i>&gt;</code></p><br>
+    </main>
+    <footer>
+        <div class="wrap">
+            <p>Copyright &copy; 2016 <a href="https://brussell98.github.io/">Brandon Russell</a>. Website by <a href="https://geo1088.github.io/">Geo1088</a>.</p>
+        </div>
+    </footer>
+</body>
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-72190085-1', 'auto');
+    ga('send', 'pageview');
+</script>
+</html>

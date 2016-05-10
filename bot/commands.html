@@ -10,9 +10,6 @@
 
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-
-    <script src="http://code.jquery.com/jquery-2.2.2.min.js" integrity="sha256-36cp2Co+/62rEAAYHLmRCPIych47CvdM+uTBJwSzWjI=" crossorigin="anonymous"></script>
-    <script src="code.js"></script>
 </head>
 <body>
     <nav>
@@ -20,7 +17,13 @@
             <h2>Bot-chan</h2>
             <ul>
                 <li><a href="index.html">Home</a></li>
-                <li><a href="#">Commands</a></li>
+				<li class="dropdown">
+                    <a href="#">Commands</a>
+                    <ul>
+                        <li><a href="reminders.html">Reminders</a></li>
+                        <li><a href="osu.html">osu! commands</a></li>
+                    </ul>
+                </li>
                 <li><a href="serversettings.html">Settings</a></li>
             </ul>
         </div>
@@ -45,7 +48,7 @@
             <tbody>
                 <tr>
                     <td>@Bot-chan <i>Text</i></td>
-                    <td>Doing this will let you talk to the bot. Doesn't work in PMs.</td>
+                    <td>Doing this will let you talk to the bot.</td>
                     <td>@Bot-chan are you real?</td>
                     <td></td>
                 </tr>
@@ -74,10 +77,10 @@
                     <td></td>
                 </tr>
                 <tr>
-                    <td>]join &lt;<i>invite(s)</i>&gt; [<i>-a</i>]</td>
-                    <td>Invite the bot to a server. If "-a" is used it will show the join message.</td>
-                    <td>]join <i>invite link</i> -a</td>
-                    <td>j, joins</td>
+                    <td>]invite</td>
+                    <td>Get the link to add the bot to a server.</td>
+                    <td>]invite</td>
+                    <td>join</td>
                 </tr>
                 <tr>
                     <td>]about</td>
@@ -101,7 +104,7 @@
                     <td>]info [<i>user</i>]</td>
                     <td>Get info on the server, or, if specified, a user</td>
                     <td>]info GenericUsername</td>
-                    <td>i</td>
+                    <td>i, user, userinfo, serverinfo</td>
                 </tr>
                 <tr>
                     <td>]choose &lt;<i>option</i>&gt;, &lt;<i>option</i>&gt;, [<i>option</i>], ...</td>
@@ -137,13 +140,19 @@
                     <td>]anime &lt;<i>search</i>&gt;</td>
                     <td>Get info on an anime from MAL.</td>
                     <td>]anime Boku Dake</td>
-                    <td></td>
+                    <td>animu</td>
                 </tr>
                 <tr>
                     <td>]manga &lt;<i>search</i>&gt;</td>
                     <td>Get info on a manga from MAL.</td>
                     <td>]manga hero academia</td>
-                    <td></td>
+                    <td>mango</td>
+                </tr>
+				<tr>
+                    <td>]maluser &lt;<i>user</i>&gt;</td>
+                    <td>Get info on a user's MAL.</td>
+                    <td>]maluser brussell98</td>
+                    <td>mal</td>
                 </tr>
                 <tr>
                     <td>]coinflip</td>
@@ -200,16 +209,8 @@
                     <td>imgur</td>
                 </tr>
                 <tr>
-                    <td>]osu sig [<i>user</i>] [<i>color as hex</i>]</td>
-                    <td>Generate an osu!next signature for a user.</td>
-                    <td>]osu sig brussell98 #e57373</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>]osu user/best/recent [<i>user</i>]</td>
-                    <td>user: Gets a user's stats. best: Gets a user's top 5 plays. recent: Gets a user's 5 most recent plays.</td>
-                    <td>]osu best brussell98</td>
-                    <td></td>
+                    <td>]osu ...</td>
+                    <td colspan="3"><a href="osu.html">Check out this fancy page for the osu! commands</a></td>
                 </tr>
                 <tr>
                     <td>]fortune [<i>category</i>]</td>
@@ -224,10 +225,39 @@
                     <td></td>
                 </tr>
 				<tr>
-                    <td>]remindme &lt;reminder&gt; in &lt;[0 days] [00 hours] [00 minutes] [000 seconds]&gt; | list | remove &lt;text in reminder&gt;</td>
-                    <td>I'll remind you to do something. The limit is 14 days.</td>
-                    <td>]remind me to watch the new episode of whatever in 1 day and 5 hours, ]remind remove watch the episode of</td>
-                    <td>remind</td>
+                    <td>]remindme ...</td>
+                    <td colspan="2"><a href="reminders.html">More detailed information on reminders can be found here.</a></td>
+                    <td>remind, reminder</td>
+                </tr>
+				<tr>
+                    <td>]mentions</td>
+                    <td>Find out why you were mentioned.</td>
+                    <td>]mentions</td>
+                    <td></td>
+                </tr>
+				<tr>
+                    <td>]inrole &lt;<i>role</i>&gt;</td>
+                    <td>Get a list of users in a role.</td>
+                    <td>]inrole Mods</td>
+                    <td>withrole</td>
+                </tr>
+                <tr>
+                    <td>]rip &lt;<i>text</i>&gt;</td>
+                    <td>RIP.</td>
+                    <td>]rip Bot-chan</td>
+                    <td>rekt</td>
+                </tr>
+				<tr>
+                    <td>]names &lt;<i>user</i>&gt;</td>
+                    <td>Get a list of different nicknames a user has.</td>
+                    <td>]names Bot-chan</td>
+                    <td>nicks</td>
+                </tr>
+				<tr>
+                    <td>]joinedat &lt;<i>user</i>&gt;</td>
+                    <td>Find out exactly when a user joined the server.</td>
+                    <td>]joinedat Bot-chan</td>
+                    <td>joined, joindate</td>
                 </tr>
             </tbody>
         </table>
@@ -317,14 +347,14 @@
                 <tr>
                     <td>}kick &lt;<i>@users</i>&gt; [<i>message</i>]</td>
                     <td>Kick users with a message.</td>
-                    <td>}kick @Brussell being too good at making bots.</td>
-                    <td></td>
+                    <td>}kick @Brussell for not testing things.</td>
+                    <td>getout</td>
                 </tr>
                 <tr>
                     <td>}ban &lt;<i>@users</i>&gt; [<i>message</i>]</td>
                     <td>Ban users with a message and delete 1 day's worth of messages from them.</td>
-                    <td>}ban @Brussell being too good at making bots.</td>
-                    <td></td>
+                    <td>}ban @Geo☆1088 for messing up the CSS.</td>
+                    <td>ko, banhammer, finishhim, rek</td>
                 </tr>
                 <tr>
                     <td>}ignore</td>
@@ -362,30 +392,6 @@
                     <td>Save responses.</td>
                     <td>]tag create name here|response here</td>
                     <td>t</td>
-                </tr>
-                <tr>
-                    <td>]mentions</td>
-                    <td>Find out why you were mentioned.</td>
-                    <td>]mentions</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>]maluser &lt;<i>user</i>&gt;</td>
-                    <td>Get info on a user's MAL.</td>
-                    <td>]maluser brussell98</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>]inrole &lt;<i>role</i>&gt;</td>
-                    <td>Get a list of users in a role.</td>
-                    <td>]inrole Mods</td>
-                    <td>withrole</td>
-                </tr>
-                <tr>
-                    <td>]rip &lt;<i>text</i>&gt;</td>
-                    <td>RIP.</td>
-                    <td>]rip Bot-chan</td>
-                    <td></td>
                 </tr>
             </tbody>
         </table>
