@@ -108,7 +108,7 @@ nav .dropdown {
 }
 nav .dropdown ul {
     position: absolute;
-    top: 42px;
+    top: 44px;
     height: 0;
     overflow: hidden;
     opacity: 0;
