@@ -108,7 +108,7 @@ nav .dropdown {
 }
 nav .dropdown ul {
     position: absolute;
-    top: 44px;
+    top: 42px;
     height: 0;
     overflow: hidden;
     opacity: 0;
@@ -128,6 +128,7 @@ nav .dropdown ul a {
     box-shadow: inset 2px 0 #0076CC, inset -2px 0 #0076CC;
     transition: background 200ms;
 }
+nav .dropdown ul :first-child a { border-top: 2px solid #0076CC; }
 nav .dropdown ul a:hover {
     background: #0076CC;
 }
