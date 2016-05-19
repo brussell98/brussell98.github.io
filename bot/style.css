@@ -97,7 +97,7 @@ nav .dropdown > a::after {
     border-bottom: 2px solid #FFF;
     border-right: 2px solid #FFF;
     -webkit-transform: translateY(-0.2em) rotate(45deg);
-            transform: translateY(-0.2em) rotate(45deg);
+        transform: translateY(-0.2em) rotate(45deg);
     margin-left: 0.5em;
     margin-top: -0.5em;
     width: 0.5em;
@@ -123,6 +123,7 @@ nav .dropdown ul li {
     min-width: 100%;
 }
 nav .dropdown ul a {
+    background: #0094FF;
     border-bottom: 2px solid #0076CC;
     box-shadow: inset 2px 0 #0076CC, inset -2px 0 #0076CC;
     transition: background 200ms;
