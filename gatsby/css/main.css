@@ -1,0 +1,198 @@
+@import url(https://fonts.googleapis.com/css?family=Abril+Fatface|Open+Sans:400,600);
+
+body {
+	background-color: #fcfcfc;
+	font-family: 'Open Sans', sans-serif;
+	color: #2a2a2a;
+}
+
+h1, h2, h3, h4 {
+	font-family: 'Abril Fatface', serif;
+	font-weight: 400;
+	margin: 0;
+}
+
+h1 {
+	font-size: 4em;
+	padding: 30px 10px;
+}
+
+h2 {
+	font-size: 2.5em;
+	padding: 20px 10px;
+}
+
+h3 {
+	font-size: 1.9em;
+	padding: 10px;
+}
+
+h4 {
+	font-size: 1.6em;
+	padding: 5px 10px;
+}
+
+p {
+	padding: 15px;
+	margin: 0;
+}
+
+ul {
+	margin: 10px 0;
+	padding: 0;
+}
+
+a {
+	text-decoration: none;
+	color: #136ed8;
+}
+
+a[href="#"] {
+	font-weight: 600;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+::selection {
+	background: #2a95ff;
+	color: #f5f5f5;
+}
+
+::-moz-selection {
+	background: #2a95ff;
+	color: #f5f5f5;
+}
+
+.wrap {
+	max-width: 1000px;
+	margin: auto;
+}
+
+.center {
+	text-align: center;
+}
+
+/* END GENERIC STYLES */
+/* START NAVBAR */
+
+nav .wrap {
+	margin-top: 25px;
+	box-shadow: 0 2px 5px #888;
+	border-radius: 5px 5px 0 0;
+}
+
+nav .wrap .top {
+	border-radius: 5px 5px 0 0;
+	color: white;
+	background-color: #FFB100;
+	display: flex;
+	flex-wrap: nowrap;
+	align-items: center;
+	justify-content: space-between;
+}
+
+nav .wrap .top h3 {
+	margin-left: 40px;
+	text-shadow: 1px 1px 2px #444;
+}
+
+nav .wrap .bottom {
+	display: flex;
+	flex-wrap: nowrap;
+	align-items: center;
+	background-color: #232323;
+}
+
+nav .wrap .bottom ul {
+	list-style: none;
+	display: flex;
+	margin: 0;
+	padding: 0;
+}
+
+nav .wrap .bottom li {
+	padding: 10px 0;
+	transition: box-shadow .25s ease-out;
+}
+
+nav .wrap .bottom li:hover {
+	box-shadow: 0 52px 0 0 #FFB100 inset;
+}
+
+nav .wrap .bottom ul li a, nav .wrap .bottom ul li a:hover {
+	padding: 10px 20px;
+	color: white;
+	text-decoration: none;
+}
+
+nav .wrap .bottom ul li a[href="#"] {
+	background-color: #FFB100;
+	color: white;
+}
+
+/* END NAVBAR */
+/* START MAIN */
+
+main .wrap {
+	background-color: #fafafa;
+	box-shadow: 0 2px 5px #888;
+	padding-bottom: 20px;
+}
+
+main .wrap h2 {
+	text-align: center;
+}
+
+main .wrap p {
+	margin: 0 20px;
+	padding: 10px 0;
+}
+
+main .wrap p b {
+	font-size: 1.1em;
+	text-decoration: underline;
+}
+
+main .wrap h3 {
+	margin: 10px 40px;
+	padding: 0;
+	font-weight: bold;
+	text-shadow: 1px 1px 1px #999;
+}
+
+/* END MAIN */
+/* START FOOTER */
+
+footer .wrap {
+	box-shadow: 0 2px 5px #888;
+	background-color: #232323;
+	color: #FFF;
+	border-radius: 0 0 5px 5px;
+}
+
+footer a {
+	color: white;
+}
+
+footer .wrap p {
+	padding-top: 0;
+	padding-bottom: 10px;
+	font-size: 13px;
+}
+
+footer .wrap ul {
+	display: flex;
+	list-style: none;
+	margin: 0;
+	padding: 0 0 5px 0;
+}
+
+footer .wrap ul li {
+	padding: 10px 0;
+}
+
+footer .wrap ul li a {
+	padding: 10px 15px;
+}
