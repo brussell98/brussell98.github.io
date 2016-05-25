@@ -229,7 +229,7 @@ main {
     padding: 20px 20px 30px;
     max-width: 800px;
     text-align: center;
-    box-shadow: 0 0 0 2px rgba(0,0,0,0.2)
+    box-shadow: 0 0 0 2px rgba(0,0,0,0.2);
 }
 .wide {
 	max-width: 1200px !important; /* important to override other styles that are more specific */
@@ -274,6 +274,20 @@ main .add {
 }
 main .add:hover {
     box-shadow: inset 195px 0 #0076CC;
+}
+
+main table button {
+	background: rgba(0,0,0,0.03);
+	transition: border .3s;
+	border: 2px solid rgba(0,0,0,0.2);
+	border-radius: 3px;
+	padding: 2px;
+	font-family: "Open Sans", sans-serif;
+	font-size: .9em;
+}
+
+main table button:hover {
+	border: 2px solid rgba(0,0,0,0.5);
 }
 
 footer {

@@ -5,11 +5,12 @@
     <title>Bot-chan command list</title>
     <meta name="author" content="Brussell the Amazing">
     <meta name="description" content="The list of commands for Bot-chan on Discord">
-    <link rel="icon" type="image/png" href="../images/98.png">
+    <link rel="icon" type="image/png" href="../images/avatar.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	<script src="examples.js"></script>
 </head>
 <body>
     <nav>
@@ -49,49 +50,65 @@
                 <tr>
                     <td>@Bot-chan <i>Text</i></td>
                     <td>Doing this will let you talk to the bot.</td>
-                    <td>@Bot-chan are you real?</td>
+                    <td><button name="cleverbot" onclick="alert(cleverbot())">
+						@Bot-chan are you real?
+					</button></td>
                     <td></td>
                 </tr>
                 <tr>
                     <td>]help [<i>command</i>]</td>
                     <td>Get a list of commands or information on a specific command.</td>
-                    <td>]help prune</td>
+                    <td><button name="cleverbot" onclick="alert(help())">
+						]help osu
+					</button></td>
                     <td>h, commands</td>
                 </tr>
                 <tr>
                     <td>]id [channel]</td>
                     <td>Get your user ID. If the suffix is "channel" get the channel's ID.</td>
-                    <td>]id channel</td>
+                    <td><button name="cleverbot" onclick="alert(id())">
+						]id channel
+					</button></td>
                     <td>myid</td>
                 </tr>
                 <tr>
                     <td>]ping</td>
                     <td>Check if the bot is working. Tells you response time in ms.</td>
-                    <td>]ping</td>
+                    <td><button name="cleverbot" onclick="alert(ping())">
+						]ping
+					</button></td>
                     <td>p</td>
                 </tr>
                 <tr>
                     <td>]beep</td>
                     <td>boop</td>
-                    <td>]beep</td>
+                    <td><button name="cleverbot" onclick="alert('boop')">
+						]beep
+					</button></td>
                     <td></td>
                 </tr>
                 <tr>
                     <td>]invite</td>
                     <td>Get the link to add the bot to a server.</td>
-                    <td>]invite</td>
+                    <td><button name="cleverbot" onclick="alert(invite())">
+						]invite
+					</button></td>
                     <td>join</td>
                 </tr>
                 <tr>
                     <td>]about</td>
                     <td>Display info about the bot.</td>
-                    <td>]about</td>
+                    <td><button name="cleverbot" onclick="alert(about())">
+						]about
+					</button></td>
                     <td></td>
                 </tr>
                 <tr>
                     <td>]dice [<i>(rolls)</i>d<i>(sides)</i>]</td>
                     <td>Roll a dice with 6 sides or as specified.</td>
-                    <td>]dice 2d12</td>
+                    <td><button name="cleverbot" onclick="alert(dice())">
+						]dice 2d12
+					</button></td>
                     <td></td>
                 </tr>
                 <tr>
