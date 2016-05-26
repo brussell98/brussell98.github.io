@@ -50,7 +50,7 @@
                 <tr>
                     <td>@Bot-chan <i>Text</i></td>
                     <td>Doing this will let you talk to the bot.</td>
-                    <td><button name="cleverbot" onclick="alert(cleverbot())">
+                    <td><button onclick="alert(cleverbot())">
 						@Bot-chan are you real?
 					</button></td>
                     <td></td>
@@ -58,7 +58,7 @@
                 <tr>
                     <td>]help [<i>command</i>]</td>
                     <td>Get a list of commands or information on a specific command.</td>
-                    <td><button name="cleverbot" onclick="alert(help())">
+                    <td><button onclick="alert(help())">
 						]help osu
 					</button></td>
                     <td>h, commands</td>
@@ -66,7 +66,7 @@
                 <tr>
                     <td>]id [channel]</td>
                     <td>Get your user ID. If the suffix is "channel" get the channel's ID.</td>
-                    <td><button name="cleverbot" onclick="alert(id())">
+                    <td><button onclick="alert(getid())">
 						]id channel
 					</button></td>
                     <td>myid</td>
@@ -74,7 +74,7 @@
                 <tr>
                     <td>]ping</td>
                     <td>Check if the bot is working. Tells you response time in ms.</td>
-                    <td><button name="cleverbot" onclick="alert(ping())">
+                    <td><button onclick="alert(ping())">
 						]ping
 					</button></td>
                     <td>p</td>
@@ -82,7 +82,7 @@
                 <tr>
                     <td>]beep</td>
                     <td>boop</td>
-                    <td><button name="cleverbot" onclick="alert('boop')">
+                    <td><button onclick="alert('boop')">
 						]beep
 					</button></td>
                     <td></td>
@@ -90,7 +90,7 @@
                 <tr>
                     <td>]invite</td>
                     <td>Get the link to add the bot to a server.</td>
-                    <td><button name="cleverbot" onclick="alert(invite())">
+                    <td><button onclick="alert(invite())">
 						]invite
 					</button></td>
                     <td>join</td>
@@ -98,7 +98,7 @@
                 <tr>
                     <td>]about</td>
                     <td>Display info about the bot.</td>
-                    <td><button name="cleverbot" onclick="alert(about())">
+                    <td><button onclick="alert(about())">
 						]about
 					</button></td>
                     <td></td>
@@ -106,7 +106,7 @@
                 <tr>
                     <td>]dice [<i>(rolls)</i>d<i>(sides)</i>]</td>
                     <td>Roll a dice with 6 sides or as specified.</td>
-                    <td><button name="cleverbot" onclick="alert(dice())">
+                    <td><button onclick="alert(dice())">
 						]dice 2d12
 					</button></td>
                     <td></td>
@@ -282,6 +282,12 @@
                     <td>]lintcss div p { margin: 5px 0 5px 2px 6px; }</td>
                     <td>css</td>
                 </tr>
+				<tr>
+                    <td>]currency &lt;<i>ammount</i>&gt; &lt;<i>CODE</i>&gt; to &lt;<i>CODE</i>&gt;</td>
+                    <td>Convert between currencies.</td>
+                    <td>]currency 100 USD to JPY</td>
+                    <td>convert</td>
+                </tr>
             </tbody>
         </table>
         <h2>Mod tools</h2>
@@ -404,12 +410,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>]currency &lt;<i>currency</i>&gt; &lt;<i>currency</i>&gt;</td>
-                    <td>Convert currencies.</td>
-                    <td>]currency USD to JPY</td>
-                    <td>convert</td>
-                </tr>
+
             </tbody>
         </table>
     </main>

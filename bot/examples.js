@@ -1,3 +1,4 @@
+/* eslint no-unused-vars: 0 */
 function cleverbot() {
 	return "💬 I don't know.";
 }
@@ -13,7 +14,7 @@ Cooldown: 5 seconds
 Can delete the activating message`
 }
 
-function id() {
+function getid() {
 	return 'Your ID is: 95286900801146880';
 }
 
@@ -34,5 +35,5 @@ function about() {
 }
 
 function dice() {
-	return '🎲 Your 2d12 resulted in 11  (4 +7) ';
+	return ['🎲 Your 2d12 resulted in 11  (4 +7) ', '🎲 Your 2d12 resulted in 13  (2 +11) ', '🎲 Your 2d12 resulted in 19  (9 +10) ', '🎲 Your 2d12 resulted in 18  (8 +10) '][~~(Math.random() * 3)];
 }
