@@ -37,3 +37,27 @@ function about() {
 function dice() {
 	return ['🎲 Your 2d12 resulted in 11  (4 +7) ', '🎲 Your 2d12 resulted in 13  (2 +11) ', '🎲 Your 2d12 resulted in 19  (9 +10) ', '🎲 Your 2d12 resulted in 18  (8 +10) '][~~(Math.random() * 3)];
 }
+
+function roll() {
+	var max = prompt('Max value', '10');
+	if (!max.test(/^\d+$/))
+		max = '10';
+	alert(~~(Math.random() * parseInt(max)) + 1);
+}
+
+function info() {
+	return `Info on Bot-chan#3157 (ID: 125367104336691200)
+Status: online last playing with hakase
+Nickname: Nano-chan
+Joined on: Sun, 21 Feb 2016 03:58:06 GMT
+Roles: Führer, JavaScript
+Shared servers: 1596
+Account created on Sat, 12 Dec 2015 22:44:06 GMT
+
+Info on Brussell#0660 (ID: 95286900801146880)
+Status: online
+Joined on: Sat, 09 Jan 2016 21:34:56 GMT
+Roles: JavaScript, The Bot Himself
+Shared servers: 7
+Account created on Sun, 20 Sep 2015 22:36:07 GMT`;
+}

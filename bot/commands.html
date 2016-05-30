@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <title>Bot-chan command list</title>
-    <meta name="author" content="Brussell the Amazing">
+    <meta name="author" content="Brussell">
     <meta name="description" content="The list of commands for Bot-chan on Discord">
     <link rel="icon" type="image/png" href="../images/avatar.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -114,13 +114,17 @@
                 <tr>
                     <td>]roll [<i>max</i>]</td>
                     <td>Roll a random number between 1-max or 1-100.</td>
-                    <td>]roll 1-10</td>
+                    <td><button onclick="roll()">
+						]roll 10
+					</button></td>
                     <td></td>
                 </tr>
                 <tr>
                     <td>]info [<i>user</i>]</td>
                     <td>Get info on the server, or, if specified, a user</td>
-                    <td>]info GenericUsername | Brussell | Bot-chan</td>
+                    <td><button onclick="alert(info())">
+						]info Brussell | Bot-chan
+					</button></td>
                     <td>i, user, userinfo, serverinfo</td>
                 </tr>
                 <tr>
