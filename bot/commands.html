@@ -87,6 +87,14 @@
 					</button></td>
                     <td></td>
                 </tr>
+				<tr>
+                    <td>]reverse</td>
+                    <td>Reverses text</td>
+                    <td><button onclick="reverse()">
+						]reverse
+					</button></td>
+                    <td>backwards</td>
+                </tr>
                 <tr>
                     <td>]invite</td>
                     <td>Get the link to add the bot to a server.</td>
@@ -134,9 +142,9 @@
                     <td>c, pick</td>
                 </tr>
                 <tr>
-                    <td>]lotto end | enter | new [<i>max entries</i>] [-noautoend] | &lt;<i>pick from</i>&gt; | everyone</td>
-                    <td>Start / stop / enter a lottery. Allows setting max entries per user, auto end, predefined entries, and picking from all members.</td>
-                    <td>]lotto new 2 -noautoend ]lotto @Brussell @Not-Brussell</td>
+                    <td>]lotto end | enter | start | draw[ -k] | @users to pick from | everyone</td>
+                    <td></td>
+                    <td>]lotto new, ]lotto draw, ]lotto @Brussell @Not-Brussell</td>
                     <td></td>
                 </tr>
                 <tr>
@@ -146,9 +154,9 @@
                     <td>straw, poll</td>
                 </tr>
                 <tr>
-                    <td>]vote new [<i>topic</i>] | +/- | end</td>
+                    <td>]vote &lt;choice&gt;, end, check, new [t:&lt;topic&gt;] | &lt;option&gt; | &lt;option&gt;[ | &lt;option&gt;...]</td>
                     <td>Vote on something.</td>
-                    <td>]vote new Ban @GenericUsername</td>
+                    <td>]vote new t:Best game? | Overwatch | Battleborn | Team Fortress 2, ]vote Overwatch</td>
                     <td>v</td>
                 </tr>
                 <tr>
@@ -291,6 +299,18 @@
                     <td>Convert between currencies.</td>
                     <td>]currency 100 USD to JPY</td>
                     <td>convert</td>
+                </tr>
+				<tr>
+                    <td>]emojify &lt;<i>text</i>&gt;</td>
+                    <td>Convert text into emojies!</td>
+                    <td>]emojify Maximum cancer</td>
+                    <td>emoji, cancerify</td>
+                </tr>
+				<tr>
+                    <td>]fullwidth [<i>text</i>]</td>
+                    <td>Convert text to fullwidth characters.</td>
+                    <td>]fullwidth AESTHETIC</td>
+                    <td>aesthetic</td>
                 </tr>
             </tbody>
         </table>

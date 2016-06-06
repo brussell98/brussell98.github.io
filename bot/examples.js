@@ -22,8 +22,15 @@ function ping() {
 	return 'pong! | ' + ~~(Math.random() * 200 + 50);
 }
 
+function reverse() {
+	var text = prompt('Input text', 'Hello World');
+	if (!text)
+		text = 'Hello World';
+	alert(`\u202e ${text}`);
+}
+
 function invite() {
-	return 'Use this to bring me to your server:\n https://discordapp.com/oauth2/authorize?&client_id=168128745893396480&scope=bot&permissions=12659727';
+	return 'Use this to bring me to your server:\nhttps://goo.gl/umeCQF';
 }
 
 function about() {
@@ -40,7 +47,7 @@ function dice() {
 
 function roll() {
 	var max = prompt('Max value', '10');
-	if (!max.test(/^\d+$/))
+	if (!/^\d+$/.test(max))
 		max = '10';
 	alert(~~(Math.random() * parseInt(max)) + 1);
 }
