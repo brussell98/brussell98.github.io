@@ -1,0 +1,79 @@
+@import url("https://fonts.googleapis.com/css?family=Exo:400,600")
+
+$exo: 'exo', 'sans-serif'
+$white: #fafafa
+$gray: #dedede
+$gray-darken: #a7a7a7
+
+=animate-in()
+	position: relative
+	animation: fadeDown 1.2s cubic-bezier(0.22, 0.61, 0.36, 1)
+	-webkit-animnation: fadeDown 1.2s cubic-bezier(0.22, 0.61, 0.36, 1)
+	-moz-animation: fadeDown 1.2s cubic-bezier(0.22, 0.61, 0.36, 1)
+
+@keyframes fadeDown
+	0%
+		opacity: 0
+		top: -60px
+	100%
+		opacity: 1
+		top: 0
+
+@-webkit-keyframes fadeDown
+	0%
+		opacity: 0
+		top: -60px
+	100%
+		opacity: 1
+		top: 0
+
+@-moz-keyframes fadeDown
+	0%
+		opacity: 0
+		top: -60px
+	100%
+		opacity: 1
+		top: 0
+
+body
+	background-image: url("./images/dark_bg_squares.jpg")
+	background-repeat: no-repeat
+	background-size: 100%
+	background-attachment: fixed
+	background-position: center
+	+animate-in
+
+.wrap
+	margin: 160px 24%
+	text-align: center
+	h1
+		font-family: $exo
+		font-weight: 600
+		font-size: 64px
+		color: $white
+		text-shadow: 1px 2px 5px #444
+	h2
+		font-family: $exo
+		font-weight: 600
+		font-size: 50px
+		color: $white
+		text-shadow: 1px 2px 5px #444
+		margin: 40px 0 20px 0
+	p
+		font-family: $exo
+		font-weight: 400
+		font-size: 26px
+		color: $gray
+	a
+		font-family: $exo
+		font-weight: 400
+		font-size: 26px
+		color: $gray
+		display: block
+		transition: .4s
+		text-decoration: none
+		&:hover, &:active
+			color: $gray-darken
+			text-decoration: underline
+		& ~ a
+			margin-top: 15px
