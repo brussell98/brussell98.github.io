@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>settingsManager.js - Documentation</title>
+	<script src="scripts/prettify/prettify.js"></script>
+	<script src="scripts/prettify/lang-css.js"></script>
+	<!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+	<link type="text/css" rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+	<link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+	<link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css"> </head>
+
+<body>
+	<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+	<label for="nav-trigger" class="navicon-button x">
+		<div class="navicon"></div>
+	</label>
+	<label for="nav-trigger" class="overlay"></label>
+	<nav>
+		<h2><a href="index.html">Home</a></h2>
+		<h3>Classes</h3>
+		<ul>
+			<li><a href="Command.html">Command</a>
+				<ul class='methods'>
+					<li data-type='method'><a href="Command.html#execute">execute</a></li>
+				</ul>
+			</li>
+			<li><a href="CommandManager.html">CommandManager</a>
+				<ul class='methods'>
+					<li data-type='method'><a href="CommandManager.html#checkForMatch">checkForMatch</a></li>
+					<li data-type='method'><a href="CommandManager.html#help">help</a></li>
+					<li data-type='method'><a href="CommandManager.html#initialize">initialize</a></li>
+					<li data-type='method'><a href="CommandManager.html#logCommand">logCommand</a></li>
+					<li data-type='method'><a href="CommandManager.html#processCommand">processCommand</a></li>
+				</ul>
+			</li>
+		</ul>
+		<h3>Modules</h3>
+		<ul>
+			<li><a href="module-settingsManager.html">settingsManager</a>
+				<ul class='methods'>
+					<li data-type='method'><a href="module-settingsManager.html#~getEventSetting">getEventSetting</a></li>
+					<li data-type='method'><a href="module-settingsManager.html#~getWelcome">getWelcome</a></li>
+					<li data-type='method'><a href="module-settingsManager.html#~handleDeletedChannel">handleDeletedChannel</a></li>
+					<li data-type='method'><a href="module-settingsManager.html#~setEventChannel">setEventChannel</a></li>
+					<li data-type='method'><a href="module-settingsManager.html#~setWelcome">setWelcome</a></li>
+					<li data-type='method'><a href="module-settingsManager.html#~subEvents">subEvents</a></li>
+					<li data-type='method'><a href="module-settingsManager.html#~unsubEvents">unsubEvents</a></li>
+				</ul>
+			</li>
+			<li><a href="module-utils.html">utils</a>
+				<ul class='methods'>
+					<li data-type='method'><a href="module-utils.html#.checkForUpdates">checkForUpdates</a></li>
+					<li data-type='method'><a href="module-utils.html#.comma">comma</a></li>
+					<li data-type='method'><a href="module-utils.html#.findUser">findUser</a></li>
+					<li data-type='method'><a href="module-utils.html#.formatTime">formatTime</a></li>
+					<li data-type='method'><a href="module-utils.html#.safeSave">safeSave</a></li>
+					<li data-type='method'><a href="module-utils.html#.setAvatar">setAvatar</a></li>
+					<li data-type='method'><a href="module-utils.html#.updateCarbon">updateCarbon</a></li>
+				</ul>
+			</li>
+		</ul>
+	</nav>
+	<div id="main">
+		<h1 class="page-title">settingsManager.js</h1>
+		<section>
+			<article> <pre class="prettyprint source linenums"><code>var reload = require('require-reload')(require),
+	utils = reload('./utils.js'),
+	genericSettings = reload('../db/genericSettings.json'),
+	commandSettings = reload('../db/commandSettings.json'),
+	updateGeneric = false,
+	updateCommand = false;
+
+setInterval(() => {
+	if (updateGeneric === true) {
+		utils.safeSave('db/genericSettings', '.json', JSON.stringify(genericSettings));
+		updateGeneric = false;
+	}
+	if (updateCommand === true) {
+		utils.safeSave('db/commandSettings', '.json', JSON.stringify(commandSettings));
+		updateCommand = false;
+	}
+}, 20000);
+
+/**
+* Manages settings for the bot.
+* @module settingsManager
+*/
+
+/////////// WELCOME MESSAGES ///////////
+
+/**
+* Set a guild's welcome message. If only guildId is passed it will disable it.
+* @arg {String} guildId The guild to change settings for.
+* @arg {String} [channelId] The channel to set the welcome message to.
+* @arg {String} [message] The welcome message to set.
+*/
+function setWelcome(guildId, channelId, message) {
+	if (!genericSettings.hasOwnProperty(guildId))
+		genericSettings[guildId] = {};
+	if (!genericSettings[guildId].hasOwnProperty('welcome')) {
+		if (message) { //Setting message and enabling
+			genericSettings[guildId].welcome = {message, channelId};
+			console.log(`${cDebug(' SETTINGS MANAGER ')} Updated welcome message for ${guildId}`);
+			updateGeneric = true;
+		}
+	} else {
+		if (message &amp;&amp; (genericSettings[guildId].welcome.message != message || genericSettings[guildId].welcome.channelId != channelId)) {
+			genericSettings[guildId].welcome.message = message; //Changing message
+			genericSettings[guildId].welcome.channelId = channelId;
+			console.log(`${cDebug(' SETTINGS MANAGER ')} Updated welcome message for ${guildId}`);
+			updateGeneric = true;
+		} else if (!message) { //disabling message that exists
+			console.log(`${cDebug(' SETTINGS MANAGER ')} Disabled welcome message for ${guildId}`);
+			delete genericSettings[guildId].welcome;
+			updateGeneric = true;
+		}
+	}
+}
+
+/**
+* Get a server's welcome message settings.
+* @arg {String} guildId The guild to get the setings for.
+* @arg {String} username The user that joined.
+* @arg {String} serverName The name of the server.
+* @returns {?Array&lt;String>} Containing the channelId to send to and the message, or null.
+*/
+function getWelcome(guildId, username, serverName) {
+	if (genericSettings.hasOwnProperty(guildId) &amp;&amp; genericSettings[guildId].hasOwnProperty('welcome'))
+		return [genericSettings[guildId].welcome.channelId,
+				genericSettings[guildId].welcome.message.replace(/\$\{USER\}/gi, username).replace(/\$\{SERVER\}/gi, serverName)]; //replace with names
+	return null;
+}
+
+/////////// EVENT NOTIFICATIONS ///////////
+
+/**
+* @const
+* @type Array&lt;String>
+* @default
+*/
+const eventList = ['memberjoined', 'memberleft', 'userbanned', 'namechanged', 'nicknamechanged'];
+
+/**
+* Change where event notifications are sent.
+* @arg {String} guildId The id of the guild to modify settings for.
+* @arg {String} [channelId] The channel to send events to. If undefined will disable them.
+*/
+function setEventChannel(guildId, channelId) {
+	if (!channelId &amp;&amp; genericSettings.hasOwnProperty[guildId] &amp;&amp; genericSettings[guildId].hasOwnProperty('events')) {
+		delete genericSettings[guildId].events; //Disable event notifications
+		updateGeneric = true;
+	} else if (channelId) {
+		if (!genericSettings.hasOwnProperty[guildId]) {
+			genericSettings[guildId] = {"events": {channelId, subbed: []}};
+			updateGeneric = true;
+		} else if (!genericSettings[guildId].hasOwnProperty('events')) {
+			genericSettings[guildId].events = {channelId, subbed: []};
+			updateGeneric = true;
+		} else if (genericSettings[guildId].events.channelId !== channelId) {
+			genericSettings[guildId].events.channelId = channelId;
+			updateGeneric = true;
+		}
+	}
+}
+
+/**
+* Subscribe a guild to events.
+* @arg {Array} eventArray An array of strings containing the events to subscribe to.
+* @returns {Promise&lt;Array>} Will resolve if settings were changed with an array of subbed events. Else will reject.
+*/
+function subEvents(eventArray, channel) {
+	return new Promise((resolve, reject) => {
+		if (!genericSettings.hasOwnProperty(channel.guild.id))
+			genericSettings[channel.guild.id] = {};
+		if (!genericSettings[channel.guild.id].hasOwnProperty('events'))
+			setEventChannel(channel.guild.id, channel.id);
+		eventArray = eventArray.map(i => i.substr(1).toLowerCase());
+		let subbedEvents = [];
+		for (let e of eventList) {
+			if (eventArray.includes(e) &amp;&amp; !genericSettings[channel.guild.id].events.hasOwnProperty(e)) {
+				genericSettings[channel.guild.id].events[e] = true;
+				subbedEvents.push(e);
+			}
+		}
+		if (subbedEvents.length > 0) {
+			resolve(subbedEvents);
+		} else
+			reject('Subscribed to nothing');
+	});
+}
+
+/**
+* Unsubscribe a guild to events.
+* @arg {Array} eventArray An array of strings containing the events to unsubscribe to.
+* @returns {Promise&lt;Array>} Will resolve if settings were changed with an array of unsubbed events. Else will reject.
+*/
+function unsubEvents(eventArray, channel) {
+	return new Promise((resolve, reject) => {
+		if (!genericSettings.hasOwnProperty(channel.guild.id) || !genericSettings[channel.guild.id].hasOwnProperty('events'))
+			reject('You are not subscribed to any events');
+		eventArray = eventArray.map(i => i.substr(1).toLowerCase());
+		let unsubbedEvents = [];
+		for (let e of eventList) {
+			if (eventArray.includes(e) &amp;&amp; genericSettings[channel.guild.id].events.hasOwnProperty(e)) {
+				delete genericSettings[channel.guild.id].events[e];
+				unsubbedEvents.push(e);
+			}
+		}
+		if (unsubbedEvents.length > 0) {
+			resolve(unsubbedEvents);
+		} else
+			reject('Unsubscribed to nothing');
+	});
+}
+
+/**
+* Check if subscribed to an event and where to send it.
+* @arg {String} guildId The id of the guild to check.
+* @arg {String} eventQ The event to check.
+* @returns {?String} If subscribed, the channel id. If not, null.
+*/
+function getEventSetting(guildId, eventQ) {
+	return (genericSettings.hasOwnProperty(guildId) &amp;&amp; genericSettings[guildId].hasOwnProperty('events') &amp;&amp; genericSettings[guildId].events[eventQ] === true) ? genericSettings[guildId].events.channelId : null;
+}
+
+////////// MISC ///////////
+
+/**
+* Handles deleting settings for a channel when the channel is deleted.
+* @arg {Eris.Channel} channel The deleted channel.
+*/
+function handleDeletedChannel(channel) {
+	if (genericSettings.hasOwnProperty(channel.guild.id)) {
+		if (genericSettings[channel.guild.id].hasOwnProperty('welcome') &amp;&amp; genericSettings[channel.guild.id].welcome.channelId === channel.id) {
+			delete genericSettings[channel.guild.id].welcome;
+			updateGeneric = true;
+		}
+		if (genericSettings[channel.guild.id].hasOwnProperty('events') &amp;&amp; genericSettings[channel.guild.id].events.channelId === channel.id) {
+			delete genericSettings[channel.guild.id].events;
+			updateGeneric = true;
+		}
+	}
+}
+
+module.exports = {
+	setWelcome,
+	getWelcome,
+	handleDeletedChannel,
+	setEventChannel,
+	subEvents,
+	unsubEvents,
+	getEventSetting
+};
+</code></pre> </article>
+		</section>
+	</div>
+	<br class="clear">
+	<footer> Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.4</a> on Wed Jun 22 2016 18:34:19 GMT-0500 (Central Daylight Time) using the Minami theme. </footer>
+	<script>
+		prettyPrint();
+
+	</script>
+	<script src="scripts/linenumber.js"></script>
+</body>
+
+</html>

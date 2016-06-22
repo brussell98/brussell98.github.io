@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>Command.js - Documentation</title>
+	<script src="scripts/prettify/prettify.js"></script>
+	<script src="scripts/prettify/lang-css.js"></script>
+	<!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+	<link type="text/css" rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+	<link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+	<link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css"> </head>
+
+<body>
+	<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+	<label for="nav-trigger" class="navicon-button x">
+		<div class="navicon"></div>
+	</label>
+	<label for="nav-trigger" class="overlay"></label>
+	<nav>
+		<h2><a href="index.html">Home</a></h2>
+		<h3>Classes</h3>
+		<ul>
+			<li><a href="Command.html">Command</a>
+				<ul class='methods'>
+					<li data-type='method'><a href="Command.html#execute">execute</a></li>
+				</ul>
+			</li>
+			<li><a href="CommandManager.html">CommandManager</a>
+				<ul class='methods'>
+					<li data-type='method'><a href="CommandManager.html#checkForMatch">checkForMatch</a></li>
+					<li data-type='method'><a href="CommandManager.html#help">help</a></li>
+					<li data-type='method'><a href="CommandManager.html#initialize">initialize</a></li>
+					<li data-type='method'><a href="CommandManager.html#logCommand">logCommand</a></li>
+					<li data-type='method'><a href="CommandManager.html#processCommand">processCommand</a></li>
+				</ul>
+			</li>
+		</ul>
+		<h3>Modules</h3>
+		<ul>
+			<li><a href="module-settingsManager.html">settingsManager</a>
+				<ul class='methods'>
+					<li data-type='method'><a href="module-settingsManager.html#~getEventSetting">getEventSetting</a></li>
+					<li data-type='method'><a href="module-settingsManager.html#~getWelcome">getWelcome</a></li>
+					<li data-type='method'><a href="module-settingsManager.html#~handleDeletedChannel">handleDeletedChannel</a></li>
+					<li data-type='method'><a href="module-settingsManager.html#~setEventChannel">setEventChannel</a></li>
+					<li data-type='method'><a href="module-settingsManager.html#~setWelcome">setWelcome</a></li>
+					<li data-type='method'><a href="module-settingsManager.html#~subEvents">subEvents</a></li>
+					<li data-type='method'><a href="module-settingsManager.html#~unsubEvents">unsubEvents</a></li>
+				</ul>
+			</li>
+			<li><a href="module-utils.html">utils</a>
+				<ul class='methods'>
+					<li data-type='method'><a href="module-utils.html#.checkForUpdates">checkForUpdates</a></li>
+					<li data-type='method'><a href="module-utils.html#.comma">comma</a></li>
+					<li data-type='method'><a href="module-utils.html#.findUser">findUser</a></li>
+					<li data-type='method'><a href="module-utils.html#.formatTime">formatTime</a></li>
+					<li data-type='method'><a href="module-utils.html#.safeSave">safeSave</a></li>
+					<li data-type='method'><a href="module-utils.html#.setAvatar">setAvatar</a></li>
+					<li data-type='method'><a href="module-utils.html#.updateCarbon">updateCarbon</a></li>
+				</ul>
+			</li>
+		</ul>
+	</nav>
+	<div id="main">
+		<h1 class="page-title">Command.js</h1>
+		<section>
+			<article> <pre class="prettyprint source linenums"><code>/**
+* @class
+* @classdesc Represents a command for the client.
+* @prop {String} name The command's name.
+* @prop {String} prefix Prefix for the command.
+* @prop {String} [usage=""] Usage for the command.
+* @prop {String} [desc="No description"] Short description of what the command does.
+* @prop {String} [help="No description"] Detailed description of what the command does.
+* @prop {Function} task The function to execute when the command is called.
+* @prop {Array&lt;String>} aliases An array containing the aliases for the command.
+* @prop {Number} cooldown The colldown for the command in seconds.
+* @prop {Boolean} defaultDisabled If the command is disabled by default.
+* @prop {Boolean} hidden If the command should be hidden from help.
+* @prop {Number} timesUsed How many times the command has been used.
+* @prop {Object} usersOnCooldown Users that are still on cooldown.
+*/
+class Command {
+
+	/**
+	* @constructor
+	* @arg {String} name Name of the command.
+	* @arg {String} prefix This prefix for the command.
+	* @arg {Object} cmd Object containing the appropriate properties including the function to run.
+	* @arg {String} cmd.usage
+	* @arg {String} cmd.desc
+	* @arg {String} cmd.help
+	* @arg {Function} cmd.task
+	* @arg {Array&lt;String>} cmd.aliases
+	* @arg {Number} cmd.cooldown
+	* @arg {Boolean} cmd.defaultDisabled
+	* @arg {Boolean} cmd.hidden
+	*/
+	constructor(name, prefix, cmd) {
+		this.name = name;
+		this.prefix = prefix;
+		this.usage = cmd.usage || "";
+		this.desc = cmd.desc || "No description";
+		this.help = cmd.help || cmd.desc || this.desc;
+		this.task = cmd.task;
+		this.aliases = cmd.aliases || [];
+		this.cooldown = cmd.cooldown || 0;
+		this.defaultDisabled = cmd.defaultDisabled || false;
+		this.hidden = cmd.hidden || false;
+		this.timesUsed = 0;
+		this.usersOnCooldown = {};
+	}
+
+	/**
+	* For telling a user the correct way to use something
+	* @type {String}
+	*/
+	get correctUsage() {
+		return `${this.prefix}${this.name} ${this.usage}`;
+	}
+
+	/**
+	* For use in the command list DM.
+	* @type {String}
+	*/
+	get helpShort() {
+		return `${this.prefix}${this.name} ${this.usage}\n\t# ${this.desc}`;
+	}
+
+	/**
+	* Sent in response to the help command.
+	* @type {String}
+	*/
+	get helpMessage() {
+		return `**❯ Command:** \`${this.prefix}${this.name} ${this.usage}\`
+**❯ Info:**\n${this.help}
+**❯ Cooldown:** ${this.cooldown} seconds
+**❯ Aliases:** ${this.aliases.join(', ') || "None"}`;
+	}
+
+	/**
+	* Execute the command. If the command returns "wrong usage" will show the {@link Command#correctUsage}
+	* @arg {Eris} bot The client.
+	* @arg {Eris.Message} msg The message that triggered it.
+	* @arg {String} suffix The text after the command (args).
+	* @arg {Object} config The config Object.
+	* @arg {settingsManager} settingsManager
+	*/
+	execute(bot, msg, suffix, config, settingsManager) {
+		if (this.usersOnCooldown.hasOwnProperty(msg.author.id)) { //if the user is still on cooldown
+			console.log(`${cDebug(' COMMAND ')} User on cooldown list`);
+			bot.sendMessage(msg, `${msg.author.username}, this command can only be used every ${this.cooldown} seconds.`).then(sentMsg => {
+				setTimeout(() => {
+					bot.deleteMessage(msg.channel.id, msg.id);
+					bot.deleteMessage(sentMsg.channel.id, sentMsg.id);
+				}, 6000);
+			});
+
+		} else {
+			let result;
+			this.timesUsed++;
+			try {
+				result = this.task(bot, msg, suffix, config, settingsManager); //run the command
+			} catch (err) {
+				console.log(`${cError(' COMMAND EXECUTION ERROR ')} ${err}`);
+				if (config.errorMessage) bot.createMessage(msg.channel.id, config.errorMessage);
+			}
+
+			if (result === 'wrong usage') {
+				console.log(`${cDebug(' COMMAND ')} Command used wrong`);
+				bot.createMessage(msg.channel.id, `${msg.author.username}, try again using the following format:\n**\`${this.prefix}${this.name} ${this.usage}\`**`).then(sentMsg => {
+					setTimeout(() => {
+						bot.deleteMessage(msg.channel.id, msg.id);
+						bot.deleteMessage(sentMsg.channel.id, sentMsg.id);
+					}, 10000);
+				});
+			} else {
+				this.usersOnCooldown[msg.author.id] = '';
+				setTimeout(() => { //add the user to the cooldown list and remove them after {cooldown} seconds
+					delete this.usersOnCooldown[msg.author.id];
+				}, this.cooldown * 1000);
+			}
+		}
+	}
+}
+
+module.exports = Command;
+</code></pre> </article>
+		</section>
+	</div>
+	<br class="clear">
+	<footer> Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.4</a> on Wed Jun 22 2016 18:34:19 GMT-0500 (Central Daylight Time) using the Minami theme. </footer>
+	<script>
+		prettyPrint();
+
+	</script>
+	<script src="scripts/linenumber.js"></script>
+</body>
+
+</html>

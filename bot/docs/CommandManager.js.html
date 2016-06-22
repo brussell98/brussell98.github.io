@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>CommandManager.js - Documentation</title>
+	<script src="scripts/prettify/prettify.js"></script>
+	<script src="scripts/prettify/lang-css.js"></script>
+	<!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+	<link type="text/css" rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+	<link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+	<link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css"> </head>
+
+<body>
+	<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+	<label for="nav-trigger" class="navicon-button x">
+		<div class="navicon"></div>
+	</label>
+	<label for="nav-trigger" class="overlay"></label>
+	<nav>
+		<h2><a href="index.html">Home</a></h2>
+		<h3>Classes</h3>
+		<ul>
+			<li><a href="Command.html">Command</a>
+				<ul class='methods'>
+					<li data-type='method'><a href="Command.html#execute">execute</a></li>
+				</ul>
+			</li>
+			<li><a href="CommandManager.html">CommandManager</a>
+				<ul class='methods'>
+					<li data-type='method'><a href="CommandManager.html#checkForMatch">checkForMatch</a></li>
+					<li data-type='method'><a href="CommandManager.html#help">help</a></li>
+					<li data-type='method'><a href="CommandManager.html#initialize">initialize</a></li>
+					<li data-type='method'><a href="CommandManager.html#logCommand">logCommand</a></li>
+					<li data-type='method'><a href="CommandManager.html#processCommand">processCommand</a></li>
+				</ul>
+			</li>
+		</ul>
+		<h3>Modules</h3>
+		<ul>
+			<li><a href="module-settingsManager.html">settingsManager</a>
+				<ul class='methods'>
+					<li data-type='method'><a href="module-settingsManager.html#~getEventSetting">getEventSetting</a></li>
+					<li data-type='method'><a href="module-settingsManager.html#~getWelcome">getWelcome</a></li>
+					<li data-type='method'><a href="module-settingsManager.html#~handleDeletedChannel">handleDeletedChannel</a></li>
+					<li data-type='method'><a href="module-settingsManager.html#~setEventChannel">setEventChannel</a></li>
+					<li data-type='method'><a href="module-settingsManager.html#~setWelcome">setWelcome</a></li>
+					<li data-type='method'><a href="module-settingsManager.html#~subEvents">subEvents</a></li>
+					<li data-type='method'><a href="module-settingsManager.html#~unsubEvents">unsubEvents</a></li>
+				</ul>
+			</li>
+			<li><a href="module-utils.html">utils</a>
+				<ul class='methods'>
+					<li data-type='method'><a href="module-utils.html#.checkForUpdates">checkForUpdates</a></li>
+					<li data-type='method'><a href="module-utils.html#.comma">comma</a></li>
+					<li data-type='method'><a href="module-utils.html#.findUser">findUser</a></li>
+					<li data-type='method'><a href="module-utils.html#.formatTime">formatTime</a></li>
+					<li data-type='method'><a href="module-utils.html#.safeSave">safeSave</a></li>
+					<li data-type='method'><a href="module-utils.html#.setAvatar">setAvatar</a></li>
+					<li data-type='method'><a href="module-utils.html#.updateCarbon">updateCarbon</a></li>
+				</ul>
+			</li>
+		</ul>
+	</nav>
+	<div id="main">
+		<h1 class="page-title">CommandManager.js</h1>
+		<section>
+			<article> <pre class="prettyprint source linenums"><code>var reload	= require('require-reload')(require),
+	fs		= require('fs'),
+	Command	= reload('./Command.js');
+
+/**
+* @class
+* @classdesc Handles a directory of .js files formatted as {@link Command}.
+* @prop {String} prefix Prefix for the commands handled by this CommandManager.
+* @prop {String} dir="commands/normal/" Path where the commands are located from the root directory.
+* @prop {Function} [color=false] Color to log the commands as.
+* @prop {Object&lt;Command>} commands The loaded {@link Command}.
+*/
+class CommandManager {
+
+	/**
+	* @constructor
+	* @arg {String} prefix Prefix for the commands handled by this CommandManager.
+	* @arg {String} dir="commands/normal/" Path to load commands from, from the root directory of the bot.
+	* @arg {Function} [color=false] Color to log the commands as.
+	*/
+	constructor(prefix, dir = 'commands/normal/', color) {
+		this.prefix = prefix;
+		this.directory = `${__dirname}/../${dir}`;
+		this.color = color || false;
+		this.commands = {};
+	}
+
+	/**
+	* Initialize the command manager.
+	* Loads each command in the set directory.
+	* @returns {Promise}
+	*/
+	initialize() {
+		return new Promise((resolve, reject) => {
+			fs.readdir(this.directory, (err, files) => {
+				if (err) reject(`Error reading commands directory: ${err}`);
+				else if (!files) reject(`No files in directory ${this.directory}`);
+				else {
+					for (let name of files) {
+						if (name.endsWith('.js'))
+							try {
+								console.log(`${cDebug(' COMMAND MANAGER ')} Added ${name}`);
+								this.commands[name.replace(/\.js$/, '')] = new Command(name.replace(/\.js$/, ''), this.prefix, reload(this.directory + name));
+							} catch (e) {
+								console.error(`Error loading command ${name}: ${e}`);
+							}
+					}
+					resolve();
+				}
+			});
+		});
+	}
+
+	/**
+	* Called when a message is detected with the prefix. Decides what to do.
+	* @arg {Eris} bot The client.
+	* @arg {Eris.Message} msg The matching message.
+	* @arg {Object} config The JSON formatted config file.
+	* @arg {settingsManager} settingsManager Used to adjust and get server settings.
+	*/
+	processCommand(bot, msg, config, settingsManager) {
+		let name = msg.content.replace(this.prefix, '').split(' ')[0].toLowerCase();
+		if (name === "help")
+			return this.help(bot, msg, msg.content.replace(this.prefix + name, '').trim());
+		let command = this.checkForMatch(name);
+		if (command !== null) {
+			console.log(`${cDebug(' COMMAND MANAGER ')} Message matched Command ${command.name}`);
+			let suffix = msg.content.replace(this.prefix + name, '').trim();
+			this.logCommand(msg, command.name, msg.cleanContent.replace(this.prefix + name, ''));
+			return command.execute(bot, msg, suffix, config, settingsManager);
+		}
+	}
+
+	/**
+	* Checks if there is a matching command in this CommandManager.
+	* @arg {String} name The command name to look for.
+	* @return {?Command} Returns the matching {@link Command} or false.
+	*/
+	checkForMatch(name) {
+		console.log(`${cDebug(' COMMAND MANAGER ')} Checking for a command matching '${name}'`);
+		if (name.startsWith(this.prefix)) //Trim prefix off
+			name = name.substr(1);
+		for (let key in this.commands) {
+			if (key === name || this.commands[key].aliases.includes(name))
+				return this.commands[key];
+		}
+		return null;
+	}
+
+	/**
+	* Built-in help command
+	* If no command is specified it will DM a list of commands.
+	* If a command is specified it will send info on that command
+	* @arg {Eris} bot The client.
+	* @arg {Eris.Message} msg The message that triggered the command.
+	* @arg {String} [command] The command to get help for.
+	*/
+	help(bot, msg, command) {
+		this.logCommand(msg, 'help', msg.cleanContent.replace(this.prefix + 'help', ''));
+		if (!command) {
+			console.log(`${cDebug(' COMMAND MANAGER HELP ')} Sending help message`);
+			let messageQueue = [];
+			let currentMessage = `\n// Here's a list of my commands. For more info do: ${this.prefix}help &lt;command>`;
+			for (let cmd in this.commands) {
+				if (this.commands[cmd].hidden === true)
+					continue;
+				let toAdd = this.commands[cmd].helpShort;
+				if (currentMessage.length + toAdd.length >= 1900) { //If too long push to queue and reset it.
+					messageQueue.push(currentMessage);
+					currentMessage = '';
+				}
+				currentMessage += '\n' + toAdd;
+			}
+			messageQueue.push(currentMessage);
+			bot.getDMChannel(msg.author.id).then(chan => {
+				let sendInOrder = setInterval(() => { //eslint-disable-line no-unused-vars
+					if (messageQueue.length > 0)
+						bot.createMessage(chan, '```glsl' + messageQueue.shift() + '```'); //If still messages queued send the next one.
+					else clearInterval(sendInOrder);
+				}, 300);
+			});
+
+		} else {
+			let cmd = this.checkForMatch(command);
+			console.log(`${cDebug(' COMMAND MANAGER HELP ')} Getting help for command ${command}`);
+			if (cmd === null) //If no matching command
+				bot.createMessage(msg.channel.id, `Command \`${this.prefix}${command}\` not found`);
+			else
+				bot.createMessage(msg.channel.id, cmd.helpMessage);
+		}
+	}
+
+	/**
+	* Show that a command was executed in the console.
+	* @arg {Eris.Message} msg The message object that triggered the command.
+	* @arg {String} commandName The name of the executed command.
+	* @arg {String} after The text after the command and prefix, cleaned mentions.
+	*/
+	logCommand(msg, commandName, after) {
+		let toLog = '';
+		if (msg.channel.guild)
+			toLog += `${cServer(msg.channel.guild.name)} >> `;
+		toLog += `${cGreen(msg.author.username)} > `;
+		if (this.color !== false)
+			toLog += this.color(this.prefix + commandName) + after;
+		else
+			toLog += this.prefix + commandName + after;
+		console.log(toLog);
+	}
+}
+
+module.exports = CommandManager;
+</code></pre> </article>
+		</section>
+	</div>
+	<br class="clear">
+	<footer> Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.4</a> on Wed Jun 22 2016 18:34:19 GMT-0500 (Central Daylight Time) using the Minami theme. </footer>
+	<script>
+		prettyPrint();
+
+	</script>
+	<script src="scripts/linenumber.js"></script>
+</body>
+
+</html>
