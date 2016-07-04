@@ -1,142 +1,137 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-US">
 <head>
     <meta charset="utf-8">
-    <title>Bot-chan for Discord</title>
+    <title>Mirai Bot</title>
     <meta name="author" content="Brussell">
-    <meta name="description" content="Everything you need to know about Bot-chan on Discord">
-    <link rel="icon" type="image/png" href="../images/avatar.png">
+    <meta name="description" content="Mirai, An all-in-one Discord bot.">
+    <link rel="icon" type="image/png" href="../images/icon.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-    <link rel="stylesheet" href="style.css">
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://brussell98.github.io/bot/index.html" />
+	<meta property="og:title" content="Mirai - An all-in-one bot for Discord" />
+	<meta property="og:description" content="Enhance your Discord experience with Mirai! Designed to do make things easier for you, get all of your information without opening a new window." />
+	<meta property="og:site_name" content="Mirai Bot's Website" />
+	<meta property="og:image" content="https://brussell98.github.io/images/icon.png" />
+	<meta property="og:locale" content="en-US" />
+
+	<link rel="stylesheet" href="css/master.min.css" charset="utf-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	<script src="js/master.js" charset="utf-8"></script>
 </head>
 <body>
-    <nav>
-        <div class="wrap">
-            <h2>Bot-chan</h2>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li class="dropdown">
-                    <a href="commands.html">Commands</a>
-                    <ul>
-                        <li><a href="reminders.html">Reminders</a></li>
-                        <li><a href="osu.html">osu! commands</a></li>
-                    </ul>
-                </li>
-                <li><a href="serversettings.html">Settings</a></li>
-            </ul>
-        </div>
-    </nav>
-    <header>
-        <div class="wrap">
-            <p><img class="logo" src="../images/avatar.png" alt="Bot-chan avatar"></p>
-            <h1>Bot-chan</h1>
-            <p class="tagline">The Best Bot on Discord.</p>
-            <div class="quote-cycler">
-                <div class="quote-cycler-inner">
-                    <div class="quote"><p>
-                        "5/7" —Akharu
-                    </p></div>
-                    <div class="quote"><p>
-                        "Rated Honoka a 2, would not recommend" —Geo☆1088
-                    </p></div>
-                    <div class="quote"><p>
-                        "I use it so it must be great" —Brussell
-                    </p></div>
-                    <div class="quote"><p>
-                        "Brussell pls" —Some people
-                    </p></div>
-                    <div class="quote"><p>
-                        "I'd rate it 👌/10" —Some Guy
-                    </p></div>
-                    <div class="quote"><p>
-                        "it's pretty gr8 tbh" —Anonymous
-                    </p></div>
-                    <div class="quote"><p>
-                        "Bot-chan is my waifu!" —Some weeb
-                    </p></div>
-                    <div class="quote"><p>
-                        "No she's <em>my</em> waifu!" —Another weeb
-                    </p></div>
-                </div>
-            </div>
-            <p>
-                <a href="https://discordapp.com/oauth2/authorize?&client_id=168128745893396480&scope=bot&permissions=268528663&redirect_uri=http://brussell98.github.io/bot/commands.html&response_type=code" class="add"><i class="fa fa-plus"></i>&nbsp; Add to your server</a>
-            </p>
-        </div>
-    </header>
-    <main>
-        <h2>Benefits</h2>
-        <div class="flex">
-            <div class="card">
-                <h3><i class="fa fa-plus"></i> Fast Response</h3>
-                <p>Bot-chan is hosted on a server instead of my home PC. This means that you don't have to worry about the bot being offline or being slow to respond. (Does not account for other APIs slowing it down)</p>
-            </div>
-            <div class="card">
-                <h3><i class="fa fa-lock"></i> Permissions-based</h3>
-                <p>All commands are based on the permissions of the user. This means the bot can be used without any setup. Of course, if you want to use all features of the bot head over to the settings page.</p>
-            </div>
-            <div class="card">
-                <h3><i class="fa fa-cog"></i> Customizeable</h3>
-                <p>You can change the settings of the bot for each server. Some things include ignoring channels, custom welcome messages, and ban alerts. Head over to the settings page for more information.</p>
-            </div>
-        </div>
-        <h2>Features</h2>
-        <div class="flex">
-            <div class="card">
-                <h3><i class="fa fa-comment"></i> Cleverbot</h3>
-                <p>By far the most used feature, the cleverbot module allows you to have conversations with the bot by mentioning it in your message.</p>
-            </div>
-            <div class="card">
-                <h3><i class="fa fa-bullhorn"></i> Announcements</h3>
-                <p>Server moderators can use the bot to send a message to all users on the server via a private message.</p>
-            </div>
-            <div class="card">
-                <h3><i class="fa fa-search"></i> MAL Search</h3>
-                <p>Using a search command, users can use the bot to search for anime or manga information on MyAnimeList right from chat.</p>
-            </div>
-            <div class="card">
-                <h3><i class="fa fa-pencil-square"></i> User Colors</h3>
-                <p>Want to give users custom role colors? You can use the bot to set the hex color of a role or give a user their own color.</p>
-            </div>
-            <div class="card">
-                <h3><i class="fa fa-gamepad"></i> osu! Commands</h3>
-                <p>The bot features four osu! commands. It can generate an osu!next styled signature for a user. It can also fetch a user's stats and best or recent plays.</p>
-            </div>
-            <div class="card">
-                <h3><i class="fa fa-star"></i> Waifu Rater</h3>
-                <p>Have the bot rate waifus! This is based on scores from the best girl contests. It features auto-complete so it will try to match partial names. (You can also try it on users!)</p>
-            </div>
-            <div class="card">
-                <h3><i class="fa fa-shopping-basket"></i> Lotteries</h3>
-                <p>Start a lottery that users can enter and the bot will choose winners from the entries. Great for giveaways.</p>
-            </div>
-            <div class="card">
-                <h3><i class="fa fa-minus-circle"></i> Mod Reasons</h3>
-                <p>You can provide a reason or message that users will recieve when kicked or banned. Great for mobile until Discord catches up on their mobile apps.</p>
-            </div>
-            <div class="card">
-                <h3><i class="fa fa-volume-off"></i> Temporary Mutes</h3>
-                <p>Give a user the "muted" role (even from mobile) for a specified ammount of time. After that time is up they will become unmuted.</p>
-            </div>
-            <div class="card">
-                <h3><i class="fa fa-picture-o"></i> Imgur Search</h3>
-                <p>Grab an image from a subreddit during the specified timeframe. Excludes NSFW images by default, but you can include them with other arguments.</p>
-            </div>
-            <div class="card">
-                <h3><i class="fa fa-bell"></i> Reminders</h3>
-                <p>Have the bot remind you of something. The reminder will be sent via PM so you'll get a notification and it won't get lost in chat. You can also remove reminders.</p>
-            </div>
-        </div>
-        <h2>What are you waiting for?</h2>
-        <p><a href="https://discordapp.com/oauth2/authorize?&client_id=168128745893396480&scope=bot&permissions=268528663&redirect_uri=http://brussell98.github.io/bot/commands.html&response_type=code" class="add"><i class="fa fa-plus"></i>&nbsp; Start Using Bot-chan</a></p>
-    </main>
-    <footer>
-        <div class="wrap">
-            <p>Copyright &copy; 2016 <a href="https://brussell98.github.io/">Brandon Russell</a>. Website by <a href="https://geo1088.github.io/">Geo1088</a>.</p>
-        </div>
-    </footer>
+	<section class="hero is-medium is-bold is-primary">
+		<div class="hero-head">
+			<header class="nav has-shadow">
+				<div class="container">
+					<div class="nav-left">
+						<a href="index.html" class="nav-item nav-name">Mirai Bot</a>
+					</div>
+					<span class="nav-toggle">
+						<span></span>
+						<span></span>
+						<span></span>
+					</span>
+					<div class="nav-right nav-menu">
+						<a class="nav-item is-active">Home</a>
+						<a href="commands.html" class="nav-item">Commands</a>
+						<a href="serversettings.html"class="nav-item">Settings</a>
+						<a href="docs/index.html"class="nav-item">Documentation</a>
+						<span class="nav-item">
+							<a href="https://github.com/brussell98/Mirai" class="button is-primary is-inverted">
+								<span class="icon">
+									<i class="fa fa-github"></i>
+								</span>
+								<span>GitHub</span>
+							</a>
+						</span>
+					</div>
+				</div>
+			</header>
+		</div>
+		<div class="hero-body">
+			<div class="container has-text-centered">
+				<h1 class="title is-1">Mirai</h1>
+				<h2 class="subtitle is-3">The Best Discord Bot</h2>
+			</div>
+		</div>
+	</section>
+
+	<section class="section">
+		<div class="container has-text-centered">
+			<h3 class="title">Already convinced?</h3><a href="https://discordapp.com/oauth2/authorize?&client_id=168128745893396480&scope=bot&permissions=268528663" target="_blank" class="button is-primary is-large is-outlined">
+				Add to your server&nbsp;<span class="icon"><i class="fa fa-plus"></i></span>
+			</a>
+			<hr />
+			<h3 class="title is-3">Designed to give you the best experience possible, with tons of uses.</h3>
+			<h4 class="subtitle is-4">Here are some features...</h4>
+			<div class="tile is-ancestor">
+				<div class="tile is-parent">
+					<div class="tile is-child box">
+						<p class="title is-3">No Setup Required</p>
+						<p>
+							Everything is based on a user's permissions, meaning you don't need to configure roles with Mirai.
+						</p>
+					</div>
+				</div>
+				<div class="tile is-parent">
+					<div class="tile is-child box">
+						<p class="title is-3">Customizable</p>
+						<p>
+							Make the bot work how you want it to. Set an event channel to keep track of what happens on your server. Set up a welcome message to greet new users. Stop a user from using certain commands. There are many options avalible.
+						</p>
+					</div>
+				</div>
+				<div class="tile is-parent">
+					<div class="tile is-child box">
+						<p class="title is-3">Cleverbot</p>
+						<p>
+							Everyone's favorite feature, you can talk to Mirai. Just start a message with <strong>@Mirai</strong> or send Mirai a direct message.
+						</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="tile is-ancestor">
+				<div class="tile is-parent">
+					<div class="tile is-child box">
+						<p class="title is-3">Reminders</p>
+						<p>
+							Set reminders right in Discord. This advanced command with send you a message containing your reminder after a set ammount of time.
+						</p>
+					</div>
+				</div>
+				<div class="tile is-parent">
+					<div class="tile is-child box">
+						<p class="title is-3">osu! Commands</p>
+						<p>
+							Many osu! commands so you can show off to your server. Have Mirai post a signature generated by lemmmy's sig generator. Get a user's top 5 plays, and more.
+						</p>
+					</div>
+				</div>
+				<div class="tile is-parent">
+					<div class="tile is-child box">
+						<p class="title is-3">Vote, Strawpolls, &amp; Lotteries</p>
+						<p>
+							Get poeple's opinions with a vote or strawpoll, or host a giveaway and start a lottery.
+						</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="tile is-ancestor">
+				<div class="tile is-parent">
+					<div class="tile is-child box">
+						<p class="title is-3">Easy Color Management</p>
+						<p>
+							Easily change a user or role's color with a single command. Role creating, naming, and deletion are taken care of.
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
 </body>
 <script>
 	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
