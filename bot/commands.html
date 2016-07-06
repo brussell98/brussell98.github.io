@@ -1,449 +1,204 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-US">
 <head>
-    <meta charset="utf-8">
-    <title>Bot-chan command list</title>
+	<meta charset="utf-8">
+    <title>Mirai Bot - Commands</title>
     <meta name="author" content="Brussell">
-    <meta name="description" content="The list of commands for Bot-chan on Discord">
-    <link rel="icon" type="image/png" href="../images/avatar.png">
+    <meta name="description" content="A list of Mirai's commands.">
+    <link rel="icon" type="image/jpg" href="../images/icon.jpg">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-	<script src="examples.js"></script>
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://brussell98.github.io/bot/commands.html" />
+	<meta property="og:title" content="Mirai - An all-in-one bot for Discord" />
+	<meta property="og:description" content="A complete and descriptive list of Mirai's commands." />
+	<meta property="og:site_name" content="Mirai Bot's Website" />
+	<meta property="og:image" content="https://brussell98.github.io/images/icon.jpg" />
+	<meta property="og:locale" content="en-US" />
+
+	<link rel="stylesheet" href="css/master.min.css" charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
 </head>
 <body>
-    <nav>
-        <div class="wrap wide">
-            <h2>Bot-chan</h2>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-				<li class="dropdown">
-                    <a href="#">Commands</a>
-                    <ul>
-                        <li><a href="reminders.html">Reminders</a></li>
-                        <li><a href="osu.html">osu! commands</a></li>
-                    </ul>
-                </li>
-                <li><a href="serversettings.html">Settings</a></li>
-            </ul>
-        </div>
-    </nav>
-    <header>
-        <div class="wrap">
-            <h1>Commands</h1>
-            <p class="tagline">"How to Tame Your Bot-chan"</p>
-        </div>
-    </header>
-    <main class="wide">
-        <h2>Standard</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Command</th>
-                    <th>Description</th>
-                    <th>Example</th>
-                    <th>Aliases</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>@Bot-chan <i>Text</i></td>
-                    <td>Doing this will let you talk to the bot.</td>
-                    <td><button onclick="alert(cleverbot())">
-						@Bot-chan are you real?
-					</button></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>]help [<i>command</i>]</td>
-                    <td>Get a list of commands or information on a specific command.</td>
-                    <td><button onclick="alert(help())">
-						]help osu
-					</button></td>
-                    <td>h, commands</td>
-                </tr>
-                <tr>
-                    <td>]id [channel]</td>
-                    <td>Get your user ID. If the suffix is "channel" get the channel's ID.</td>
-                    <td><button onclick="alert(getid())">
-						]id channel
-					</button></td>
-                    <td>myid</td>
-                </tr>
-                <tr>
-                    <td>]ping</td>
-                    <td>Check if the bot is working. Tells you response time in ms.</td>
-                    <td><button onclick="alert(ping())">
-						]ping
-					</button></td>
-                    <td>p</td>
-                </tr>
-                <tr>
-                    <td>]beep</td>
-                    <td>boop</td>
-                    <td><button onclick="alert('boop')">
-						]beep
-					</button></td>
-                    <td></td>
-                </tr>
-				<tr>
-                    <td>]reverse</td>
-                    <td>Reverses text</td>
-                    <td><button onclick="reverse()">
-						]reverse
-					</button></td>
-                    <td>backwards</td>
-                </tr>
-                <tr>
-                    <td>]invite</td>
-                    <td>Get the link to add the bot to a server.</td>
-                    <td><button onclick="alert(invite())">
-						]invite
-					</button></td>
-                    <td>join</td>
-                </tr>
-                <tr>
-                    <td>]about</td>
-                    <td>Display info about the bot.</td>
-                    <td><button onclick="alert(about())">
-						]about
-					</button></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>]dice [<i>(rolls)</i>d<i>(sides)</i>]</td>
-                    <td>Roll a dice with 6 sides or as specified.</td>
-                    <td><button onclick="alert(dice())">
-						]dice 2d12
-					</button></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>]roll [<i>max</i>]</td>
-                    <td>Roll a random number between 1-max or 1-100.</td>
-                    <td><button onclick="roll()">
-						]roll 10
-					</button></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>]info [<i>user</i>]</td>
-                    <td>Get info on the server, or, if specified, a user</td>
-                    <td><button onclick="alert(info())">
-						]info Brussell | Bot-chan
-					</button></td>
-                    <td>i, user, userinfo, serverinfo</td>
-                </tr>
-                <tr>
-                    <td>]choose &lt;<i>option</i>&gt; | &lt;<i>option</i>&gt; | [<i>option</i>] ...</td>
-                    <td>Makes a choice for you.</td>
-                    <td>]choose sleep | discord</td>
-                    <td>c, pick</td>
-                </tr>
-                <tr>
-                    <td>]lotto end | enter | start | draw[ -k] | @users to pick from | everyone</td>
-                    <td></td>
-                    <td>]lotto new, ]lotto draw, ]lotto @Brussell @Not-Brussell</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>]strawpoll &lt;<i>option</i>&gt; | &lt;<i>option</i>&gt; | [<i>option</i>] ...</td>
-                    <td>Create a strawpoll.</td>
-                    <td>]strawpoll DOTA2 | LoL</td>
-                    <td>straw, poll</td>
-                </tr>
-                <tr>
-                    <td>]vote &lt;choice&gt;, end, check, new [t:&lt;topic&gt;] | &lt;option&gt; | &lt;option&gt;[ | &lt;option&gt;...]</td>
-                    <td>Vote on something.</td>
-                    <td>]vote new t:Best game? | Overwatch | Battleborn | Team Fortress 2, ]vote Overwatch</td>
-                    <td>v</td>
-                </tr>
-                <tr>
-                    <td>]8ball [<i>question</i>]</td>
-                    <td>Ask the magic 8 ball.</td>
-                    <td>]8ball</td>
-                    <td>8, ball</td>
-                </tr>
-                <tr>
-                    <td>]anime &lt;<i>search</i>&gt;</td>
-                    <td>Get info on an anime from MAL.</td>
-                    <td>]anime Boku Dake</td>
-                    <td>animu</td>
-                </tr>
-                <tr>
-                    <td>]manga &lt;<i>search</i>&gt;</td>
-                    <td>Get info on a manga from MAL.</td>
-                    <td>]manga hero academia</td>
-                    <td>mango</td>
-                </tr>
-				<tr>
-                    <td>]maluser &lt;<i>user</i>&gt;</td>
-                    <td>Get info on a user's MAL.</td>
-                    <td>]maluser brussell98</td>
-                    <td>mal</td>
-                </tr>
-                <tr>
-                    <td>]coinflip</td>
-                    <td>Flip a coin.</td>
-                    <td>]coinflip</td>
-                    <td>coin, flip</td>
-                </tr>
-                <tr>
-                    <td>]avatar [<i>user</i>]</td>
-                    <td>Get a user's avatar.</td>
-                    <td>]avatar Bruss</td>
-                    <td>a</td>
-                </tr>
-                <tr>
-                    <td>]rps</td>
-                    <td>Rock, paper, scissors.</td>
-                    <td>]rps</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>]weather &lt;<i>city | zip code</i>&gt; [,<i>country code</i>]</td>
-                    <td>Get the weather for a place. Uses Open Weather Map.</td>
-                    <td>]weather new york,us</td>
-                    <td>w</td>
-                </tr>
-                <tr>
-                    <td>]botserver</td>
-                    <td>Get an invite to the Bot-chan server.</td>
-                    <td>]botserver</td>
-                    <td>server</td>
-                </tr>
-                <tr>
-                    <td>]numberfacts [<i>number</i>]</td>
-                    <td>Facts on a number.</td>
-                    <td>]numberfacts 42</td>
-                    <td>num, number</td>
-                </tr>
-                <tr>
-                    <td>]catfacts</td>
-                    <td>Catfacts!</td>
-                    <td>]catfacts</td>
-                    <td>cat, meow, neko</td>
-                </tr>
-                <tr>
-                    <td>]ratewaifu [--s[earch]]</td>
-                    <td>Rate a waifu. Works on users too!</td>
-                    <td>]ratewaifu Rikka</td>
-                    <td>r, rate, waifu</td>
-                </tr>
-                <tr>
-                    <td>]image &lt;<i>subreddit</i>&gt; [--nsfw] [--day | --week | --month | --year | --all]</td>
-                    <td>Get a random image from Imgur.</td>
-                    <td>]image awwnime --month</td>
-                    <td>imgur</td>
-                </tr>
-                <tr>
-                    <td>]osu ...</td>
-                    <td colspan="3"><a href="osu.html">Check out this fancy page for the osu! commands</a></td>
-                </tr>
-                <tr>
-                    <td>]fortune [<i>category</i>]</td>
-                    <td>Get a fortune from yerkee.com/api. The categories are: all, computers, cookie, definitions, miscellaneous, people, platitudes, politics, science, and wisdom. By default wisdom is selected.</td>
-                    <td>]fortune cookie</td>
-                    <td>f</td>
-                </tr>
-                <tr>
-                    <td>]shared [<i>user</i>]</td>
-                    <td>Get a list of the servers a user shares with me.</td>
-                    <td>]shared Bruss</td>
-                    <td></td>
-                </tr>
-				<tr>
-                    <td>]remindme ...</td>
-                    <td colspan="2"><a href="reminders.html">More detailed information on reminders can be found here.</a></td>
-                    <td>remind, reminder</td>
-                </tr>
-				<tr>
-                    <td>]mentions</td>
-                    <td>Find out why you were mentioned.</td>
-                    <td>]mentions</td>
-                    <td></td>
-                </tr>
-				<tr>
-                    <td>]inrole &lt;<i>role</i>&gt;</td>
-                    <td>Get a list of users in a role.</td>
-                    <td>]inrole Mods</td>
-                    <td>withrole</td>
-                </tr>
-                <tr>
-                    <td>]rip &lt;<i>text</i>&gt;</td>
-                    <td>RIP.</td>
-                    <td>]rip Bot-chan</td>
-                    <td>rekt</td>
-                </tr>
-				<tr>
-                    <td>]names &lt;<i>user</i>&gt;</td>
-                    <td>Get a list of different nicknames a user has.</td>
-                    <td>]names Bot-chan</td>
-                    <td>nicks</td>
-                </tr>
-				<tr>
-                    <td>]joinedat &lt;<i>user</i>&gt;</td>
-                    <td>Find out exactly when a user joined the server.</td>
-                    <td>]joinedat Bot-chan | Brussell</td>
-                    <td>joined, joindate</td>
-                </tr>
-				<tr>
-                    <td>]csslint &lt;<i>css</i>&gt;</td>
-                    <td>Lint CSS right in Discord!</td>
-                    <td>]lintcss div p { margin: 5px 0 5px 2px 6px; }</td>
-                    <td>css</td>
-                </tr>
-				<tr>
-                    <td>]currency &lt;<i>ammount</i>&gt; &lt;<i>CODE</i>&gt; to &lt;<i>CODE</i>&gt;</td>
-                    <td>Convert between currencies.</td>
-                    <td>]currency 100 USD to JPY</td>
-                    <td>convert</td>
-                </tr>
-				<tr>
-                    <td>]emojify &lt;<i>text</i>&gt;</td>
-                    <td>Convert text into emojies!</td>
-                    <td>]emojify Maximum cancer</td>
-                    <td>emoji, cancerify</td>
-                </tr>
-				<tr>
-                    <td>]fullwidth [<i>text</i>]</td>
-                    <td>Convert text to fullwidth characters.</td>
-                    <td>]fullwidth AESTHETIC</td>
-                    <td>aesthetic</td>
-                </tr>
-            </tbody>
-        </table>
-        <h2>Mod tools</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Command</th>
-                    <th>Description</th>
-                    <th>Example</th>
-                    <th>Aliases</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>}help [<i>command</i>]</td>
-                    <td>Get a list of commands or info on a specific command.</td>
-                    <td>}help ban</td>
-                    <td>h, commands</td>
-                </tr>
-                <tr>
-                    <td>}leave</td>
-                    <td>Leaves the server.</td>
-                    <td>}leave</td>
-                    <td>l</td>
-                </tr>
-                <tr>
-                    <td>}stats</td>
-                    <td>Get stats on the bot.</td>
-                    <td>}stats</td>
-                    <td>s, stat, status</td>
-                </tr>
-                <tr>
-                    <td>}clean &lt;<i>1-100</i>&gt;</td>
-                    <td>Clean bot messages.</td>
-                    <td>}clean 10</td>
-                    <td>c</td>
-                </tr>
-                <tr>
-                    <td>}prune &lt;<i>1-100</i>&gt; [[term] | user &lt;<i>@user</i>&gt; | images | links | invites]</td>
-                    <td>Prune messages from the channel.</td>
-                    <td>}prune 10 meme, }prune 15 user @Brussell, }prune 1 link</td>
-                    <td>p</td>
-                </tr>
-                <tr>
-                    <td>}playing [<i>game</i>]</td>
-                    <td>Allows the bot owner to change the bot's status.</td>
-                    <td>}playing with dank memes</td>
-                    <td>play</td>
-                </tr>
-                <tr>
-                    <td>}announce &lt;<i>message</i>&gt;</td>
-                    <td>Announce a message to all memebrs on your server. (PM)</td>
-                    <td>}announce Bot-chan best bot tbh</td>
-                    <td>a, ann</td>
-                </tr>
-                <tr>
-                    <td>}changelog</td>
-                    <td>Get the two most recent changelogs.</td>
-                    <td>}chanelogs</td>
-                    <td>change, logs, chanelogs</td>
-                </tr>
-                <tr>
-                    <td>}color &lt;<i>role name</i>&gt; &lt;<i>hex color</i>&gt;</td>
-                    <td>Change a role's color.</td>
-                    <td>}color Admin #e57373</td>
-                    <td>rolec, rolecolor</td>
-                </tr>
-                <tr>
-                    <td>}givecolor &lt;<i>@users</i>&gt; &lt;<i>color as hex</i>&gt;</td>
-                    <td>Give a user a role color.</td>
-                    <td>}givecolor @Brussell #e57373</td>
-                    <td>gc, setcolor</td>
-                </tr>
-                <tr>
-                    <td>}removecolor clean | @users | #hexcolor</td>
-                    <td>clean: Delete unused colors that were left behind. users: Remove the user's colors. #hexcolor: Remove this color.</td>
-                    <td>}removecolor #e57373</td>
-                    <td>rc, takecolor, rmcolor, deletecolor</td>
-                </tr>
-                <tr>
-                    <td>}settings &lt;enable/disable&gt; &lt;<i>setting</i>&gt; | notify here | welcome &lt;<i>message</i>&gt; | check | help</td>
-                    <td>For adjusting server settings.</td>
-                    <td>}settings enable ban alerts</td>
-                    <td>config, set</td>
-                </tr>
-                <tr>
-                    <td>}kick &lt;<i>@users</i>&gt; [<i>message</i>]</td>
-                    <td>Kick users with a message.</td>
-                    <td>}kick @Brussell for not testing things.</td>
-                    <td>getout</td>
-                </tr>
-                <tr>
-                    <td>}ban &lt;<i>@users</i>&gt; [<i>message</i>]</td>
-                    <td>Ban users with a message and delete 1 day's worth of messages from them.</td>
-                    <td>}ban @Geo☆1088 for messing up the CSS.</td>
-                    <td>ko, banhammer, finishhim, rek</td>
-                </tr>
-                <tr>
-                    <td>}ignore</td>
-                    <td>Have the bot ignore a channel. Mod commands will still be processed.</td>
-                    <td>}ignore</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>}unignore</td>
-                    <td>Have the bot stop ignoring a channel.</td>
-                    <td>}unignore</td>
-                    <td></td>
-                </tr>
-            </tbody>
-        </table>
-        <h2>Planned (Soon&trade;)</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Command</th>
-                    <th>Description</th>
-                    <th>Example</th>
-                    <th>Aliases</th>
-                </tr>
-            </thead>
-            <tbody>
+	<section class="hero is-medium is-bold is-info">
+		<div class="hero-head">
+			<header class="nav has-shadow">
+				<div class="container">
+					<div class="nav-left">
+						<a href="index.html" class="nav-item nav-name">Mirai Bot</a>
+					</div>
+					<span class="nav-toggle">
+						<span></span>
+						<span></span>
+						<span></span>
+					</span>
+					<div class="nav-right nav-menu">
+						<a href="index.html" class="nav-item">Home</a>
+						<a class="nav-item is-active">Commands</a>
+						<a href="serversettings.html"class="nav-item">Settings</a>
+						<a href="docs/index.html"class="nav-item">Documentation</a>
+						<span class="nav-item">
+							<a href="https://github.com/brussell98/Mirai" class="button is-dark is-inverted">
+								<span class="icon">
+									<i class="fa fa-github"></i>
+								</span>
+								<span>GitHub</span>
+							</a>
+						</span>
+						<span class="nav-item">
+							<a href="http://patreon.com/brussell98" class="button is-danger is-inverted">
+								<span class="icon">
+									<i class="fa fa-gift"></i>
+								</span>
+								<span>Patreon</span>
+							</a>
+						</span>
+					</div>
+				</div>
+			</header>
+		</div>
+		<div class="hero-body">
+			<div class="container has-text-centered">
+				<h1 class="title is-1">Mirai</h1>
+				<h2 class="subtitle is-3">Command List</h2>
+			</div>
+		</div>
+	</section>
 
-            </tbody>
-        </table>
-    </main>
-    <footer>
-        <div class="wrap wide">
-            <p>Copyright &copy; 2016 <a href="https://brussell98.github.io/">Brandon Russell</a>. Website by <a href="https://geo1088.github.io/">Geo1088</a>.</p>
-        </div>
-    </footer>
+	<section class="section">
+		<div class="container">
+			<div class="tabs is-centered is-boxed">
+				<ul>
+					<li class="is-active">
+						<a id="normal-tab">Normal</a>
+					</li>
+					<li>
+						<a id="moderation-tab">Moderation</a>
+					</li>
+					<li>
+						<a>Reminders</a>
+					</li>
+					<li>
+						<a>osu!</a>
+					</li>
+				</ul>
+			</div>
+			<br />
+			<!-- Alphabetical Order -->
+			<div id="normal">
+				<div class="card is-customwidth">
+					<header class="card-header">
+						<p class="card-header-title">About</p>
+						<a class="card-header-icon card-toggle">
+							<i class="fa fa-angle-down"></i>
+						</a>
+					</header>
+					<div class="card-content is-hidden">
+						<div class="content">
+							Shows you some info about Mirai. Also contains some useful links.
+							<br />
+							<code>]about</code><br />
+							<small>Coldown: 5 seconds</small>
+						</div>
+					</div>
+				</div>
+
+				<div class="card is-customwidth">
+					<header class="card-header">
+						<p class="card-header-title">Choose</p>
+						<a class="card-header-icon card-toggle">
+							<i class="fa fa-angle-down"></i>
+						</a>
+					</header>
+					<div class="card-content is-hidden">
+						<div class="content">
+							Have Mirai make a tough decision for you.
+							<br />
+							<code>]choose &lt;choice&gt; | &lt;choice&gt; [| choice...]</code><br />
+							<small>Aliases: c, pick, decide</small><br />
+							<small>Coldown: 2 seconds</small>
+						</div>
+					</div>
+				</div>
+
+				<div class="card is-customwidth">
+					<header class="card-header">
+						<p class="card-header-title">Invite</p>
+						<a class="card-header-icon card-toggle">
+							<i class="fa fa-angle-down"></i>
+						</a>
+					</header>
+					<div class="card-content is-hidden">
+						<div class="content">
+							Get the link to add the bot to another server.
+							<br />
+							<code>]invite</code><br />
+							<small>Aliases: oauth</small><br />
+							<small>Coldown: 5 seconds</small>
+						</div>
+					</div>
+				</div>
+
+				<div class="card is-customwidth">
+					<header class="card-header">
+						<p class="card-header-title">Ping</p>
+						<a class="card-header-icon card-toggle">
+							<i class="fa fa-angle-down"></i>
+						</a>
+					</header>
+					<div class="card-content is-hidden">
+						<div class="content">
+							Check if the bot is working. It also returns the delay in response.
+							<br />
+							<code>]ping</code><br />
+							<small>Aliases: p</small><br />
+							<small>Coldown: 2 seconds</small>
+						</div>
+					</div>
+				</div>
+
+				<div class="card is-customwidth">
+					<header class="card-header">
+						<p class="card-header-title">Random Comic</p>
+						<a class="card-header-icon card-toggle">
+							<i class="fa fa-angle-down"></i>
+						</a>
+					</header>
+					<div class="card-content is-hidden">
+						<div class="content">
+							Grab a random comic from <a href="http://explosm.net/rcg">explosm.net/rcg</a>.
+							<br />
+							<code>]randomcomic</code><br />
+							<small>Aliases: rcg, comic</small><br />
+							<small>Coldown: 10 seconds</small>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div id="moderation" class="is-hidden">
+				<div class="card is-customwidth">
+					<header class="card-header">
+						<p class="card-header-title">Settings</p>
+						<a class="card-header-icon card-toggle">
+							<i class="fa fa-angle-down"></i>
+						</a>
+					</header>
+					<div class="card-content is-hidden">
+						<div class="content">
+							Adjust the settings for how the bot works on the server. More information here: <a href="serversettings.html">Settings</a>.
+							<br />
+							<code>See page for usage</code><br />
+							<small>Aliases: set, config</small><br />
+							<small>Coldown: 3 seconds</small>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
 </body>
+<script src="js/master.js" charset="utf-8"></script>
 <script>
 	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -451,5 +206,28 @@
 	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 	ga('create', 'UA-72190085-1', 'auto');
 	ga('send', 'pageview');
+</script>
+<script type="text/javascript">
+	['normal', 'moderation'].forEach(function(t) {
+		document.getElementById(t + '-tab').addEventListener('click', function(e) {
+			if (e.currentTarget.classList.contains('is-active') === false) {
+				var toSearch = e.currentTarget.parentNode.parentNode.parentNode.parentNode.children;
+				for (var i = 2; i < toSearch.length; i++) {
+					if (toSearch[i].id === t) {
+						toSearch[i].classList.remove('is-hidden');
+						continue;
+					}
+					if (toSearch[i].classList.contains('is-hidden') === false)
+						toSearch[i].classList.add('is-hidden');
+				}
+				var toSearch = toSearch[0].parentNode.children[0].children[0].children; //ugh
+				for (var i = 0; i < toSearch.length; i++) {
+					if (toSearch[i].classList.contains('is-active'))
+						toSearch[i].classList.remove('is-active')
+				}
+				e.currentTarget.parentNode.classList.add('is-active');
+			}
+		});
+	});
 </script>
 </html>
