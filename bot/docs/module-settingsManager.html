@@ -35,6 +35,7 @@
 					<li data-type='method'><a href="CommandManager.html#initialize">initialize</a></li>
 					<li data-type='method'><a href="CommandManager.html#logCommand">logCommand</a></li>
 					<li data-type='method'><a href="CommandManager.html#processCommand">processCommand</a></li>
+					<li data-type='method'><a href="CommandManager.html#reload">reload</a></li>
 				</ul>
 			</li>
 		</ul>
@@ -42,10 +43,17 @@
 		<ul>
 			<li><a href="module-settingsManager.html">settingsManager</a>
 				<ul class='methods'>
+					<li data-type='method'><a href="module-settingsManager.html#~addIgnoreForGuild">addIgnoreForGuild</a></li>
+					<li data-type='method'><a href="module-settingsManager.html#~addIgnoreForUserOrChannel">addIgnoreForUserOrChannel</a></li>
 					<li data-type='method'><a href="module-settingsManager.html#~getEventSetting">getEventSetting</a></li>
+					<li data-type='method'><a href="module-settingsManager.html#~getNSFW">getNSFW</a></li>
 					<li data-type='method'><a href="module-settingsManager.html#~getWelcome">getWelcome</a></li>
 					<li data-type='method'><a href="module-settingsManager.html#~handleDeletedChannel">handleDeletedChannel</a></li>
+					<li data-type='method'><a href="module-settingsManager.html#~isCommandIgnored">isCommandIgnored</a></li>
+					<li data-type='method'><a href="module-settingsManager.html#~removeIgnoreForGuild">removeIgnoreForGuild</a></li>
+					<li data-type='method'><a href="module-settingsManager.html#~removeIgnoreForUserOrChannel">removeIgnoreForUserOrChannel</a></li>
 					<li data-type='method'><a href="module-settingsManager.html#~setEventChannel">setEventChannel</a></li>
+					<li data-type='method'><a href="module-settingsManager.html#~setNSFW">setNSFW</a></li>
 					<li data-type='method'><a href="module-settingsManager.html#~setWelcome">setWelcome</a></li>
 					<li data-type='method'><a href="module-settingsManager.html#~subEvents">subEvents</a></li>
 					<li data-type='method'><a href="module-settingsManager.html#~unsubEvents">unsubEvents</a></li>
@@ -82,7 +90,25 @@
 					</dl>
 				</div>
 				<h3 class="subsection-title">Members</h3>
+				<h4 class="name" id="~commandList"><span class="type-signature">(inner) </span>commandList<span class="type-signature"> :Object</span></h4>
+				<div class="description">
+					<p>A list of commands loaded by the bot by prefix.</p>
+				</div>
+				<h5>Type:</h5>
+				<ul>
+					<li> <span class="param-type">Object</span> </li>
+				</ul>
+				<dl class="details"> <dt class="tag-source">Source:</dt>
+					<dd class="tag-source">
+						<ul class="dummy">
+							<li> <a href="settingsManager.js.html">settingsManager.js</a>, <a href="settingsManager.js.html#line216">line 216</a> </li>
+						</ul>
+					</dd>
+				</dl>
 				<h4 class="name" id="~eventList"><span class="type-signature">(inner, constant) </span>eventList<span class="type-signature"> :Array.&lt;String></span></h4>
+				<div class="description">
+					<p>A list of avalible events.</p>
+				</div>
 				<h5>Type:</h5>
 				<ul>
 					<li> <span class="param-type">Array.&lt;String></span> </li>
@@ -95,11 +121,117 @@
 					</dd> <dt class="tag-source">Source:</dt>
 					<dd class="tag-source">
 						<ul class="dummy">
-							<li> <a href="settingsManager.js.html">settingsManager.js</a>, <a href="settingsManager.js.html#line76">line 76</a> </li>
+							<li> <a href="settingsManager.js.html">settingsManager.js</a>, <a href="settingsManager.js.html#line80">line 80</a> </li>
 						</ul>
 					</dd>
 				</dl>
 				<h3 class="subsection-title">Methods</h3>
+				<h4 class="name" id="~addIgnoreForGuild"><span class="type-signature">(inner) </span>addIgnoreForGuild<span class="signature">(guildId, command)</span><span class="type-signature"> &rarr; {Promise.&lt;Boolean>}</span></h4>
+				<div class="description">
+					<p>Add an ignore setting for a guild.</p>
+				</div>
+				<h5>Parameters:</h5>
+				<table class="params">
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>Type</th>
+							<th class="last">Description</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td class="name"><code>guildId</code></td>
+							<td class="type"> <span class="param-type">String</span> </td>
+							<td class="description last">
+								<p>The guild to apply the setting change for.</p>
+							</td>
+						</tr>
+						<tr>
+							<td class="name"><code>command</code></td>
+							<td class="type"> <span class="param-type">String</span> </td>
+							<td class="description last">
+								<p>The command to ignore including prefix. Use &quot;all&quot; as the command to ignore all.</p>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<dl class="details"> <dt class="tag-source">Source:</dt>
+					<dd class="tag-source">
+						<ul class="dummy">
+							<li> <a href="settingsManager.js.html">settingsManager.js</a>, <a href="settingsManager.js.html#line342">line 342</a> </li>
+						</ul>
+					</dd>
+				</dl>
+				<h5>Returns:</h5>
+				<div class="param-desc">
+					<p>Resloves when done containg a boolean indicating if a setting was changed.</p>
+				</div>
+				<dl class="param-type"> <dt>
+        Type
+    </dt>
+					<dd> <span class="param-type">Promise.&lt;Boolean></span> </dd>
+				</dl>
+				<h4 class="name" id="~addIgnoreForUserOrChannel"><span class="type-signature">(inner) </span>addIgnoreForUserOrChannel<span class="signature">(guildId, type, id, command)</span><span class="type-signature"> &rarr; {Promise.&lt;Boolean>}</span></h4>
+				<div class="description">
+					<p>Add an ignore setting for a user or channel.</p>
+				</div>
+				<h5>Parameters:</h5>
+				<table class="params">
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>Type</th>
+							<th class="last">Description</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td class="name"><code>guildId</code></td>
+							<td class="type"> <span class="param-type">String</span> </td>
+							<td class="description last">
+								<p>The guild to apply the setting change for.</p>
+							</td>
+						</tr>
+						<tr>
+							<td class="name"><code>type</code></td>
+							<td class="type"> <span class="param-type">String</span> </td>
+							<td class="description last">
+								<p>Either &quot;userIgnores&quot; or &quot;channelIgnores&quot;.</p>
+							</td>
+						</tr>
+						<tr>
+							<td class="name"><code>id</code></td>
+							<td class="type"> <span class="param-type">String</span> </td>
+							<td class="description last">
+								<p>The user or channel to apply the setting change for.</p>
+							</td>
+						</tr>
+						<tr>
+							<td class="name"><code>command</code></td>
+							<td class="type"> <span class="param-type">String</span> </td>
+							<td class="description last">
+								<p>The command to ignore including prefix. Use &quot;all&quot; as the command to ignore all.</p>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<dl class="details"> <dt class="tag-source">Source:</dt>
+					<dd class="tag-source">
+						<ul class="dummy">
+							<li> <a href="settingsManager.js.html">settingsManager.js</a>, <a href="settingsManager.js.html#line226">line 226</a> </li>
+						</ul>
+					</dd>
+				</dl>
+				<h5>Returns:</h5>
+				<div class="param-desc">
+					<p>Resloves when done containg a boolean indicating if a setting was changed.</p>
+				</div>
+				<dl class="param-type"> <dt>
+        Type
+    </dt>
+					<dd> <span class="param-type">Promise.&lt;Boolean></span> </dd>
+				</dl>
 				<h4 class="name" id="~getEventSetting"><span class="type-signature">(inner) </span>getEventSetting<span class="signature">(guildId, eventQ)</span><span class="type-signature"> &rarr; (nullable) {String}</span></h4>
 				<div class="description">
 					<p>Check if subscribed to an event and where to send it.</p>
@@ -133,7 +265,7 @@
 				<dl class="details"> <dt class="tag-source">Source:</dt>
 					<dd class="tag-source">
 						<ul class="dummy">
-							<li> <a href="settingsManager.js.html">settingsManager.js</a>, <a href="settingsManager.js.html#line161">line 161</a> </li>
+							<li> <a href="settingsManager.js.html">settingsManager.js</a>, <a href="settingsManager.js.html#line165">line 165</a> </li>
 						</ul>
 					</dd>
 				</dl>
@@ -146,9 +278,9 @@
     </dt>
 					<dd> <span class="param-type">String</span> </dd>
 				</dl>
-				<h4 class="name" id="~getWelcome"><span class="type-signature">(inner) </span>getWelcome<span class="signature">(guildId, username, serverName)</span><span class="type-signature"> &rarr; (nullable) {Array.&lt;String>}</span></h4>
+				<h4 class="name" id="~getNSFW"><span class="type-signature">(inner) </span>getNSFW<span class="signature">(guildId, channelId)</span><span class="type-signature"> &rarr; {Boolean}</span></h4>
 				<div class="description">
-					<p>Get a server's welcome message settings.</p>
+					<p>Edit the NSFW channels option for a guild.</p>
 				</div>
 				<h5>Parameters:</h5>
 				<table class="params">
@@ -164,21 +296,14 @@
 							<td class="name"><code>guildId</code></td>
 							<td class="type"> <span class="param-type">String</span> </td>
 							<td class="description last">
-								<p>The guild to get the setings for.</p>
+								<p>The id of the guild.</p>
 							</td>
 						</tr>
 						<tr>
-							<td class="name"><code>username</code></td>
+							<td class="name"><code>channelId</code></td>
 							<td class="type"> <span class="param-type">String</span> </td>
 							<td class="description last">
-								<p>The user that joined.</p>
-							</td>
-						</tr>
-						<tr>
-							<td class="name"><code>serverName</code></td>
-							<td class="type"> <span class="param-type">String</span> </td>
-							<td class="description last">
-								<p>The name of the server.</p>
+								<p>The channel to get the setting for.</p>
 							</td>
 						</tr>
 					</tbody>
@@ -186,7 +311,53 @@
 				<dl class="details"> <dt class="tag-source">Source:</dt>
 					<dd class="tag-source">
 						<ul class="dummy">
-							<li> <a href="settingsManager.js.html">settingsManager.js</a>, <a href="settingsManager.js.html#line62">line 62</a> </li>
+							<li> <a href="settingsManager.js.html">settingsManager.js</a>, <a href="settingsManager.js.html#line206">line 206</a> </li>
+						</ul>
+					</dd>
+				</dl>
+				<h5>Returns:</h5>
+				<div class="param-desc">
+					<p>If NSFW is allowed in that channel.</p>
+				</div>
+				<dl class="param-type"> <dt>
+        Type
+    </dt>
+					<dd> <span class="param-type">Boolean</span> </dd>
+				</dl>
+				<h4 class="name" id="~getWelcome"><span class="type-signature">(inner) </span>getWelcome<span class="signature">(guild, member)</span><span class="type-signature"> &rarr; (nullable) {Array.&lt;String>}</span></h4>
+				<div class="description">
+					<p>Get a server's welcome message settings.</p>
+				</div>
+				<h5>Parameters:</h5>
+				<table class="params">
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>Type</th>
+							<th class="last">Description</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td class="name"><code>guild</code></td>
+							<td class="type"> <span class="param-type">String</span> </td>
+							<td class="description last">
+								<p>The guild to get the setings for.</p>
+							</td>
+						</tr>
+						<tr>
+							<td class="name"><code>member</code></td>
+							<td class="type"> <span class="param-type">String</span> </td>
+							<td class="description last">
+								<p>The user that joined.</p>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<dl class="details"> <dt class="tag-source">Source:</dt>
+					<dd class="tag-source">
+						<ul class="dummy">
+							<li> <a href="settingsManager.js.html">settingsManager.js</a>, <a href="settingsManager.js.html#line65">line 65</a> </li>
 						</ul>
 					</dd>
 				</dl>
@@ -225,9 +396,182 @@
 				<dl class="details"> <dt class="tag-source">Source:</dt>
 					<dd class="tag-source">
 						<ul class="dummy">
-							<li> <a href="settingsManager.js.html">settingsManager.js</a>, <a href="settingsManager.js.html#line171">line 171</a> </li>
+							<li> <a href="settingsManager.js.html">settingsManager.js</a>, <a href="settingsManager.js.html#line476">line 476</a> </li>
 						</ul>
 					</dd>
+				</dl>
+				<h4 class="name" id="~isCommandIgnored"><span class="type-signature">(inner) </span>isCommandIgnored<span class="signature">(prefix, command, guildId, channelId, userId)</span><span class="type-signature"> &rarr; {Boolean}</span></h4>
+				<div class="description">
+					<p>Check if a command is ignored.</p>
+				</div>
+				<h5>Parameters:</h5>
+				<table class="params">
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>Type</th>
+							<th class="last">Description</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td class="name"><code>prefix</code></td>
+							<td class="type"> <span class="param-type">String</span> </td>
+							<td class="description last">
+								<p>The command's prefix or an empty string for cleverbot.</p>
+							</td>
+						</tr>
+						<tr>
+							<td class="name"><code>command</code></td>
+							<td class="type"> <span class="param-type">String</span> </td>
+							<td class="description last">
+								<p>The name of the command including prefix or &quot;cleverbot&quot;.</p>
+							</td>
+						</tr>
+						<tr>
+							<td class="name"><code>guildId</code></td>
+							<td class="type"> <span class="param-type">String</span> </td>
+							<td class="description last">
+								<p>The guild to check for.</p>
+							</td>
+						</tr>
+						<tr>
+							<td class="name"><code>channelId</code></td>
+							<td class="type"> <span class="param-type">String</span> </td>
+							<td class="description last">
+								<p>The channel to check for.</p>
+							</td>
+						</tr>
+						<tr>
+							<td class="name"><code>userId</code></td>
+							<td class="type"> <span class="param-type">String</span> </td>
+							<td class="description last">
+								<p>The user to check for.</p>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<dl class="details"> <dt class="tag-source">Source:</dt>
+					<dd class="tag-source">
+						<ul class="dummy">
+							<li> <a href="settingsManager.js.html">settingsManager.js</a>, <a href="settingsManager.js.html#line456">line 456</a> </li>
+						</ul>
+					</dd>
+				</dl>
+				<h5>Returns:</h5>
+				<div class="param-desc">
+					<p>If the command is ignored.</p>
+				</div>
+				<dl class="param-type"> <dt>
+        Type
+    </dt>
+					<dd> <span class="param-type">Boolean</span> </dd>
+				</dl>
+				<h4 class="name" id="~removeIgnoreForGuild"><span class="type-signature">(inner) </span>removeIgnoreForGuild<span class="signature">(guildId, command)</span><span class="type-signature"> &rarr; {Promise.&lt;Boolean>}</span></h4>
+				<div class="description">
+					<p>Remove an ignore setting for a guild.</p>
+				</div>
+				<h5>Parameters:</h5>
+				<table class="params">
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>Type</th>
+							<th class="last">Description</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td class="name"><code>guildId</code></td>
+							<td class="type"> <span class="param-type">String</span> </td>
+							<td class="description last">
+								<p>The guild to apply the setting change for.</p>
+							</td>
+						</tr>
+						<tr>
+							<td class="name"><code>command</code></td>
+							<td class="type"> <span class="param-type">String</span> </td>
+							<td class="description last">
+								<p>The command to unignore including prefix. Use &quot;all&quot; as the command to unignore all.</p>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<dl class="details"> <dt class="tag-source">Source:</dt>
+					<dd class="tag-source">
+						<ul class="dummy">
+							<li> <a href="settingsManager.js.html">settingsManager.js</a>, <a href="settingsManager.js.html#line400">line 400</a> </li>
+						</ul>
+					</dd>
+				</dl>
+				<h5>Returns:</h5>
+				<div class="param-desc">
+					<p>Resloves when done containg a boolean indicating if a setting was changed.</p>
+				</div>
+				<dl class="param-type"> <dt>
+        Type
+    </dt>
+					<dd> <span class="param-type">Promise.&lt;Boolean></span> </dd>
+				</dl>
+				<h4 class="name" id="~removeIgnoreForUserOrChannel"><span class="type-signature">(inner) </span>removeIgnoreForUserOrChannel<span class="signature">(guildId, type, id, command)</span><span class="type-signature"> &rarr; {Promise.&lt;Boolean>}</span></h4>
+				<div class="description">
+					<p>Remove an ignore setting for a user or channel.</p>
+				</div>
+				<h5>Parameters:</h5>
+				<table class="params">
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>Type</th>
+							<th class="last">Description</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td class="name"><code>guildId</code></td>
+							<td class="type"> <span class="param-type">String</span> </td>
+							<td class="description last">
+								<p>The guild to apply the setting change for.</p>
+							</td>
+						</tr>
+						<tr>
+							<td class="name"><code>type</code></td>
+							<td class="type"> <span class="param-type">String</span> </td>
+							<td class="description last">
+								<p>Either &quot;userIgnores&quot; or &quot;channelIgnores&quot;.</p>
+							</td>
+						</tr>
+						<tr>
+							<td class="name"><code>id</code></td>
+							<td class="type"> <span class="param-type">String</span> </td>
+							<td class="description last">
+								<p>The user or channel to apply the setting change for.</p>
+							</td>
+						</tr>
+						<tr>
+							<td class="name"><code>command</code></td>
+							<td class="type"> <span class="param-type">String</span> </td>
+							<td class="description last">
+								<p>The command to unignore including prefix. Use &quot;all&quot; as the command to unignore all.</p>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<dl class="details"> <dt class="tag-source">Source:</dt>
+					<dd class="tag-source">
+						<ul class="dummy">
+							<li> <a href="settingsManager.js.html">settingsManager.js</a>, <a href="settingsManager.js.html#line289">line 289</a> </li>
+						</ul>
+					</dd>
+				</dl>
+				<h5>Returns:</h5>
+				<div class="param-desc">
+					<p>Resloves when done containg a boolean indicating if a setting was changed.</p>
+				</div>
+				<dl class="param-type"> <dt>
+        Type
+    </dt>
+					<dd> <span class="param-type">Promise.&lt;Boolean></span> </dd>
 				</dl>
 				<h4 class="name" id="~setEventChannel"><span class="type-signature">(inner) </span>setEventChannel<span class="signature">(guildId, channelId<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
 				<div class="description">
@@ -266,11 +610,61 @@
 				<dl class="details"> <dt class="tag-source">Source:</dt>
 					<dd class="tag-source">
 						<ul class="dummy">
-							<li> <a href="settingsManager.js.html">settingsManager.js</a>, <a href="settingsManager.js.html#line83">line 83</a> </li>
+							<li> <a href="settingsManager.js.html">settingsManager.js</a>, <a href="settingsManager.js.html#line87">line 87</a> </li>
 						</ul>
 					</dd>
 				</dl>
-				<h4 class="name" id="~setWelcome"><span class="type-signature">(inner) </span>setWelcome<span class="signature">(guildId, channelId<span class="signature-attributes">opt</span>, message<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
+				<h4 class="name" id="~setNSFW"><span class="type-signature">(inner) </span>setNSFW<span class="signature">(guildId, channelId, task)</span><span class="type-signature"> &rarr; {Promise.&lt;String>}</span></h4>
+				<div class="description">
+					<p>Edit the NSFW channels option for a guild.</p>
+				</div>
+				<h5>Parameters:</h5>
+				<table class="params">
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>Type</th>
+							<th class="last">Description</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td class="name"><code>guildId</code></td>
+							<td class="type"> <span class="param-type">String</span> </td>
+							<td class="description last">
+								<p>The id of the guild.</p>
+							</td>
+						</tr>
+						<tr>
+							<td class="name"><code>channelId</code></td>
+							<td class="type"> <span class="param-type">String</span> </td>
+							<td class="description last">
+								<p>The channel to edit the settings for.</p>
+							</td>
+						</tr>
+						<tr>
+							<td class="name"><code>task</code></td>
+							<td class="type"> <span class="param-type">String</span> </td>
+							<td class="description last">
+								<p>A string with the value &quot;allow&quot; or &quot;deny&quot;.</p>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<dl class="details"> <dt class="tag-source">Source:</dt>
+					<dd class="tag-source">
+						<ul class="dummy">
+							<li> <a href="settingsManager.js.html">settingsManager.js</a>, <a href="settingsManager.js.html#line178">line 178</a> </li>
+						</ul>
+					</dd>
+				</dl>
+				<h5>Returns:</h5>
+				<dl class="param-type"> <dt>
+        Type
+    </dt>
+					<dd> <span class="param-type">Promise.&lt;String></span> </dd>
+				</dl>
+				<h4 class="name" id="~setWelcome"><span class="type-signature">(inner) </span>setWelcome<span class="signature">(guildId, channelId<span class="signature-attributes">opt</span>, message<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Promise}</span></h4>
 				<div class="description">
 					<p>Set a guild's welcome message. If only guildId is passed it will disable it.</p>
 				</div>
@@ -316,11 +710,20 @@
 				<dl class="details"> <dt class="tag-source">Source:</dt>
 					<dd class="tag-source">
 						<ul class="dummy">
-							<li> <a href="settingsManager.js.html">settingsManager.js</a>, <a href="settingsManager.js.html#line32">line 32</a> </li>
+							<li> <a href="settingsManager.js.html">settingsManager.js</a>, <a href="settingsManager.js.html#line33">line 33</a> </li>
 						</ul>
 					</dd>
 				</dl>
-				<h4 class="name" id="~subEvents"><span class="type-signature">(inner) </span>subEvents<span class="signature">(eventArray, channel)</span><span class="type-signature"> &rarr; {Promise.&lt;Array>}</span></h4>
+				<h5>Returns:</h5>
+				<div class="param-desc">
+					<p>Resolves when done modifying settings.</p>
+				</div>
+				<dl class="param-type"> <dt>
+        Type
+    </dt>
+					<dd> <span class="param-type">Promise</span> </dd>
+				</dl>
+				<h4 class="name" id="~subEvents"><span class="type-signature">(inner) </span>subEvents<span class="signature">(eventArray, channel)</span><span class="type-signature"> &rarr; {Promise.&lt;(Array|String)>}</span></h4>
 				<div class="description">
 					<p>Subscribe a guild to events.</p>
 				</div>
@@ -353,20 +756,20 @@
 				<dl class="details"> <dt class="tag-source">Source:</dt>
 					<dd class="tag-source">
 						<ul class="dummy">
-							<li> <a href="settingsManager.js.html">settingsManager.js</a>, <a href="settingsManager.js.html#line107">line 107</a> </li>
+							<li> <a href="settingsManager.js.html">settingsManager.js</a>, <a href="settingsManager.js.html#line111">line 111</a> </li>
 						</ul>
 					</dd>
 				</dl>
 				<h5>Returns:</h5>
 				<div class="param-desc">
-					<p>Will resolve if settings were changed with an array of subbed events. Else will reject.</p>
+					<p>Will resolve if settings were changed with an array of subbed events. Else will reject with an error.</p>
 				</div>
 				<dl class="param-type"> <dt>
         Type
     </dt>
-					<dd> <span class="param-type">Promise.&lt;Array></span> </dd>
+					<dd> <span class="param-type">Promise.&lt;(Array|String)></span> </dd>
 				</dl>
-				<h4 class="name" id="~unsubEvents"><span class="type-signature">(inner) </span>unsubEvents<span class="signature">(eventArray, channel)</span><span class="type-signature"> &rarr; {Promise.&lt;Array>}</span></h4>
+				<h4 class="name" id="~unsubEvents"><span class="type-signature">(inner) </span>unsubEvents<span class="signature">(eventArray, channel)</span><span class="type-signature"> &rarr; {Promise.&lt;(Array|String)>}</span></h4>
 				<div class="description">
 					<p>Unsubscribe a guild to events.</p>
 				</div>
@@ -399,24 +802,24 @@
 				<dl class="details"> <dt class="tag-source">Source:</dt>
 					<dd class="tag-source">
 						<ul class="dummy">
-							<li> <a href="settingsManager.js.html">settingsManager.js</a>, <a href="settingsManager.js.html#line135">line 135</a> </li>
+							<li> <a href="settingsManager.js.html">settingsManager.js</a>, <a href="settingsManager.js.html#line139">line 139</a> </li>
 						</ul>
 					</dd>
 				</dl>
 				<h5>Returns:</h5>
 				<div class="param-desc">
-					<p>Will resolve if settings were changed with an array of unsubbed events. Else will reject.</p>
+					<p>Will resolve if settings were changed with an array of unsubbed events. Else will reject with an error.</p>
 				</div>
 				<dl class="param-type"> <dt>
         Type
     </dt>
-					<dd> <span class="param-type">Promise.&lt;Array></span> </dd>
+					<dd> <span class="param-type">Promise.&lt;(Array|String)></span> </dd>
 				</dl>
 			</article>
 		</section>
 	</div>
 	<br class="clear">
-	<footer> Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.4</a> on Fri Jul 01 2016 14:01:45 GMT-0500 (Central Daylight Time) using the Minami theme. </footer>
+	<footer> Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.4</a> on Sun Jul 10 2016 01:29:39 GMT-0500 (Central Daylight Time) using the Minami theme. </footer>
 	<script>
 		prettyPrint();
 

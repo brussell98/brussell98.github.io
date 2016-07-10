@@ -35,6 +35,7 @@
 					<li data-type='method'><a href="CommandManager.html#initialize">initialize</a></li>
 					<li data-type='method'><a href="CommandManager.html#logCommand">logCommand</a></li>
 					<li data-type='method'><a href="CommandManager.html#processCommand">processCommand</a></li>
+					<li data-type='method'><a href="CommandManager.html#reload">reload</a></li>
 				</ul>
 			</li>
 		</ul>
@@ -42,10 +43,17 @@
 		<ul>
 			<li><a href="module-settingsManager.html">settingsManager</a>
 				<ul class='methods'>
+					<li data-type='method'><a href="module-settingsManager.html#~addIgnoreForGuild">addIgnoreForGuild</a></li>
+					<li data-type='method'><a href="module-settingsManager.html#~addIgnoreForUserOrChannel">addIgnoreForUserOrChannel</a></li>
 					<li data-type='method'><a href="module-settingsManager.html#~getEventSetting">getEventSetting</a></li>
+					<li data-type='method'><a href="module-settingsManager.html#~getNSFW">getNSFW</a></li>
 					<li data-type='method'><a href="module-settingsManager.html#~getWelcome">getWelcome</a></li>
 					<li data-type='method'><a href="module-settingsManager.html#~handleDeletedChannel">handleDeletedChannel</a></li>
+					<li data-type='method'><a href="module-settingsManager.html#~isCommandIgnored">isCommandIgnored</a></li>
+					<li data-type='method'><a href="module-settingsManager.html#~removeIgnoreForGuild">removeIgnoreForGuild</a></li>
+					<li data-type='method'><a href="module-settingsManager.html#~removeIgnoreForUserOrChannel">removeIgnoreForUserOrChannel</a></li>
 					<li data-type='method'><a href="module-settingsManager.html#~setEventChannel">setEventChannel</a></li>
+					<li data-type='method'><a href="module-settingsManager.html#~setNSFW">setNSFW</a></li>
 					<li data-type='method'><a href="module-settingsManager.html#~setWelcome">setWelcome</a></li>
 					<li data-type='method'><a href="module-settingsManager.html#~subEvents">subEvents</a></li>
 					<li data-type='method'><a href="module-settingsManager.html#~unsubEvents">unsubEvents</a></li>
@@ -71,6 +79,8 @@
 	fs		= require('fs'),
 	Command	= reload('./Command.js');
 
+const Permissions = require('../node_modules/eris/lib/Constants.js').Permissions;
+
 /**
 * @class
 * @classdesc Handles a directory of .js files formatted as {@link Command}.
@@ -95,23 +105,26 @@ class CommandManager {
 	}
 
 	/**
-	* Initialize the command manager.
-	* Loads each command in the set directory.
+	* Initialize the command manager, loading each command in the set directory.
+	* @arg {settingsManager} settingsManager The bot's {@link settingsManager}.
 	* @returns {Promise}
 	*/
-	initialize() {
+	initialize(settingsManager) {
 		return new Promise((resolve, reject) => {
 			fs.readdir(this.directory, (err, files) => {
 				if (err) reject(`Error reading commands directory: ${err}`);
 				else if (!files) reject(`No files in directory ${this.directory}`);
 				else {
+					settingsManager.commandList[this.prefix] = [];
 					for (let name of files) {
 						if (name.endsWith('.js'))
 							try {
-								console.log(`${cDebug(' COMMAND MANAGER ')} Added ${name}`);
-								this.commands[name.replace(/\.js$/, '')] = new Command(name.replace(/\.js$/, ''), this.prefix, reload(this.directory + name));
+								name = name.replace(/\.js$/, '');
+								console.log(`${cDebug(' COMMAND MANAGER ')} Added ${name}.js`);
+								this.commands[name] = new Command(name, this.prefix, reload(this.directory + name + '.js'));
+								settingsManager.commandList[this.prefix].push(name);
 							} catch (e) {
-								console.error(`Error loading command ${name}: ${e}`);
+								console.error(`Error loading command ${name}: ${e}\n${e.stack}`);
 							}
 					}
 					resolve();
@@ -125,7 +138,7 @@ class CommandManager {
 	* @arg {Eris} bot The client.
 	* @arg {Eris.Message} msg The matching message.
 	* @arg {Object} config The JSON formatted config file.
-	* @arg {settingsManager} settingsManager Used to adjust and get server settings.
+	* @arg {settingsManager} settingsManager The bot's {@link settingsManager}.
 	*/
 	processCommand(bot, msg, config, settingsManager) {
 		let name = msg.content.replace(this.prefix, '').split(' ')[0].toLowerCase();
@@ -133,6 +146,8 @@ class CommandManager {
 			return this.help(bot, msg, msg.content.replace(this.prefix + name, '').trim());
 		let command = this.checkForMatch(name);
 		if (command !== null) {
+			if (msg.channel.guild !== undefined &amp;&amp; ~msg.channel.permissionsOf(msg.author.id).allow &amp; Permissions.manageChannels &amp;&amp;  settingsManager.isCommandIgnored(this.prefix, command.name, msg.channel.guild.id, msg.channel.id, msg.author.id) === true)
+				return;
 			let suffix = msg.content.replace(this.prefix + name, '').trim();
 			this.logCommand(msg, command.name, msg.cleanContent.replace(this.prefix + name, ''));
 			return command.execute(bot, msg, suffix, config, settingsManager);
@@ -203,7 +218,7 @@ class CommandManager {
 	*/
 	logCommand(msg, commandName, after) {
 		let toLog = '';
-		if (msg.channel.guild !== null)
+		if (msg.channel.guild !== undefined)
 			toLog += `${cServer(msg.channel.guild.name)} >> `;
 		toLog += `${cGreen(msg.author.username)} > `;
 		if (this.color !== false)
@@ -212,6 +227,31 @@ class CommandManager {
 			toLog += this.prefix + commandName + after;
 		console.log(toLog);
 	}
+
+	/**
+	* Reload or load a command.
+	* @arg {Eris.Client} bot The Client.
+	* @arg {String} channelId The channel to respond in.
+	* @arg {String} command The comamnd to reload or load.
+	* @arg {settingsManager} settingsManager The bot's {@link settingsManager}.
+	*/
+	reload(bot, channelId, command, settingsManager) {
+		fs.access(`${this.directory}${command}.js`, fs.R_OK | fs.F_OK, error => {
+			if (error)
+				bot.createMessage(channelId, 'Command does not exist');
+			else {
+				try {
+					this.commands[command] = new Command(command, this.prefix, reload(`${this.directory}${command}.js`));
+					bot.createMessage(channelId, `Command ${this.prefix}${command} loaded`);
+					if (!settingsManager.commandList[this.prefix].includes(command))
+						settingsManager.commandList[this.prefix].push(command);
+				} catch (error) {
+					console.log(error);
+					bot.createMessage(channelId, `Error loading command: ${error}`);
+				}
+			}
+		});
+	}
 }
 
 module.exports = CommandManager;
@@ -219,7 +259,7 @@ module.exports = CommandManager;
 		</section>
 	</div>
 	<br class="clear">
-	<footer> Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.4</a> on Fri Jul 01 2016 14:01:45 GMT-0500 (Central Daylight Time) using the Minami theme. </footer>
+	<footer> Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.4</a> on Sun Jul 10 2016 01:29:38 GMT-0500 (Central Daylight Time) using the Minami theme. </footer>
 	<script>
 		prettyPrint();
 
