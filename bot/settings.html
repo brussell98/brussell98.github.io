@@ -88,7 +88,7 @@
 				<div class="tile is-parent is-6">
 					<div class="tile is-child box">
 						<h1 class="title">Welcome Message</h1>
-						<code>$settings welcome &lt;channel&gt; &lt;message&gt;</code>
+						<code>}settings welcome &lt;channel&gt; &lt;message&gt;</code>
 						<p>
 							<strong>Channel:</strong> Either <em>DM</em> or <em>#channel</em>.<br>
 							<strong>Message:</strong> The messsage to post.<br><br>
@@ -97,15 +97,15 @@
 						<ul>
 							<li><code>${SERVER}</code> The name of the server.</li>
 							<li><code>${USER}</code> The name of the user.</li>
-							<li><code>${MENTION}</code> The mention the user.</li>
+							<li><code>${MENTION}</code> Mention the user.</li>
 						</ul><br>
-						<p>To disable welcome messages do <code>$settings welcome disable</code>.</p>
+						<p>To disable welcome messages do <code>}settings welcome disable</code>.</p>
 					</div>
 				</div>
 				<div class="tile is-parent is-6">
 					<div class="tile is-child box">
 						<h1 class="title">Event Notifications</h1>
-						<code>$settings events &lt;channel&gt; &lt;events&gt;</code>
+						<code>}settings events &lt;channel&gt; &lt;events&gt;</code>
 						<p>
 							<strong>Channel:</strong> The <em>#channel</em> to post events in.<br>
 							<strong>Events:</strong> The events to subscribe (+event) or unsubscribe (-event) from.<br><br>
@@ -126,12 +126,12 @@
 				<div class="tile is-parent is-6">
 					<div class="tile is-child box">
 						<h1 class="title">Command Ignoring</h1>
-						<code>$settings ignore (scopes) (commands)</code>
+						<code>}settings ignore (scopes) (commands)</code>
 						<p>
 							<strong>Scopes:</strong> Either a <u>@User</u>, <u>#channel</u>, or the <u>server</u>.<br>
 							<strong>Commands:</strong> Either a <u>]command</u>, <u>cleverbot</u>, <u>]all</u> of a prefix, or <u>all</u> commands.<br><br>
 							Scopes and commands are seperated with a |.<br>
-							Example: <code>$settings ignore (@User | @User 2 | #no-bot) ($all | >ping | cleverbot)</code><br><br>
+							Example: <code>}settings ignore (@User | @User 2 | #no-bot) (}all | ]ping | cleverbot)</code><br><br>
 							Unignoring works the same way. Just use <code>unignore</code> instead.<br><br>
 							If there is only one scope you can ommit the parenthesis.
 						</p>
@@ -141,15 +141,15 @@
 					<div class="tile is-parent is-vertical is-12">
 						<div class="tile is-child box">
 							<h1 class="title">NSFW Channels</h1>
-							<code>$settings nsfw &lt;allow/deny&gt;</code>
+							<code>}settings nsfw &lt;allow/deny&gt;</code>
 							<p>Allow or deny NSFW commands in the channel.</p>
 						</div>
 						<div class="tile is-child box">
 							<h1 class="title">Checking settings</h1>
-							<code>$settings welcome check</code><br>
-							<code>$settings events check</code><br>
-							<code>$settings nsfw check</code><br>
-							<code>$settings ignored &lt;server|@user|#channel&gt;</code>
+							<code>}settings welcome check</code><br>
+							<code>}settings events check</code><br>
+							<code>}settings nsfw check</code><br>
+							<code>}settings ignored &lt;server|@user|#channel&gt;</code>
 						</div>
 					</div>
 				</div>
