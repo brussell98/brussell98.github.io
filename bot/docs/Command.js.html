@@ -33,9 +33,22 @@
 					<li data-type='method'><a href="CommandManager.html#checkForMatch">checkForMatch</a></li>
 					<li data-type='method'><a href="CommandManager.html#help">help</a></li>
 					<li data-type='method'><a href="CommandManager.html#initialize">initialize</a></li>
-					<li data-type='method'><a href="CommandManager.html#logCommand">logCommand</a></li>
 					<li data-type='method'><a href="CommandManager.html#processCommand">processCommand</a></li>
 					<li data-type='method'><a href="CommandManager.html#reload">reload</a></li>
+				</ul>
+			</li>
+			<li><a href="Logger.html">Logger</a>
+				<ul class='methods'>
+					<li data-type='method'><a href="Logger.html#debug">debug</a></li>
+					<li data-type='method'><a href="Logger.html#error">error</a></li>
+					<li data-type='method'><a href="Logger.html#isValidColor">isValidColor</a></li>
+					<li data-type='method'><a href="Logger.html#log">log</a></li>
+					<li data-type='method'><a href="Logger.html#logBold">logBold</a></li>
+					<li data-type='method'><a href="Logger.html#logCommand">logCommand</a></li>
+					<li data-type='method'><a href="Logger.html#logWithBackground">logWithBackground</a></li>
+					<li data-type='method'><a href="Logger.html#logWithHeader">logWithHeader</a></li>
+					<li data-type='method'><a href="Logger.html#logWithUnderline">logWithUnderline</a></li>
+					<li data-type='method'><a href="Logger.html#warn">warn</a></li>
 				</ul>
 			</li>
 		</ul>
@@ -45,7 +58,10 @@
 				<ul class='methods'>
 					<li data-type='method'><a href="module-settingsManager.html#~addIgnoreForGuild">addIgnoreForGuild</a></li>
 					<li data-type='method'><a href="module-settingsManager.html#~addIgnoreForUserOrChannel">addIgnoreForUserOrChannel</a></li>
+					<li data-type='method'><a href="module-settingsManager.html#~checkIgnoresFor">checkIgnoresFor</a></li>
+					<li data-type='method'><a href="module-settingsManager.html#~getAllNSFW">getAllNSFW</a></li>
 					<li data-type='method'><a href="module-settingsManager.html#~getEventSetting">getEventSetting</a></li>
+					<li data-type='method'><a href="module-settingsManager.html#~getGuildsEvents">getGuildsEvents</a></li>
 					<li data-type='method'><a href="module-settingsManager.html#~getNSFW">getNSFW</a></li>
 					<li data-type='method'><a href="module-settingsManager.html#~getWelcome">getWelcome</a></li>
 					<li data-type='method'><a href="module-settingsManager.html#~handleDeletedChannel">handleDeletedChannel</a></li>
@@ -62,11 +78,12 @@
 			<li><a href="module-utils.html">utils</a>
 				<ul class='methods'>
 					<li data-type='method'><a href="module-utils.html#.checkForUpdates">checkForUpdates</a></li>
-					<li data-type='method'><a href="module-utils.html#.comma">comma</a></li>
-					<li data-type='method'><a href="module-utils.html#.findUser">findUser</a></li>
+					<li data-type='method'><a href="module-utils.html#.findMember">findMember</a></li>
+					<li data-type='method'><a href="module-utils.html#.findUserInGuild">findUserInGuild</a></li>
 					<li data-type='method'><a href="module-utils.html#.formatTime">formatTime</a></li>
 					<li data-type='method'><a href="module-utils.html#.safeSave">safeSave</a></li>
 					<li data-type='method'><a href="module-utils.html#.setAvatar">setAvatar</a></li>
+					<li data-type='method'><a href="module-utils.html#.updateAbalBots">updateAbalBots</a></li>
 					<li data-type='method'><a href="module-utils.html#.updateCarbon">updateCarbon</a></li>
 				</ul>
 			</li>
@@ -80,15 +97,18 @@
 * @classdesc Represents a command for the client.
 * @prop {String} name The command's name.
 * @prop {String} prefix Prefix for the command.
-* @prop {String} [usage=""] Usage for the command.
-* @prop {String} [desc="No description"] Short description of what the command does.
-* @prop {String} [help="No description"] Detailed description of what the command does.
+* @prop {String} usage Usage for the command.
+* @prop {String} desc Short description of what the command does.
+* @prop {String} help Detailed description of what the command does.
 * @prop {Function} task The function to execute when the command is called.
 * @prop {Array&lt;String>} aliases An array containing the aliases for the command.
 * @prop {Number} cooldown The colldown for the command in seconds.
 * @prop {Boolean} hidden If the command should be hidden from help.
+* @prop {Boolean} ownerOnly If the command can only be used by a bot admin.
+* @prop {Boolean} guildOnly If the command can only be used in a guild.
+* @prop {String} requiredPermission The permission needed to use the command.
 * @prop {Number} timesUsed How many times the command has been used.
-* @prop {Object} usersOnCooldown Users that are still on cooldown.
+* @prop {Set} usersOnCooldown Users that are still on cooldown.
 */
 class Command {
 
@@ -97,15 +117,21 @@ class Command {
 	* @arg {String} name Name of the command.
 	* @arg {String} prefix This prefix for the command.
 	* @arg {Object} cmd Object containing the appropriate properties including the function to run.
-	* @arg {String} cmd.usage
-	* @arg {String} cmd.desc
-	* @arg {String} cmd.help
+	* @arg {String} [cmd.usage=""]
+	* @arg {String} [cmd.desc="No description"]
+	* @arg {String} [cmd.help=""No description""]
 	* @arg {Function} cmd.task
-	* @arg {Array&lt;String>} cmd.aliases
-	* @arg {Number} cmd.cooldown
-	* @arg {Boolean} cmd.hidden
+	* @arg {Array&lt;String>} [cmd.aliases=[]]
+	* @arg {Number} [cmd.cooldown=0]
+	* @arg {Boolean} [cmd.hidden=false]
+	* @arg {Boolean} [cmd.ownerOnly=false]
+	* @arg {Boolean} [cmd.guildOnly=false]
+	* @arg {String} [cmd.requiredPermission=null] A Discord [permission]{@link https://abal.moe/Eris/reference.html}
+	* @arg {String} [cmd.initialize] A function that runs at creation and is passed the client.
+	* @arg {Client} bot The client.
+	* @arg {Object} config The bot's config settings.
 	*/
-	constructor(name, prefix, cmd) {
+	constructor(name, prefix, cmd, bot, config) {
 		this.name = name;
 		this.prefix = prefix;
 		this.usage = cmd.usage || "";
@@ -114,9 +140,15 @@ class Command {
 		this.task = cmd.task;
 		this.aliases = cmd.aliases || [];
 		this.cooldown = cmd.cooldown || 0;
-		this.hidden = !!cmd.hidden || false;
+		this.hidden = !!cmd.hidden;
+		this.ownerOnly = !!cmd.ownerOnly;
+		this.guildOnly = !!cmd.guildOnly;
+		this.requiredPermission = cmd.requiredPermission || null;
 		this.timesUsed = 0;
-		this.usersOnCooldown = {};
+		this.usersOnCooldown = new Set();
+
+		if (typeof cmd.initialize === 'function')
+			cmd.initialize(bot, config);
 	}
 
 	/**
@@ -154,39 +186,45 @@ class Command {
 	* @arg {Object} config The config Object.
 	* @arg {settingsManager} settingsManager
 	*/
-	execute(bot, msg, suffix, config, settingsManager) {
-		if (this.usersOnCooldown.hasOwnProperty(msg.author.id)) { //if the user is still on cooldown
-			bot.createMessage(msg.channel.id, `${msg.author.username}, this command can only be used every ${this.cooldown} seconds.`).then(sentMsg => {
-				setTimeout(() => {
-					bot.deleteMessage(msg.channel.id, msg.id);
-					bot.deleteMessage(sentMsg.channel.id, sentMsg.id);
-				}, 6000);
+	execute(bot, msg, suffix, config, settingsManager, logger) {
+		if (this.ownerOnly === true &amp;&amp; !config.adminIds.includes(msg.author.id)) // ownerOnly check
+			return bot.createMessage(msg.channel.id, 'Only the owner of this bot can use that command.').then(sentMsg => {
+				setTimeout(() => { bot.deleteMessage(msg.channel.id, msg.id).catch(); bot.deleteMessage(sentMsg.channel.id, sentMsg.id); }, 6000);
 			});
+		if (this.guildOnly === true &amp;&amp; msg.channel.guild === undefined) // guildOnly check
+			return bot.createMessage(msg.channel.id, 'This command can only be used in a server.');
+		if (this.requiredPermission !== null &amp;&amp; !config.adminIds.includes(msg.author.id) &amp;&amp; !msg.channel.permissionsOf(msg.author.id).has(this.requiredPermission)) // requiredPermission check
+			return bot.createMessage(msg.channel.id, `You need the ${this.requiredPermission} permission to use this command.`).then(sentMsg => {
+				setTimeout(() => { bot.deleteMessage(msg.channel.id, msg.id).catch(); bot.deleteMessage(sentMsg.channel.id, sentMsg.id); }, 6000);
+			});
+		if (this.usersOnCooldown.has(msg.author.id)) { // Cooldown check
+			return bot.createMessage(msg.channel.id, `${msg.author.username}, this command can only be used every ${this.cooldown} seconds.`).then(sentMsg => {
+				setTimeout(() => { bot.deleteMessage(msg.channel.id, msg.id).catch(); bot.deleteMessage(sentMsg.channel.id, sentMsg.id); }, 6000);
+			});
+		}
 
-		} else {
-			let result;
-			this.timesUsed++;
-			commandsProcessed++;
-			try {
-				result = this.task(bot, msg, suffix, config, settingsManager); //run the command
-			} catch (err) {
-				console.log(`${cError(' COMMAND EXECUTION ERROR ')} ${err}\n${err.stack}`);
-				if (config.errorMessage) bot.createMessage(msg.channel.id, config.errorMessage);
-			}
+		let result;
+		this.timesUsed++;
+		commandsProcessed++;
+		try {
+			result = this.task(bot, msg, suffix, config, settingsManager); //run the command
+		} catch (err) {
+			logger.error(`${err}\n${err.stack}`, 'COMMAND EXECUTION ERROR');
+			if (config.errorMessage) bot.createMessage(msg.channel.id, config.errorMessage);
+		}
 
-			if (result === 'wrong usage') {
-				bot.createMessage(msg.channel.id, `${msg.author.username}, try again using the following format:\n**\`${this.prefix}${this.name} ${this.usage}\`**`).then(sentMsg => {
-					setTimeout(() => {
-						bot.deleteMessage(msg.channel.id, msg.id);
-						bot.deleteMessage(sentMsg.channel.id, sentMsg.id);
-					}, 10000);
-				});
-			} else if (!config.adminIds.includes(msg.author.id)) {
-				this.usersOnCooldown[msg.author.id] = '';
-				setTimeout(() => { //add the user to the cooldown list and remove them after {cooldown} seconds
-					delete this.usersOnCooldown[msg.author.id];
-				}, this.cooldown * 1000);
-			}
+		if (result === 'wrong usage') {
+			bot.createMessage(msg.channel.id, `${msg.author.username}, try again using the following format:\n**\`${this.prefix}${this.name} ${this.usage}\`**`).then(sentMsg => {
+				setTimeout(() => {
+					bot.deleteMessage(msg.channel.id, msg.id).catch();
+					bot.deleteMessage(sentMsg.channel.id, sentMsg.id);
+				}, 10000);
+			});
+		} else if (!config.adminIds.includes(msg.author.id)) {
+			this.usersOnCooldown.add(msg.author.id);
+			setTimeout(() => { //add the user to the cooldown list and remove them after {cooldown} seconds
+				this.usersOnCooldown.delete(msg.author.id);
+			}, this.cooldown * 1000);
 		}
 	}
 }
@@ -196,7 +234,7 @@ module.exports = Command;
 		</section>
 	</div>
 	<br class="clear">
-	<footer> Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.4</a> on Sun Jul 10 2016 01:29:38 GMT-0500 (Central Daylight Time) using the Minami theme. </footer>
+	<footer> Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.4</a> on Thu Aug 11 2016 22:00:55 GMT-0500 (Central Daylight Time) using the Minami theme. </footer>
 	<script>
 		prettyPrint();
 

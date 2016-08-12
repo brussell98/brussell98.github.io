@@ -3,7 +3,7 @@
 
 <head>
 	<meta charset="utf-8">
-	<title>Home - Documentation</title>
+	<title>Logger.js - Documentation</title>
 	<script src="scripts/prettify/prettify.js"></script>
 	<script src="scripts/prettify/lang-css.js"></script>
 	<!--[if lt IE 9]>
@@ -90,65 +90,145 @@
 		</ul>
 	</nav>
 	<div id="main">
-		<section class="readme">
-			<article>
-				<p><img src="http://i.imgur.com/UHJ7Nig.png" alt="Mirai Bot"> </p>
-				<p>An easy to use bot framework using the <a href="https://github.com/abalabahaha/eris/">Eris</a> library. NodeJS version 6+ is <strong><em>REQUIRED</em></strong></p>
-				<h4><a href="http://brussell98.github.io/bot/index.html">Website</a> | <a href="http://patreon.com/brussell98">Support on Patreon</a> | <a href="http://brussell98.github.io/bot/docs/index.html">Documentation</a> | <a href="https://discord.gg/rkWPSdu">Discord Server</a> | <a href="https://github.com/brussell98/BrussellBot/wiki">Wiki</a> | <a href="https://abal.moe/Eris/docs/index.html">Eris Docs</a> | <a href="https://trello.com/b/Uw5wZLzJ">Todo List</a></h4>
-				<h2>Before Running:</h2>
-				<p><code>npm i --no-optional --production</code> then, optionally, <code>npm i eventemitter3</code></p>
-				<hr>
-				<h2>Example of a command</h2><pre class="prettyprint source lang-js"><code>// Mirai\commands\examples\example.js
-// Only 'task' is required. Everything else is optional.
+		<h1 class="page-title">Logger.js</h1>
+		<section>
+			<article> <pre class="prettyprint source linenums"><code>var _chalk = require('chalk'),
+	chalk = new _chalk.constructor({enabled: true});
 
-module.exports = {
-    desc: &quot;A short description&quot;,
-    help: &quot;A longer description of what the command does and how to use it.&quot;,
-    usage: &quot;&lt;hello> [world]&quot;,
-    aliases: ['ex', 'e'], // Aliases 'ex' and 'e'
-    cooldown: 5, // 5 seconds
-    hidden: true, // Hidden from help command
-    ownerOnly: true, // Only a user in config.adminIds can use this
-    guildOnly: true, // This can't be used in a DM
-    requiredPermission: 'manageMessages', // You need manageMessages to use this
-    task(bot, msg, suffix, config, settingsManager) { // Avaliable args
-        if (suffix.startsWith('hello'))
-            return bot.createMessage(msg.channel.id, suffix);
-        return 'wrong usage'; // Send the correct usage to the user
-    }
-}</code></pre>
-				<h2>Example of an event</h2><pre class="prettyprint source lang-js"><code>// Mirai\events\guildCreate.js
+/**
+* @class
+* @classdesc Used to log text to the console.
+* @prop {Boolean} logTimestamp If a timestamp should be displayed.
+* @prop {String} [commandColor] The color to use for command logging.
+*/
+class Logger {
 
-module.exports = function(bot, settingsManager, config, guild) {
-    if (config.logNewGuilds)
-        console.log(`New Guild: ${guild.name}`);
-}</code></pre>
-				<hr>
-				<h2>Config Reference</h2>
-				<ul>
-					<li><strong>token:</strong> The Bot's token.</li>
-					<li><strong>shardCount:</strong> The number of shards to run.</li>
-					<li><strong>disableEvents:</strong> An object containing events to disable. This saves resources. A full list of events can be found here: <a href="https://abal.moe/Eris/reference.html">Eris Reference</a>.</li>
-					<li><strong>commandSets:</strong> An object defining what commands to load. The key is the prefix, <code>dir</code> is the path to the from the root of the bot. If you want to make the commands a certain color in the console add a <code>color</code>						property with a valid <a href="https://github.com/chalk/chalk#colors">chalk color</a>.</li>
-					<li><strong>reloadCommand:</strong> The command to use for reloading modules/commands.</li>
-					<li><strong>evalCommand:</strong> The command to use for running arbitrary code.</li>
-					<li><strong>adminIds:</strong> An array of user ids that have full control over the bot.</li>
-					<li><strong>logTimestamp:</strong> If the console should include timestmaps.</li>
-					<li><strong>cleverbot:</strong> If cleverbot should be enabled.</li>
-					<li><strong>inviteLink:</strong> A link to add the bot to a server.</li>
-					<li><strong>errorMessage:</strong> An optional error message to post in chat.</li>
-					<li><strong>carbinKey:</strong> Your key for updating carbon information.</li>
-					<li><strong>abalBotsKey:</strong> Your https://bots.discord.pw/ API key.</li>
-					<li><strong>cycleGames:</strong> Randomly changes the bot's status.</li>
-					<li><strong>bannedGuildIds:</strong> Servers that can not add the bot.</li>
-					<li><strong>whitelistedGuildIds:</strong> For future use.</li>
-				</ul>
-				<hr>
-				<h2>Naming commands and invalid prefixes</h2>
-				<p>Command names must not contain a <code>space</code> or a <code>|</code>. Prefixes must not contain a <code>|</code>. Avoid using a <code>@</code> as it may resolve into a user.</p>
-				<hr>
-				<p>Disclaimer: There is no guarantee that this will continue to be maintained. I may decide one day to discontinue this.</p>
-			</article>
+	/**
+	* @constructor
+	* @arg {Boolean} logTimestamp If a timestamp should be displayed.
+	* @arg {String} [commandColor] The color to use for command logging. Must ba a valid [chalk color]{@link https://github.com/chalk/chalk#colors}.
+	*/
+	constructor(logTimestamp, commandColor) {
+		this.logTimestamp = !!logTimestamp;
+		this.commandColor = commandColor;
+	}
+
+	/**
+	* Set the color to use for command logging.
+	* @arg {String} value The color.
+	*/
+	set color(value) {
+		this.commandColor = value;
+	}
+
+	/**
+	* Get a timestamp.
+	* @type {String}
+	*/
+	get timestamp() {
+		return this.logTimestamp === true ? `[${new Date().toLocaleString()}] ` : '';
+	}
+
+	/**
+	* Logs something.
+	* @arg {String} text
+	* @arg {String} [color] A valid chalk color.
+	*/
+	log(text, color) {
+		return console.log(this.timestamp + (color ? chalk[color](text) : text));
+	}
+
+	/**
+	* Logs something with a background color.
+	* @arg {String} text
+	* @arg {String} background The background color.
+	* @arg {String} [color] A valid chalk color.
+	*/
+	logWithBackground(text, background, color) {
+		return console.log(this.timestamp + (color ? chalk[background][color](text) : chalk[background](text)));
+	}
+
+	/**
+	* Logs something bold.
+	* @arg {String} text
+	* @arg {String} [color] A valid chalk color.
+	*/
+	logBold(text, color) {
+		return console.log(this.timestamp + (color ? chalk.bold[color](text) : chalk.bold(text)));
+	}
+
+	/**
+	* Logs something underlined.
+	* @arg {String} text
+	* @arg {String} [color] A valid chalk color.
+	*/
+	logWithUnderline(text, color) {
+		return console.log(this.timestamp + (color ? chalk.underline[color](text) : chalk.underline(text)));
+	}
+
+	/**
+	* Logs something with a header.
+	* @arg {String} headerText
+	* @arg {String} headerBackground A valid [chalk background color]{@link https://github.com/chalk/chalk#background-colors}.
+	* @arg {String} headerColor A valid [chalk color]{@link https://github.com/chalk/chalk#colors}.
+	* @arg {String} text
+	* @arg {String} [color] A valid chalk color.
+	*/
+	logWithHeader(headerText, headerBackground, headerColor, text, color) {
+		return console.log(this.timestamp + chalk[headerBackground][headerColor || 'black'](` ${headerText} `), (color ? chalk[color](text) : text));
+	}
+
+	/**
+	* Command logging utility function.
+	* @arg {String} [guildName]
+	* @arg {String} userName
+	* @arg {String} commandName
+	* @arg {String} suffix
+	*/
+	logCommand(guildName, userName, commandName, suffix) {
+		if (guildName)
+			return console.log(this.timestamp + `${chalk.bold.magenta(guildName)} >> ${chalk.bold.green(userName)} > ${this.commandColor === undefined ? commandName : chalk.bold[this.commandColor](commandName)} ${suffix}`);
+		return console.log(this.timestamp + `${chalk.bold.green(userName)} > ${this.commandColor === undefined ? commandName : chalk.bold[this.commandColor](commandName)} ${suffix}`);
+	}
+
+	/**
+	* Logs a warning.
+	* @arg {String} text
+	* @arg {String} [wText="WARN"] The text to display in the warning header.
+	*/
+	warn(text, wText = 'WARN') {
+		return console.log(this.timestamp + `${chalk.bgYellow.black(` ${wText} `)} ${text}`);
+	}
+
+	/**
+	* Logs an error.
+	* @arg {String} text
+	* @arg {String} [eText="ERROR"] The text to display in the error header.
+	*/
+	error(text, eText = 'ERROR') {
+		return console.log(this.timestamp + `${chalk.bgRed.black(` ${eText} `)} ${text}`);
+	}
+
+	/**
+	* Logs debug information.
+	* @arg {String} text
+	* @arg {String} [dText="DEBUG"] The text to display in the debug header.
+	*/
+	debug(text, dText = 'DEBUG') {
+		return console.log(this.timestamp + `${chalk.bgWhite.black(` ${dText} `)} ${text}`);
+	}
+
+	/**
+	* Check if a color or background color is valid.
+	* @arg {String} color
+	*/
+	isValidColor(color) {
+		return typeof chalk[color] === 'function';
+	}
+}
+
+module.exports = Logger;
+</code></pre> </article>
 		</section>
 	</div>
 	<br class="clear">

@@ -33,9 +33,22 @@
 					<li data-type='method'><a href="CommandManager.html#checkForMatch">checkForMatch</a></li>
 					<li data-type='method'><a href="CommandManager.html#help">help</a></li>
 					<li data-type='method'><a href="CommandManager.html#initialize">initialize</a></li>
-					<li data-type='method'><a href="CommandManager.html#logCommand">logCommand</a></li>
 					<li data-type='method'><a href="CommandManager.html#processCommand">processCommand</a></li>
 					<li data-type='method'><a href="CommandManager.html#reload">reload</a></li>
+				</ul>
+			</li>
+			<li><a href="Logger.html">Logger</a>
+				<ul class='methods'>
+					<li data-type='method'><a href="Logger.html#debug">debug</a></li>
+					<li data-type='method'><a href="Logger.html#error">error</a></li>
+					<li data-type='method'><a href="Logger.html#isValidColor">isValidColor</a></li>
+					<li data-type='method'><a href="Logger.html#log">log</a></li>
+					<li data-type='method'><a href="Logger.html#logBold">logBold</a></li>
+					<li data-type='method'><a href="Logger.html#logCommand">logCommand</a></li>
+					<li data-type='method'><a href="Logger.html#logWithBackground">logWithBackground</a></li>
+					<li data-type='method'><a href="Logger.html#logWithHeader">logWithHeader</a></li>
+					<li data-type='method'><a href="Logger.html#logWithUnderline">logWithUnderline</a></li>
+					<li data-type='method'><a href="Logger.html#warn">warn</a></li>
 				</ul>
 			</li>
 		</ul>
@@ -45,7 +58,10 @@
 				<ul class='methods'>
 					<li data-type='method'><a href="module-settingsManager.html#~addIgnoreForGuild">addIgnoreForGuild</a></li>
 					<li data-type='method'><a href="module-settingsManager.html#~addIgnoreForUserOrChannel">addIgnoreForUserOrChannel</a></li>
+					<li data-type='method'><a href="module-settingsManager.html#~checkIgnoresFor">checkIgnoresFor</a></li>
+					<li data-type='method'><a href="module-settingsManager.html#~getAllNSFW">getAllNSFW</a></li>
 					<li data-type='method'><a href="module-settingsManager.html#~getEventSetting">getEventSetting</a></li>
+					<li data-type='method'><a href="module-settingsManager.html#~getGuildsEvents">getGuildsEvents</a></li>
 					<li data-type='method'><a href="module-settingsManager.html#~getNSFW">getNSFW</a></li>
 					<li data-type='method'><a href="module-settingsManager.html#~getWelcome">getWelcome</a></li>
 					<li data-type='method'><a href="module-settingsManager.html#~handleDeletedChannel">handleDeletedChannel</a></li>
@@ -62,11 +78,12 @@
 			<li><a href="module-utils.html">utils</a>
 				<ul class='methods'>
 					<li data-type='method'><a href="module-utils.html#.checkForUpdates">checkForUpdates</a></li>
-					<li data-type='method'><a href="module-utils.html#.comma">comma</a></li>
-					<li data-type='method'><a href="module-utils.html#.findUser">findUser</a></li>
+					<li data-type='method'><a href="module-utils.html#.findMember">findMember</a></li>
+					<li data-type='method'><a href="module-utils.html#.findUserInGuild">findUserInGuild</a></li>
 					<li data-type='method'><a href="module-utils.html#.formatTime">formatTime</a></li>
 					<li data-type='method'><a href="module-utils.html#.safeSave">safeSave</a></li>
 					<li data-type='method'><a href="module-utils.html#.setAvatar">setAvatar</a></li>
+					<li data-type='method'><a href="module-utils.html#.updateAbalBots">updateAbalBots</a></li>
 					<li data-type='method'><a href="module-utils.html#.updateCarbon">updateCarbon</a></li>
 				</ul>
 			</li>
@@ -86,7 +103,7 @@
 			<article>
 				<div class="container-overview">
 					<h2>Constructor</h2>
-					<h4 class="name" id="Command"><span class="type-signature"></span>new Command<span class="signature">(name, prefix, cmd)</span><span class="type-signature"></span></h4>
+					<h4 class="name" id="Command"><span class="type-signature"></span>new Command<span class="signature">(name, prefix, cmd, bot, config)</span><span class="type-signature"></span></h4>
 					<h5>Parameters:</h5>
 					<table class="params">
 						<thead>
@@ -122,6 +139,8 @@
 											<tr>
 												<th>Name</th>
 												<th>Type</th>
+												<th>Attributes</th>
+												<th>Default</th>
 												<th class="last">Description</th>
 											</tr>
 										</thead>
@@ -129,40 +148,110 @@
 											<tr>
 												<td class="name"><code>usage</code></td>
 												<td class="type"> <span class="param-type">String</span> </td>
+												<td class="attributes"> &lt;optional>
+													<br> </td>
+												<td class="default"> "" </td>
 												<td class="description last"></td>
 											</tr>
 											<tr>
 												<td class="name"><code>desc</code></td>
 												<td class="type"> <span class="param-type">String</span> </td>
+												<td class="attributes"> &lt;optional>
+													<br> </td>
+												<td class="default"> "No description" </td>
 												<td class="description last"></td>
 											</tr>
 											<tr>
 												<td class="name"><code>help</code></td>
 												<td class="type"> <span class="param-type">String</span> </td>
+												<td class="attributes"> &lt;optional>
+													<br> </td>
+												<td class="default"> ""No description"" </td>
 												<td class="description last"></td>
 											</tr>
 											<tr>
 												<td class="name"><code>task</code></td>
 												<td class="type"> <span class="param-type">function</span> </td>
+												<td class="attributes"> </td>
+												<td class="default"> </td>
 												<td class="description last"></td>
 											</tr>
 											<tr>
 												<td class="name"><code>aliases</code></td>
 												<td class="type"> <span class="param-type">Array.&lt;String></span> </td>
+												<td class="attributes"> &lt;optional>
+													<br> </td>
+												<td class="default"> [] </td>
 												<td class="description last"></td>
 											</tr>
 											<tr>
 												<td class="name"><code>cooldown</code></td>
 												<td class="type"> <span class="param-type">Number</span> </td>
+												<td class="attributes"> &lt;optional>
+													<br> </td>
+												<td class="default"> 0 </td>
 												<td class="description last"></td>
 											</tr>
 											<tr>
 												<td class="name"><code>hidden</code></td>
 												<td class="type"> <span class="param-type">Boolean</span> </td>
+												<td class="attributes"> &lt;optional>
+													<br> </td>
+												<td class="default"> false </td>
 												<td class="description last"></td>
+											</tr>
+											<tr>
+												<td class="name"><code>ownerOnly</code></td>
+												<td class="type"> <span class="param-type">Boolean</span> </td>
+												<td class="attributes"> &lt;optional>
+													<br> </td>
+												<td class="default"> false </td>
+												<td class="description last"></td>
+											</tr>
+											<tr>
+												<td class="name"><code>guildOnly</code></td>
+												<td class="type"> <span class="param-type">Boolean</span> </td>
+												<td class="attributes"> &lt;optional>
+													<br> </td>
+												<td class="default"> false </td>
+												<td class="description last"></td>
+											</tr>
+											<tr>
+												<td class="name"><code>requiredPermission</code></td>
+												<td class="type"> <span class="param-type">String</span> </td>
+												<td class="attributes"> &lt;optional>
+													<br> </td>
+												<td class="default"> null </td>
+												<td class="description last">
+													<p>A Discord <a href="https://abal.moe/Eris/reference.html">permission</a></p>
+												</td>
+											</tr>
+											<tr>
+												<td class="name"><code>initialize</code></td>
+												<td class="type"> <span class="param-type">String</span> </td>
+												<td class="attributes"> &lt;optional>
+													<br> </td>
+												<td class="default"> </td>
+												<td class="description last">
+													<p>A function that runs at creation and is passed the client.</p>
+												</td>
 											</tr>
 										</tbody>
 									</table>
+								</td>
+							</tr>
+							<tr>
+								<td class="name"><code>bot</code></td>
+								<td class="type"> <span class="param-type">Client</span> </td>
+								<td class="description last">
+									<p>The client.</p>
+								</td>
+							</tr>
+							<tr>
+								<td class="name"><code>config</code></td>
+								<td class="type"> <span class="param-type">Object</span> </td>
+								<td class="description last">
+									<p>The bot's config settings.</p>
 								</td>
 							</tr>
 						</tbody>
@@ -173,8 +262,6 @@
 							<tr>
 								<th>Name</th>
 								<th>Type</th>
-								<th>Attributes</th>
-								<th>Default</th>
 								<th class="last">Description</th>
 							</tr>
 						</thead>
@@ -182,8 +269,6 @@
 							<tr>
 								<td class="name"><code>name</code></td>
 								<td class="type"> <span class="param-type">String</span> </td>
-								<td class="attributes"> </td>
-								<td class="default"> </td>
 								<td class="description last">
 									<p>The command's name.</p>
 								</td>
@@ -191,8 +276,6 @@
 							<tr>
 								<td class="name"><code>prefix</code></td>
 								<td class="type"> <span class="param-type">String</span> </td>
-								<td class="attributes"> </td>
-								<td class="default"> </td>
 								<td class="description last">
 									<p>Prefix for the command.</p>
 								</td>
@@ -200,9 +283,6 @@
 							<tr>
 								<td class="name"><code>usage</code></td>
 								<td class="type"> <span class="param-type">String</span> </td>
-								<td class="attributes"> &lt;optional>
-									<br> </td>
-								<td class="default"> "" </td>
 								<td class="description last">
 									<p>Usage for the command.</p>
 								</td>
@@ -210,9 +290,6 @@
 							<tr>
 								<td class="name"><code>desc</code></td>
 								<td class="type"> <span class="param-type">String</span> </td>
-								<td class="attributes"> &lt;optional>
-									<br> </td>
-								<td class="default"> "No description" </td>
 								<td class="description last">
 									<p>Short description of what the command does.</p>
 								</td>
@@ -220,9 +297,6 @@
 							<tr>
 								<td class="name"><code>help</code></td>
 								<td class="type"> <span class="param-type">String</span> </td>
-								<td class="attributes"> &lt;optional>
-									<br> </td>
-								<td class="default"> "No description" </td>
 								<td class="description last">
 									<p>Detailed description of what the command does.</p>
 								</td>
@@ -230,8 +304,6 @@
 							<tr>
 								<td class="name"><code>task</code></td>
 								<td class="type"> <span class="param-type">function</span> </td>
-								<td class="attributes"> </td>
-								<td class="default"> </td>
 								<td class="description last">
 									<p>The function to execute when the command is called.</p>
 								</td>
@@ -239,8 +311,6 @@
 							<tr>
 								<td class="name"><code>aliases</code></td>
 								<td class="type"> <span class="param-type">Array.&lt;String></span> </td>
-								<td class="attributes"> </td>
-								<td class="default"> </td>
 								<td class="description last">
 									<p>An array containing the aliases for the command.</p>
 								</td>
@@ -248,8 +318,6 @@
 							<tr>
 								<td class="name"><code>cooldown</code></td>
 								<td class="type"> <span class="param-type">Number</span> </td>
-								<td class="attributes"> </td>
-								<td class="default"> </td>
 								<td class="description last">
 									<p>The colldown for the command in seconds.</p>
 								</td>
@@ -257,26 +325,41 @@
 							<tr>
 								<td class="name"><code>hidden</code></td>
 								<td class="type"> <span class="param-type">Boolean</span> </td>
-								<td class="attributes"> </td>
-								<td class="default"> </td>
 								<td class="description last">
 									<p>If the command should be hidden from help.</p>
 								</td>
 							</tr>
 							<tr>
+								<td class="name"><code>ownerOnly</code></td>
+								<td class="type"> <span class="param-type">Boolean</span> </td>
+								<td class="description last">
+									<p>If the command can only be used by a bot admin.</p>
+								</td>
+							</tr>
+							<tr>
+								<td class="name"><code>guildOnly</code></td>
+								<td class="type"> <span class="param-type">Boolean</span> </td>
+								<td class="description last">
+									<p>If the command can only be used in a guild.</p>
+								</td>
+							</tr>
+							<tr>
+								<td class="name"><code>requiredPermission</code></td>
+								<td class="type"> <span class="param-type">String</span> </td>
+								<td class="description last">
+									<p>The permission needed to use the command.</p>
+								</td>
+							</tr>
+							<tr>
 								<td class="name"><code>timesUsed</code></td>
 								<td class="type"> <span class="param-type">Number</span> </td>
-								<td class="attributes"> </td>
-								<td class="default"> </td>
 								<td class="description last">
 									<p>How many times the command has been used.</p>
 								</td>
 							</tr>
 							<tr>
 								<td class="name"><code>usersOnCooldown</code></td>
-								<td class="type"> <span class="param-type">Object</span> </td>
-								<td class="attributes"> </td>
-								<td class="default"> </td>
+								<td class="type"> <span class="param-type">Set</span> </td>
 								<td class="description last">
 									<p>Users that are still on cooldown.</p>
 								</td>
@@ -286,7 +369,7 @@
 					<dl class="details"> <dt class="tag-source">Source:</dt>
 						<dd class="tag-source">
 							<ul class="dummy">
-								<li> <a href="Command.js.html">Command.js</a>, <a href="Command.js.html#line16">line 16</a> </li>
+								<li> <a href="Command.js.html">Command.js</a>, <a href="Command.js.html#line19">line 19</a> </li>
 							</ul>
 						</dd>
 					</dl>
@@ -303,7 +386,7 @@
 				<dl class="details"> <dt class="tag-source">Source:</dt>
 					<dd class="tag-source">
 						<ul class="dummy">
-							<li> <a href="Command.js.html">Command.js</a>, <a href="Command.js.html#line49">line 49</a> </li>
+							<li> <a href="Command.js.html">Command.js</a>, <a href="Command.js.html#line64">line 64</a> </li>
 						</ul>
 					</dd>
 				</dl>
@@ -318,7 +401,7 @@
 				<dl class="details"> <dt class="tag-source">Source:</dt>
 					<dd class="tag-source">
 						<ul class="dummy">
-							<li> <a href="Command.js.html">Command.js</a>, <a href="Command.js.html#line65">line 65</a> </li>
+							<li> <a href="Command.js.html">Command.js</a>, <a href="Command.js.html#line80">line 80</a> </li>
 						</ul>
 					</dd>
 				</dl>
@@ -333,7 +416,7 @@
 				<dl class="details"> <dt class="tag-source">Source:</dt>
 					<dd class="tag-source">
 						<ul class="dummy">
-							<li> <a href="Command.js.html">Command.js</a>, <a href="Command.js.html#line57">line 57</a> </li>
+							<li> <a href="Command.js.html">Command.js</a>, <a href="Command.js.html#line72">line 72</a> </li>
 						</ul>
 					</dd>
 				</dl>
@@ -390,7 +473,7 @@
 				<dl class="details"> <dt class="tag-source">Source:</dt>
 					<dd class="tag-source">
 						<ul class="dummy">
-							<li> <a href="Command.js.html">Command.js</a>, <a href="Command.js.html#line80">line 80</a> </li>
+							<li> <a href="Command.js.html">Command.js</a>, <a href="Command.js.html#line95">line 95</a> </li>
 						</ul>
 					</dd>
 				</dl>
@@ -398,7 +481,7 @@
 		</section>
 	</div>
 	<br class="clear">
-	<footer> Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.4</a> on Sun Jul 10 2016 01:29:39 GMT-0500 (Central Daylight Time) using the Minami theme. </footer>
+	<footer> Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.4</a> on Thu Aug 11 2016 22:00:55 GMT-0500 (Central Daylight Time) using the Minami theme. </footer>
 	<script>
 		prettyPrint();
 

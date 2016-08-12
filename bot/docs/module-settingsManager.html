@@ -33,9 +33,22 @@
 					<li data-type='method'><a href="CommandManager.html#checkForMatch">checkForMatch</a></li>
 					<li data-type='method'><a href="CommandManager.html#help">help</a></li>
 					<li data-type='method'><a href="CommandManager.html#initialize">initialize</a></li>
-					<li data-type='method'><a href="CommandManager.html#logCommand">logCommand</a></li>
 					<li data-type='method'><a href="CommandManager.html#processCommand">processCommand</a></li>
 					<li data-type='method'><a href="CommandManager.html#reload">reload</a></li>
+				</ul>
+			</li>
+			<li><a href="Logger.html">Logger</a>
+				<ul class='methods'>
+					<li data-type='method'><a href="Logger.html#debug">debug</a></li>
+					<li data-type='method'><a href="Logger.html#error">error</a></li>
+					<li data-type='method'><a href="Logger.html#isValidColor">isValidColor</a></li>
+					<li data-type='method'><a href="Logger.html#log">log</a></li>
+					<li data-type='method'><a href="Logger.html#logBold">logBold</a></li>
+					<li data-type='method'><a href="Logger.html#logCommand">logCommand</a></li>
+					<li data-type='method'><a href="Logger.html#logWithBackground">logWithBackground</a></li>
+					<li data-type='method'><a href="Logger.html#logWithHeader">logWithHeader</a></li>
+					<li data-type='method'><a href="Logger.html#logWithUnderline">logWithUnderline</a></li>
+					<li data-type='method'><a href="Logger.html#warn">warn</a></li>
 				</ul>
 			</li>
 		</ul>
@@ -45,7 +58,10 @@
 				<ul class='methods'>
 					<li data-type='method'><a href="module-settingsManager.html#~addIgnoreForGuild">addIgnoreForGuild</a></li>
 					<li data-type='method'><a href="module-settingsManager.html#~addIgnoreForUserOrChannel">addIgnoreForUserOrChannel</a></li>
+					<li data-type='method'><a href="module-settingsManager.html#~checkIgnoresFor">checkIgnoresFor</a></li>
+					<li data-type='method'><a href="module-settingsManager.html#~getAllNSFW">getAllNSFW</a></li>
 					<li data-type='method'><a href="module-settingsManager.html#~getEventSetting">getEventSetting</a></li>
+					<li data-type='method'><a href="module-settingsManager.html#~getGuildsEvents">getGuildsEvents</a></li>
 					<li data-type='method'><a href="module-settingsManager.html#~getNSFW">getNSFW</a></li>
 					<li data-type='method'><a href="module-settingsManager.html#~getWelcome">getWelcome</a></li>
 					<li data-type='method'><a href="module-settingsManager.html#~handleDeletedChannel">handleDeletedChannel</a></li>
@@ -62,11 +78,12 @@
 			<li><a href="module-utils.html">utils</a>
 				<ul class='methods'>
 					<li data-type='method'><a href="module-utils.html#.checkForUpdates">checkForUpdates</a></li>
-					<li data-type='method'><a href="module-utils.html#.comma">comma</a></li>
-					<li data-type='method'><a href="module-utils.html#.findUser">findUser</a></li>
+					<li data-type='method'><a href="module-utils.html#.findMember">findMember</a></li>
+					<li data-type='method'><a href="module-utils.html#.findUserInGuild">findUserInGuild</a></li>
 					<li data-type='method'><a href="module-utils.html#.formatTime">formatTime</a></li>
 					<li data-type='method'><a href="module-utils.html#.safeSave">safeSave</a></li>
 					<li data-type='method'><a href="module-utils.html#.setAvatar">setAvatar</a></li>
+					<li data-type='method'><a href="module-utils.html#.updateAbalBots">updateAbalBots</a></li>
 					<li data-type='method'><a href="module-utils.html#.updateCarbon">updateCarbon</a></li>
 				</ul>
 			</li>
@@ -101,7 +118,7 @@
 				<dl class="details"> <dt class="tag-source">Source:</dt>
 					<dd class="tag-source">
 						<ul class="dummy">
-							<li> <a href="settingsManager.js.html">settingsManager.js</a>, <a href="settingsManager.js.html#line216">line 216</a> </li>
+							<li> <a href="settingsManager.js.html">settingsManager.js</a>, <a href="settingsManager.js.html#line245">line 245</a> </li>
 						</ul>
 					</dd>
 				</dl>
@@ -121,7 +138,7 @@
 					</dd> <dt class="tag-source">Source:</dt>
 					<dd class="tag-source">
 						<ul class="dummy">
-							<li> <a href="settingsManager.js.html">settingsManager.js</a>, <a href="settingsManager.js.html#line80">line 80</a> </li>
+							<li> <a href="settingsManager.js.html">settingsManager.js</a>, <a href="settingsManager.js.html#line81">line 81</a> </li>
 						</ul>
 					</dd>
 				</dl>
@@ -159,7 +176,7 @@
 				<dl class="details"> <dt class="tag-source">Source:</dt>
 					<dd class="tag-source">
 						<ul class="dummy">
-							<li> <a href="settingsManager.js.html">settingsManager.js</a>, <a href="settingsManager.js.html#line342">line 342</a> </li>
+							<li> <a href="settingsManager.js.html">settingsManager.js</a>, <a href="settingsManager.js.html#line429">line 429</a> </li>
 						</ul>
 					</dd>
 				</dl>
@@ -219,7 +236,7 @@
 				<dl class="details"> <dt class="tag-source">Source:</dt>
 					<dd class="tag-source">
 						<ul class="dummy">
-							<li> <a href="settingsManager.js.html">settingsManager.js</a>, <a href="settingsManager.js.html#line226">line 226</a> </li>
+							<li> <a href="settingsManager.js.html">settingsManager.js</a>, <a href="settingsManager.js.html#line255">line 255</a> </li>
 						</ul>
 					</dd>
 				</dl>
@@ -231,6 +248,103 @@
         Type
     </dt>
 					<dd> <span class="param-type">Promise.&lt;Boolean></span> </dd>
+				</dl>
+				<h4 class="name" id="~checkIgnoresFor"><span class="type-signature">(inner) </span>checkIgnoresFor<span class="signature">(guildId, type, id<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Array.&lt;String>}</span></h4>
+				<div class="description">
+					<p>Check what commands are ignored for something.</p>
+				</div>
+				<h5>Parameters:</h5>
+				<table class="params">
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>Type</th>
+							<th>Attributes</th>
+							<th class="last">Description</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td class="name"><code>guildId</code></td>
+							<td class="type"> <span class="param-type">String</span> </td>
+							<td class="attributes"> </td>
+							<td class="description last">
+								<p>The guild to check in.</p>
+							</td>
+						</tr>
+						<tr>
+							<td class="name"><code>type</code></td>
+							<td class="type"> <span class="param-type">String</span> </td>
+							<td class="attributes"> </td>
+							<td class="description last">
+								<p>&quot;guild&quot;, &quot;channel&quot;, or &quot;user&quot;.</p>
+							</td>
+						</tr>
+						<tr>
+							<td class="name"><code>id</code></td>
+							<td class="type"> <span class="param-type">String</span> </td>
+							<td class="attributes"> &lt;optional>
+								<br> </td>
+							<td class="description last">
+								<p>The id for the channel or user.</p>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<dl class="details"> <dt class="tag-source">Source:</dt>
+					<dd class="tag-source">
+						<ul class="dummy">
+							<li> <a href="settingsManager.js.html">settingsManager.js</a>, <a href="settingsManager.js.html#line619">line 619</a> </li>
+						</ul>
+					</dd>
+				</dl>
+				<h5>Returns:</h5>
+				<div class="param-desc">
+					<p>An array containing the ignored commands.</p>
+				</div>
+				<dl class="param-type"> <dt>
+        Type
+    </dt>
+					<dd> <span class="param-type">Array.&lt;String></span> </dd>
+				</dl>
+				<h4 class="name" id="~getAllNSFW"><span class="type-signature">(inner) </span>getAllNSFW<span class="signature">(guildId)</span><span class="type-signature"> &rarr; (nullable) {Array.&lt;String>}</span></h4>
+				<div class="description">
+					<p>Check what channels in a guild have NSFW enabled</p>
+				</div>
+				<h5>Parameters:</h5>
+				<table class="params">
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>Type</th>
+							<th class="last">Description</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td class="name"><code>guildId</code></td>
+							<td class="type"> <span class="param-type">String</span> </td>
+							<td class="description last">
+								<p>The id of the guild.</p>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<dl class="details"> <dt class="tag-source">Source:</dt>
+					<dd class="tag-source">
+						<ul class="dummy">
+							<li> <a href="settingsManager.js.html">settingsManager.js</a>, <a href="settingsManager.js.html#line235">line 235</a> </li>
+						</ul>
+					</dd>
+				</dl>
+				<h5>Returns:</h5>
+				<div class="param-desc">
+					<p>An array of the channel ids.</p>
+				</div>
+				<dl class="param-type"> <dt>
+        Type
+    </dt>
+					<dd> <span class="param-type">Array.&lt;String></span> </dd>
 				</dl>
 				<h4 class="name" id="~getEventSetting"><span class="type-signature">(inner) </span>getEventSetting<span class="signature">(guildId, eventQ)</span><span class="type-signature"> &rarr; (nullable) {String}</span></h4>
 				<div class="description">
@@ -265,7 +379,7 @@
 				<dl class="details"> <dt class="tag-source">Source:</dt>
 					<dd class="tag-source">
 						<ul class="dummy">
-							<li> <a href="settingsManager.js.html">settingsManager.js</a>, <a href="settingsManager.js.html#line165">line 165</a> </li>
+							<li> <a href="settingsManager.js.html">settingsManager.js</a>, <a href="settingsManager.js.html#line173">line 173</a> </li>
 						</ul>
 					</dd>
 				</dl>
@@ -277,6 +391,45 @@
         Type
     </dt>
 					<dd> <span class="param-type">String</span> </dd>
+				</dl>
+				<h4 class="name" id="~getGuildsEvents"><span class="type-signature">(inner) </span>getGuildsEvents<span class="signature">(guildId)</span><span class="type-signature"> &rarr; (nullable) {Object}</span></h4>
+				<div class="description">
+					<p>Check what events a guild is subscribed to and where they are posted.</p>
+				</div>
+				<h5>Parameters:</h5>
+				<table class="params">
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>Type</th>
+							<th class="last">Description</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td class="name"><code>guildId</code></td>
+							<td class="type"> <span class="param-type">String</span> </td>
+							<td class="description last">
+								<p>The id of the guild to check.</p>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<dl class="details"> <dt class="tag-source">Source:</dt>
+					<dd class="tag-source">
+						<ul class="dummy">
+							<li> <a href="settingsManager.js.html">settingsManager.js</a>, <a href="settingsManager.js.html#line182">line 182</a> </li>
+						</ul>
+					</dd>
+				</dl>
+				<h5>Returns:</h5>
+				<div class="param-desc">
+					<p>An object containing channelId and the subbed events.</p>
+				</div>
+				<dl class="param-type"> <dt>
+        Type
+    </dt>
+					<dd> <span class="param-type">Object</span> </dd>
 				</dl>
 				<h4 class="name" id="~getNSFW"><span class="type-signature">(inner) </span>getNSFW<span class="signature">(guildId, channelId)</span><span class="type-signature"> &rarr; {Boolean}</span></h4>
 				<div class="description">
@@ -311,7 +464,7 @@
 				<dl class="details"> <dt class="tag-source">Source:</dt>
 					<dd class="tag-source">
 						<ul class="dummy">
-							<li> <a href="settingsManager.js.html">settingsManager.js</a>, <a href="settingsManager.js.html#line206">line 206</a> </li>
+							<li> <a href="settingsManager.js.html">settingsManager.js</a>, <a href="settingsManager.js.html#line226">line 226</a> </li>
 						</ul>
 					</dd>
 				</dl>
@@ -324,7 +477,7 @@
     </dt>
 					<dd> <span class="param-type">Boolean</span> </dd>
 				</dl>
-				<h4 class="name" id="~getWelcome"><span class="type-signature">(inner) </span>getWelcome<span class="signature">(guild, member)</span><span class="type-signature"> &rarr; (nullable) {Array.&lt;String>}</span></h4>
+				<h4 class="name" id="~getWelcome"><span class="type-signature">(inner) </span>getWelcome<span class="signature">(guild, member, raw)</span><span class="type-signature"> &rarr; (nullable) {Array.&lt;String>}</span></h4>
 				<div class="description">
 					<p>Get a server's welcome message settings.</p>
 				</div>
@@ -352,12 +505,19 @@
 								<p>The user that joined.</p>
 							</td>
 						</tr>
+						<tr>
+							<td class="name"><code>raw</code></td>
+							<td class="type"> <span class="param-type">Boolean</span> </td>
+							<td class="description last">
+								<p>Return without placeholders replaced.</p>
+							</td>
+						</tr>
 					</tbody>
 				</table>
 				<dl class="details"> <dt class="tag-source">Source:</dt>
 					<dd class="tag-source">
 						<ul class="dummy">
-							<li> <a href="settingsManager.js.html">settingsManager.js</a>, <a href="settingsManager.js.html#line65">line 65</a> </li>
+							<li> <a href="settingsManager.js.html">settingsManager.js</a>, <a href="settingsManager.js.html#line64">line 64</a> </li>
 						</ul>
 					</dd>
 				</dl>
@@ -396,7 +556,7 @@
 				<dl class="details"> <dt class="tag-source">Source:</dt>
 					<dd class="tag-source">
 						<ul class="dummy">
-							<li> <a href="settingsManager.js.html">settingsManager.js</a>, <a href="settingsManager.js.html#line476">line 476</a> </li>
+							<li> <a href="settingsManager.js.html">settingsManager.js</a>, <a href="settingsManager.js.html#line637">line 637</a> </li>
 						</ul>
 					</dd>
 				</dl>
@@ -454,7 +614,7 @@
 				<dl class="details"> <dt class="tag-source">Source:</dt>
 					<dd class="tag-source">
 						<ul class="dummy">
-							<li> <a href="settingsManager.js.html">settingsManager.js</a>, <a href="settingsManager.js.html#line456">line 456</a> </li>
+							<li> <a href="settingsManager.js.html">settingsManager.js</a>, <a href="settingsManager.js.html#line598">line 598</a> </li>
 						</ul>
 					</dd>
 				</dl>
@@ -500,7 +660,7 @@
 				<dl class="details"> <dt class="tag-source">Source:</dt>
 					<dd class="tag-source">
 						<ul class="dummy">
-							<li> <a href="settingsManager.js.html">settingsManager.js</a>, <a href="settingsManager.js.html#line400">line 400</a> </li>
+							<li> <a href="settingsManager.js.html">settingsManager.js</a>, <a href="settingsManager.js.html#line488">line 488</a> </li>
 						</ul>
 					</dd>
 				</dl>
@@ -560,7 +720,7 @@
 				<dl class="details"> <dt class="tag-source">Source:</dt>
 					<dd class="tag-source">
 						<ul class="dummy">
-							<li> <a href="settingsManager.js.html">settingsManager.js</a>, <a href="settingsManager.js.html#line289">line 289</a> </li>
+							<li> <a href="settingsManager.js.html">settingsManager.js</a>, <a href="settingsManager.js.html#line314">line 314</a> </li>
 						</ul>
 					</dd>
 				</dl>
@@ -610,7 +770,7 @@
 				<dl class="details"> <dt class="tag-source">Source:</dt>
 					<dd class="tag-source">
 						<ul class="dummy">
-							<li> <a href="settingsManager.js.html">settingsManager.js</a>, <a href="settingsManager.js.html#line87">line 87</a> </li>
+							<li> <a href="settingsManager.js.html">settingsManager.js</a>, <a href="settingsManager.js.html#line88">line 88</a> </li>
 						</ul>
 					</dd>
 				</dl>
@@ -654,7 +814,7 @@
 				<dl class="details"> <dt class="tag-source">Source:</dt>
 					<dd class="tag-source">
 						<ul class="dummy">
-							<li> <a href="settingsManager.js.html">settingsManager.js</a>, <a href="settingsManager.js.html#line178">line 178</a> </li>
+							<li> <a href="settingsManager.js.html">settingsManager.js</a>, <a href="settingsManager.js.html#line195">line 195</a> </li>
 						</ul>
 					</dd>
 				</dl>
@@ -756,7 +916,7 @@
 				<dl class="details"> <dt class="tag-source">Source:</dt>
 					<dd class="tag-source">
 						<ul class="dummy">
-							<li> <a href="settingsManager.js.html">settingsManager.js</a>, <a href="settingsManager.js.html#line111">line 111</a> </li>
+							<li> <a href="settingsManager.js.html">settingsManager.js</a>, <a href="settingsManager.js.html#line113">line 113</a> </li>
 						</ul>
 					</dd>
 				</dl>
@@ -802,7 +962,7 @@
 				<dl class="details"> <dt class="tag-source">Source:</dt>
 					<dd class="tag-source">
 						<ul class="dummy">
-							<li> <a href="settingsManager.js.html">settingsManager.js</a>, <a href="settingsManager.js.html#line139">line 139</a> </li>
+							<li> <a href="settingsManager.js.html">settingsManager.js</a>, <a href="settingsManager.js.html#line143">line 143</a> </li>
 						</ul>
 					</dd>
 				</dl>
@@ -819,7 +979,7 @@
 		</section>
 	</div>
 	<br class="clear">
-	<footer> Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.4</a> on Sun Jul 10 2016 01:29:39 GMT-0500 (Central Daylight Time) using the Minami theme. </footer>
+	<footer> Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.4</a> on Thu Aug 11 2016 22:00:55 GMT-0500 (Central Daylight Time) using the Minami theme. </footer>
 	<script>
 		prettyPrint();
 
