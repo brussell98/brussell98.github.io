@@ -1,0 +1,33 @@
+$body-background: #fff
+
+@import "../node_modules/bulma/bulma"
+
+.hero.is-primary, .hero.is-info, .hero.is-success
+	a.nav-item
+		color: rgba(255,255,255,0.6)
+
+.nav
+	&>.container
+		padding: 0 20px
+	.nav-left
+		overflow-x: hidden
+	.nav-item
+		font-size: 16px
+		&.nav-name
+			font-size: 2em
+			padding: 0 5px
+
+hr
+	margin: 50px 0
+
+.card
+	margin: 10px 0
+	&.is-customwidth
+		width: 75%
+		margin: 10px auto
+
+.button.is-discord
+	background-color: #7289da
+	&.is-inverted
+		background-color: #fff
+		color: #7289da
