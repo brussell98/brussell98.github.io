@@ -92,6 +92,23 @@
 			<div id="normal">
 				<div class="card is-customwidth">
 					<header class="card-header">
+						<p class="card-header-title">8 Ball</p>
+						<a class="card-header-icon card-toggle">
+							<i class="fa fa-angle-down"></i>
+						</a>
+					</header>
+					<div class="card-content is-hidden">
+						<div class="content">
+							Ask the magic 8 ball.
+							<br />
+							<code>]8ball question</code><br />
+							<small>Cooldown: 3 seconds</small>
+						</div>
+					</div>
+				</div>
+
+				<div class="card is-customwidth">
+					<header class="card-header">
 						<p class="card-header-title">About</p>
 						<a class="card-header-icon card-toggle">
 							<i class="fa fa-angle-down"></i>
@@ -102,7 +119,65 @@
 							Shows you some info about Mirai. Also contains some useful links.
 							<br />
 							<code>]about</code><br />
-							<small>Coldown: 5 seconds</small>
+							<small>Cooldown: 5 seconds</small>
+						</div>
+					</div>
+				</div>
+
+				<div class="card is-customwidth">
+					<header class="card-header">
+						<p class="card-header-title">Anime</p>
+						<a class="card-header-icon card-toggle">
+							<i class="fa fa-angle-down"></i>
+						</a>
+					</header>
+					<div class="card-content is-hidden">
+						<div class="content">
+							Get info on an anime.
+							<br />
+							<code>]anime &lt;title&gt;</code><br />
+							<small>Cooldown: 5 seconds</small>
+						</div>
+					</div>
+				</div>
+
+				<div class="card is-customwidth">
+					<header class="card-header">
+						<p class="card-header-title">Avatar / Icon</p>
+						<a class="card-header-icon card-toggle">
+							<i class="fa fa-angle-down"></i>
+						</a>
+					</header>
+					<div class="card-content is-hidden">
+						<div class="content">
+							Display a user's avatar, or the server's icon.<br />
+							Use <code>--server</code> in place of a username to get the server's icon.<br />
+							Add <code>--default</code> to the end to get the default avatar.
+							<br />
+							<code>]avatar [user | --server] [--deafult]</code><br />
+							<small>Aliases: a, icon</small><br />
+							<small>Cooldown: 5 seconds</small><br />
+							<small>Can only be used in a server.</small>
+						</div>
+					</div>
+				</div>
+
+				<div class="card is-customwidth">
+					<header class="card-header">
+						<p class="card-header-title">Channel Info</p>
+						<a class="card-header-icon card-toggle">
+							<i class="fa fa-angle-down"></i>
+						</a>
+					</header>
+					<div class="card-content is-hidden">
+						<div class="content">
+							Get detailed information on a channel.<br />
+							Adding <code>--topic</code> as the suffix will show only the topic instead.
+							<br />
+							<code>]channelinfo [channel] [--topic] [--deafult]</code><br />
+							<small>Aliases: channel</small><br />
+							<small>Cooldown: 5 seconds</small><br />
+							<small>Can only be used in a server.</small>
 						</div>
 					</div>
 				</div>
@@ -120,7 +195,190 @@
 							<br />
 							<code>]choose &lt;choice&gt; | &lt;choice&gt; [| choice...]</code><br />
 							<small>Aliases: c, pick, decide</small><br />
-							<small>Coldown: 2 seconds</small>
+							<small>Cooldown: 2 seconds</small>
+						</div>
+					</div>
+				</div>
+
+				<div class="card is-customwidth">
+					<header class="card-header">
+						<p class="card-header-title">Conflip</p>
+						<a class="card-header-icon card-toggle">
+							<i class="fa fa-angle-down"></i>
+						</a>
+					</header>
+					<div class="card-content is-hidden">
+						<div class="content">
+							Flip a coin.
+							<br />
+							<code>]coinflip</code><br />
+							<small>Aliases: coin, flip</small><br />
+							<small>Cooldown: 1 second</small><br />
+						</div>
+					</div>
+				</div>
+
+				<div class="card is-customwidth">
+					<header class="card-header">
+						<p class="card-header-title">CSS Lint</p>
+						<a class="card-header-icon card-toggle">
+							<i class="fa fa-angle-down"></i>
+						</a>
+					</header>
+					<div class="card-content is-hidden">
+						<div class="content">
+							Check CSS for errors and warnings. Because <em>why not</em>.
+							<br />
+							<code>]csslint ```css<br />
+							css here<br />
+							```</code><br />
+							<small>Aliases: css, css-lint</small><br />
+							<small>Cooldown: 8 seconds</small><br />
+						</div>
+					</div>
+				</div>
+
+				<div class="card is-customwidth">
+					<header class="card-header">
+						<p class="card-header-title">Currency Conversion</p>
+						<a class="card-header-icon card-toggle">
+							<i class="fa fa-angle-down"></i>
+						</a>
+					</header>
+					<div class="card-content is-hidden">
+						<div class="content">
+							Convert to another currency. Replace "CODE" with the three letter currency code.
+							<br />
+							<code>]currency &lt;ammoun&gt;> &lt;CODE&gt; to &lt;CODE&gt;</code><br />
+							<small>Aliases: convert</small><br />
+							<small>Cooldown: 5 seconds</small><br />
+						</div>
+					</div>
+				</div>
+
+				<div class="card is-customwidth">
+					<header class="card-header">
+						<p class="card-header-title">Dice Roll</p>
+						<a class="card-header-icon card-toggle">
+							<i class="fa fa-angle-down"></i>
+						</a>
+					</header>
+					<div class="card-content is-hidden">
+						<div class="content">
+							Roll dice.
+							<br />
+							<code>]dice [(rolls)d(sides)]</code><br />
+							<small>Aliases: die</small><br />
+							<small>Cooldown: 3 seconds</small><br />
+						</div>
+					</div>
+				</div>
+
+				<div class="card is-customwidth">
+					<header class="card-header">
+						<p class="card-header-title">Emojify</p>
+						<a class="card-header-icon card-toggle">
+							<i class="fa fa-angle-down"></i>
+						</a>
+					</header>
+					<div class="card-content is-hidden">
+						<div class="content">
+							Converts text to emojis.
+							<br />
+							<code>]emojify &lt;text&gt;</code><br />
+							<small>Aliases: emoji, cancerify</small><br />
+							<small>Cooldown: 10 seconds</small><br />
+						</div>
+					</div>
+				</div>
+
+				<div class="card is-customwidth">
+					<header class="card-header">
+						<p class="card-header-title">Facts</p>
+						<a class="card-header-icon card-toggle">
+							<i class="fa fa-angle-down"></i>
+						</a>
+					</header>
+					<div class="card-content is-hidden">
+						<div class="content">
+							Get facts about cats, a number, date, year, or math facts on a number.<br />
+							Formats: <code>random trivia</code>, <code>number 42</code>, <code>math 42</code>, <code>date 7/17</code>, <code>year 1777</code><br />
+							<br />
+							<code>]facts [random &lt;math|date|year|trivia&gt; | number &lt;num&gt; | math &lt;num&gt; | date &lt;MM/DD&gt; | year &lt;year&gt; | cats]</code><br />
+							<small>Aliases: fact</small><br />
+							<small>Cooldown: 2 seconds</small><br />
+						</div>
+					</div>
+				</div>
+
+				<div class="card is-customwidth">
+					<header class="card-header">
+						<p class="card-header-title">Fortune</p>
+						<a class="card-header-icon card-toggle">
+							<i class="fa fa-angle-down"></i>
+						</a>
+					</header>
+					<div class="card-content is-hidden">
+						<div class="content">
+							Get a fortune. The following categories are avaliable:<br />
+							all, computers, cookie, definitions, miscellaneous, people, platitudes, politics, science, and wisdom.
+							<br />
+							<code>]fortune [category]</code><br />
+							<small>Cooldown: 3 seconds</small><br />
+						</div>
+					</div>
+				</div>
+
+				<div class="card is-customwidth">
+					<header class="card-header">
+						<p class="card-header-title">Fullwidth</p>
+						<a class="card-header-icon card-toggle">
+							<i class="fa fa-angle-down"></i>
+						</a>
+					</header>
+					<div class="card-content is-hidden">
+						<div class="content">
+							Converts to ｆｕｌｌｗｉｄｔｈ.
+							<br />
+							<code>]fullwidth [text]</code><br />
+							<small>Aliases: aesthetic</small><br />
+							<small>Cooldown: 8 seconds</small><br />
+						</div>
+					</div>
+				</div>
+
+				<div class="card is-customwidth">
+					<header class="card-header">
+						<p class="card-header-title">Google Search</p>
+						<a class="card-header-icon card-toggle">
+							<i class="fa fa-angle-down"></i>
+						</a>
+					</header>
+					<div class="card-content is-hidden">
+						<div class="content">
+							Search Google and return the first result in chat.
+							<br />
+							<code>]google &lt;query&gt;</code><br />
+							<small>Aliases: search, g</small><br />
+							<small>Cooldown: 10 seconds</small><br />
+						</div>
+					</div>
+				</div>
+
+				<div class="card is-customwidth">
+					<header class="card-header">
+						<p class="card-header-title">In Role</p>
+						<a class="card-header-icon card-toggle">
+							<i class="fa fa-angle-down"></i>
+						</a>
+					</header>
+					<div class="card-content is-hidden">
+						<div class="content">
+							Get a list of the users in a role.
+							<br />
+							<code>]inrole &lt;role&gt;</code><br />
+							<small>Cooldown: 5 seconds</small><br />
+							<small>Can only be used in a server.</small>
 						</div>
 					</div>
 				</div>
@@ -138,7 +396,69 @@
 							<br />
 							<code>]invite</code><br />
 							<small>Aliases: oauth</small><br />
-							<small>Coldown: 5 seconds</small>
+							<small>Cooldown: 5 seconds</small>
+						</div>
+					</div>
+				</div>
+
+				<div class="card is-customwidth">
+					<header class="card-header">
+						<p class="card-header-title">Lottery</p>
+						<a class="card-header-icon card-toggle">
+							<i class="fa fa-angle-down"></i>
+						</a>
+					</header>
+					<div class="card-content is-hidden">
+						<div class="content">
+							Run a lottery.<br />
+							<b>Start:</b> Starts a lottery.<br />
+							<b>Draw:</b> Pick someone.<br />
+							<b>Close:</b> Close entries into the lottery.<br />
+							<b>Open</b>: Allow enteries intothe lottery.<br />
+							<b>End:</b> End the lottery.<br />
+							<b>Enter:</b> Enter into the lottery.<br />
+							<br />
+							<code>]lottery start | draw | close | open | end | enter | check</code><br />
+							<small>Aliases: lotto</small><br />
+							<small>Can only be used in a server.</small>
+						</div>
+					</div>
+				</div>
+
+				<div class="card is-customwidth">
+					<header class="card-header">
+						<p class="card-header-title">Manga</p>
+						<a class="card-header-icon card-toggle">
+							<i class="fa fa-angle-down"></i>
+						</a>
+					</header>
+					<div class="card-content is-hidden">
+						<div class="content">
+							Get info on a manga.
+							<br />
+							<code>]manga &lt;title&gt;</code><br />
+							<small>Cooldown: 4 seconds</small><br />
+						</div>
+					</div>
+				</div>
+
+				<div class="card is-customwidth">
+					<header class="card-header">
+						<p class="card-header-title">osu! Commands</p>
+						<a class="card-header-icon card-toggle">
+							<i class="fa fa-angle-down"></i>
+						</a>
+					</header>
+					<div class="card-content is-hidden">
+						<div class="content">
+							Get osu! information.<br />
+							<code>osu [mode] sig &lt;username&gt; [hex color]</code> Get an osu signature. Ex: <i>osu mania sig brussell98 #34A8FA</i>.<br />
+							<code>osu [mode] user &lt;username&gt;</code> Get a user's profile.<br />
+							<code>osu [mode] best &lt;username&gt;</code> Get a user's top 5 scores.<br />
+							<code>osu [mode] recent &lt;username&gt;</code> Get a user's 5 most recent scores.
+							<br />
+							<small>Aliases: osu!</small><br />
+							<small>Cooldown: 8 seconds</small><br />
 						</div>
 					</div>
 				</div>
@@ -152,11 +472,11 @@
 					</header>
 					<div class="card-content is-hidden">
 						<div class="content">
-							Check if the bot is working. It also returns the delay in response.
+							Used to check if the bot is working. Replies with 'pong' and the response delay.
 							<br />
 							<code>]ping</code><br />
 							<small>Aliases: p</small><br />
-							<small>Coldown: 2 seconds</small>
+							<small>Cooldown: 2 seconds</small>
 						</div>
 					</div>
 				</div>
@@ -174,13 +494,302 @@
 							<br />
 							<code>]randomcomic</code><br />
 							<small>Aliases: rcg, comic</small><br />
-							<small>Coldown: 10 seconds</small>
+							<small>Cooldown: 10 seconds</small>
+						</div>
+					</div>
+				</div>
+
+				<div class="card is-customwidth">
+					<header class="card-header">
+						<p class="card-header-title">Rate Waifu</p>
+						<a class="card-header-icon card-toggle">
+							<i class="fa fa-angle-down"></i>
+						</a>
+					</header>
+					<div class="card-content is-hidden">
+						<div class="content">
+							I'll rate your waifu.
+							<br />
+							<code>]ratewaifu &lt;name&gt;</code><br />
+							<small>Aliases: rate, waifu</small><br />
+							<small>Cooldown: 4 seconds</small><br />
+						</div>
+					</div>
+				</div>
+
+				<div class="card is-customwidth">
+					<header class="card-header">
+						<p class="card-header-title">Reminders</p>
+						<a class="card-header-icon card-toggle">
+							<i class="fa fa-angle-down"></i>
+						</a>
+					</header>
+					<div class="card-content is-hidden">
+						<div class="content">
+							Set reminders.<br />
+							<u>remove:</u> Will remove a reminder containing the text given.<br />
+							<u>list:</u> List your reminders.<br />
+							<u>add/set:</u> Set a reminder.<br />
+							<br />
+							<code>]remind set &lt;reminder&gt; in &lt;[0 d] [00 h] [00 m] [000 s]&gt; | remove &lt;text in reminder&gt; | list</code><br />
+							<small>Aliases: reminder</small><br />
+							<small>Cooldown: 5 seconds</small><br />
+						</div>
+					</div>
+				</div>
+
+				<div class="card is-customwidth">
+					<header class="card-header">
+						<p class="card-header-title">RIP</p>
+						<a class="card-header-icon card-toggle">
+							<i class="fa fa-angle-down"></i>
+						</a>
+					</header>
+					<div class="card-content is-hidden">
+						<div class="content">
+							RIP.
+							<br />
+							<code>]rip [text]</code><br />
+							<small>Cooldown: 2 seconds</small><br />
+						</div>
+					</div>
+				</div>
+
+				<div class="card is-customwidth">
+					<header class="card-header">
+						<p class="card-header-title">Rock Paper Scissors</p>
+						<a class="card-header-icon card-toggle">
+							<i class="fa fa-angle-down"></i>
+						</a>
+					</header>
+					<div class="card-content is-hidden">
+						<div class="content">
+							Play rock, paper, scissors.
+							<br />
+							<code>]rps</code><br />
+							<small>Aliases: rps</small><br />
+							<small>Cooldown: 1 second</small><br />
+						</div>
+					</div>
+				</div>
+
+				<div class="card is-customwidth">
+					<header class="card-header">
+						<p class="card-header-title">Roll / Random Number</p>
+						<a class="card-header-icon card-toggle">
+							<i class="fa fa-angle-down"></i>
+						</a>
+					</header>
+					<div class="card-content is-hidden">
+						<div class="content">
+							Roll a number between 1 and <i>max</i>. By default 1-10.
+							<br />
+							<code>]roll [max]</code><br />
+							<small>Cooldown: 2 seconds</small><br />
+						</div>
+					</div>
+				</div>
+
+				<div class="card is-customwidth">
+					<header class="card-header">
+						<p class="card-header-title">Server Info</p>
+						<a class="card-header-icon card-toggle">
+							<i class="fa fa-angle-down"></i>
+						</a>
+					</header>
+					<div class="card-content is-hidden">
+						<div class="content">
+							Get detailed information on the current server.
+							<br />
+							<code>]serverinfo</code><br />
+							<small>Aliases: server, guild</small><br />
+							<small>Cooldown: 5 seconds</small><br />
+							<small>Can only be used in a server.</small>
+						</div>
+					</div>
+				</div>
+
+				<div class="card is-customwidth">
+					<header class="card-header">
+						<p class="card-header-title">Shared Servers</p>
+						<a class="card-header-icon card-toggle">
+							<i class="fa fa-angle-down"></i>
+						</a>
+					</header>
+					<div class="card-content is-hidden">
+						<div class="content">
+							See what servers a user shares with Mirai.
+							<br />
+							<code>]sharedservers [user]</code><br />
+							<small>Aliases: shared</small><br />
+							<small>Cooldown: 5 seconds</small><br />
+							<small>Can only be used in a server.</small>
+						</div>
+					</div>
+				</div>
+
+				<div class="card is-customwidth">
+					<header class="card-header">
+						<p class="card-header-title">Strawpoll</p>
+						<a class="card-header-icon card-toggle">
+							<i class="fa fa-angle-down"></i>
+						</a>
+					</header>
+					<div class="card-content is-hidden">
+						<div class="content">
+							Create a strawpoll. Choices are seperated with a <code>|</code>. Start the first choice with <code>t:</code> to set the title.
+							<br />
+							<code>]strawpoll [t:&lt;Title&gt; |] &lt;option&gt; | &lt;option&gt; [| &lt;option&gt;...]</code><br />
+							<small>Aliases: poll</small><br />
+							<small>Cooldown: 10 seconds</small><br />
+						</div>
+					</div>
+				</div>
+
+				<div class="card is-customwidth">
+					<header class="card-header">
+						<p class="card-header-title">User Info</p>
+						<a class="card-header-icon card-toggle">
+							<i class="fa fa-angle-down"></i>
+						</a>
+					</header>
+					<div class="card-content is-hidden">
+						<div class="content">
+							Get detailed information on the specified user or yourself.
+							<br />
+							<code>]userinfo [user]</code><br />
+							<small>Aliases: user</small><br />
+							<small>Cooldown: 5 seconds</small><br />
+							<small>Can only be used in a server.</small>
+						</div>
+					</div>
+				</div>
+
+				<div class="card is-customwidth">
+					<header class="card-header">
+						<p class="card-header-title">Vote</p>
+						<a class="card-header-icon card-toggle">
+							<i class="fa fa-angle-down"></i>
+						</a>
+					</header>
+					<div class="card-content is-hidden">
+						<div class="content">
+							Let users vote on something.<br />
+							To vote just say <code>vote &lt;the option&gt;</code>. Votes can be changed.<br />
+							When creating a new vote start it with <code>t:&lt;topic&gt;</code> to set the topic. Choices are seperated with a <code>|</code>.
+							<br />
+							<code>]vote &lt;choice&gt;, end, check, start [t:&lt;topic&gt;] | &lt;option&gt; | &lt;option&gt;[ s| &lt;option&gt;...]</code><br />
+							<small>Cooldown: 3 seconds</small><br />
+							<small>Can only be used in a server.</small>
+						</div>
+					</div>
+				</div>
+
+				<div class="card is-customwidth">
+					<header class="card-header">
+						<p class="card-header-title">Weather</p>
+						<a class="card-header-icon card-toggle">
+							<i class="fa fa-angle-down"></i>
+						</a>
+					</header>
+					<div class="card-content is-hidden">
+						<div class="content">
+							Get the weather. The following formats are avaliable:<br />
+							<code>city</code>, <code>city, country code</code>, and <code>zip code</code>.<br />
+							<br />
+							<code>]weather &lt;city[,country code] | zip code&gt;</code><br />
+							<small>Aliases: w</small><br />
+							<small>Cooldown: 5 seconds</small>
 						</div>
 					</div>
 				</div>
 			</div>
 
+			<!-- BEGIN MOD COMMANDS -->
 			<div id="moderation" class="is-hidden">
+				<div class="card is-customwidth">
+					<header class="card-header">
+						<p class="card-header-title">Ban</p>
+						<a class="card-header-icon card-toggle">
+							<i class="fa fa-angle-down"></i>
+						</a>
+					</header>
+					<div class="card-content is-hidden">
+						<div class="content">
+							Ban a user and send them a reason.
+							<br />
+							<code>}ban &lt;<@user&gt; [reason]</code><br />
+							<small>Required Permission: banMembers</small><br />
+							<small>Cooldown: 2 seconds</small><br />
+							<small>Can only be used in a server.</small>
+						</div>
+					</div>
+				</div>
+
+				<div class="card is-customwidth">
+					<header class="card-header">
+						<p class="card-header-title">Kick</p>
+						<a class="card-header-icon card-toggle">
+							<i class="fa fa-angle-down"></i>
+						</a>
+					</header>
+					<div class="card-content is-hidden">
+						<div class="content">
+							Kick a user and send them a reason.
+							<br />
+							<code>}kick &lt;<@user&gt; [reason]</code><br />
+							<small>Required Permission: kickMembers</small><br />
+							<small>Cooldown: 2 seconds</small><br />
+							<small>Can only be used in a server.</small>
+						</div>
+					</div>
+				</div>
+
+				<div class="card is-customwidth">
+					<header class="card-header">
+						<p class="card-header-title">Permissions</p>
+						<a class="card-header-icon card-toggle">
+							<i class="fa fa-angle-down"></i>
+						</a>
+					</header>
+					<div class="card-content is-hidden">
+						<div class="content">
+							Get the permissions of a user. Add <code>--server</code> to the end to get server-wide permissions.
+							<br />
+							<code>}permissions [user] [--server]</code><br />
+							<small>Aliases: perms</small><br />
+							<small>Cooldown: 5 seconds</small><br />
+							<small>Can only be used in a server.</small>
+						</div>
+					</div>
+				</div>
+
+				<div class="card is-customwidth">
+					<header class="card-header">
+						<p class="card-header-title">Prune / Delete Messages</p>
+						<a class="card-header-icon card-toggle">
+							<i class="fa fa-angle-down"></i>
+						</a>
+					</header>
+					<div class="card-content is-hidden">
+						<div class="content">
+							Deletes messages. Here is a list of filters:<br />
+							<code>text ...:</code> Messages containing the following text<br />
+							<code>invites:</code> Messages containing an invite<br />
+							<code>user @user:</code> Messages sent by @user<br />
+							<code>bots:</code> Messages sent by bots<br />
+							<code>uploads:</code> Messages containing an attachment<br />
+							<code>links:</code> Messages containing a link<br />
+							<code>length #:</code> Messages longer than the specified length<br />
+							<br />
+							<code>}prune [num to check [filter]]</code><br />
+							<small>Required Permission: manageMessages</small><br />
+							<small>Aliases: purge, clean</small><br />
+							<small>Can only be used in a server.</small>
+						</div>
+					</div>
+				</div>
+
 				<div class="card is-customwidth">
 					<header class="card-header">
 						<p class="card-header-title">Settings</p>
@@ -193,8 +802,29 @@
 							Adjust the settings for how the bot works on the server. More information here: <a href="serversettings.html">Settings</a>.
 							<br />
 							<code>See page for usage</code><br />
+							<small>Required Permission: manageGuild</small><br />
 							<small>Aliases: set, config</small><br />
-							<small>Coldown: 3 seconds</small>
+							<small>Cooldown: 3 seconds</small>
+						</div>
+					</div>
+				</div>
+
+				<div class="card is-customwidth">
+					<header class="card-header">
+						<p class="card-header-title">Stats</p>
+						<a class="card-header-icon card-toggle">
+							<i class="fa fa-angle-down"></i>
+						</a>
+					</header>
+					<div class="card-content is-hidden">
+						<div class="content">
+							Displays statistics about the bot.
+							<br />
+							<code>}stats</code><br />
+							<small>Required Permission: manageGuild</small><br />
+							<small>Cooldown: 10 seconds</small><br />
+							<small>Can only be used in a server.</small><br />
+							<small>Hidden from }help</small>
 						</div>
 					</div>
 				</div>
