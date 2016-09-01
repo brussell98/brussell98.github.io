@@ -86,7 +86,7 @@
 					</li>
 				</ul>
 			</div>
-			<p class="has-text-centered"><b>Key:</b> <code>[optional]</code> <code>&lt;required&gt;</code></p>
+			<p class="has-text-centered">Key: <code>[optional]</code> <code>&lt;required&gt;</code></p>
 			<br />
 			<!-- Alphabetical Order -->
 			<div id="normal">
@@ -411,12 +411,12 @@
 					<div class="card-content is-hidden">
 						<div class="content">
 							Run a lottery.<br />
-							<b>Start:</b> Starts a lottery.<br />
-							<b>Draw:</b> Pick someone.<br />
-							<b>Close:</b> Close entries into the lottery.<br />
-							<b>Open</b>: Allow enteries intothe lottery.<br />
-							<b>End:</b> End the lottery.<br />
-							<b>Enter:</b> Enter into the lottery.<br />
+							<strong>Start:</strong> Starts a lottery.<br />
+							<strong>Draw:</strong> Pick someone.<br />
+							<strong>Close:</strong> Close entries into the lottery.<br />
+							<strong>Open</strong>: Allow enteries intothe lottery.<br />
+							<strong>End:</strong> End the lottery.<br />
+							<strong>Enter:</strong> Enter into the lottery.<br />
 							<br />
 							<code>]lottery start | draw | close | open | end | enter | check</code><br />
 							<small>Aliases: lotto</small><br />
@@ -519,6 +519,30 @@
 
 				<div class="card is-customwidth">
 					<header class="card-header">
+						<p class="card-header-title">Reddit</p>
+						<a class="card-header-icon card-toggle">
+							<i class="fa fa-angle-down"></i>
+						</a>
+					</header>
+					<div class="card-content is-hidden">
+						<div class="content">
+							Get posts from a subreddit. If you want to search for a post include part of it's title. This command obeys the channel's NSFW setting.<br />
+							Inlcude the post title to find a certain post, or don't for a random post.<br /><br />
+							<strong>Avaliable Arguments:</strong><br />
+							<code>--time=&lt;timeframe&gt;</code> One of the following: hour, day, week, month, year, all. Only works with top and controversial. (default: day for random, week for search).<br />
+							<code>--limit=&lt;number&gt;</code> The number of posts to get between 1 and 50 (default: 25)<br />
+							<code>--type=&lt;self|link&gt;</code> Only get self or link posts.<br />
+							<code>--sort=&lt;mode&gt;</code> Pick a mode from the following: hot, new, top, controversial (default: top).<br />
+							<code>--embed</code> Will embed the link in chat.<br />
+							<br />
+							<code>]reddit &lt;subreddit&gt; [search] [args]</code><br />
+							<small>Cooldown: 5 seconds</small><br />
+						</div>
+					</div>
+				</div>
+
+				<div class="card is-customwidth">
+					<header class="card-header">
 						<p class="card-header-title">Reminders</p>
 						<a class="card-header-icon card-toggle">
 							<i class="fa fa-angle-down"></i>
@@ -582,9 +606,10 @@
 					</header>
 					<div class="card-content is-hidden">
 						<div class="content">
-							Roll a number between 1 and <i>max</i>. By default 1-10.
+							Roll a number between the given range. By default 1-10.
 							<br />
-							<code>]roll [max]</code><br />
+							<code>]roll [[min-]max]</code><br />
+							<small>Aliases: random</small><br />
 							<small>Cooldown: 2 seconds</small><br />
 						</div>
 					</div>
