@@ -673,6 +673,45 @@
 
 				<div class="card is-customwidth">
 					<header class="card-header">
+						<p class="card-header-title">Twitch.tv Notifications</p>
+						<a class="card-header-icon card-toggle">
+							<i class="fa fa-angle-down"></i>
+						</a>
+					</header>
+					<div class="card-content is-hidden">
+						<div class="content">
+							Get notified when a channel starts/stops streaming a game.
+							<br /><br />
+							<code>]twitch follow brussell98</code> Will follow brussell98 in that channel.<br />
+							<code>]twitch unfollow brussell98</code> Will stop following brussell98 in that channel.<br />
+							<code>]twitch following</code> Will show what channels that channel is following. Add "server" to the end to see for the whole server.<br />
+							<small>Cooldown: 5 seconds</small><br />
+							<small>Required Permission: manageChannels</small><br />
+							<small>Can only be used in a server.</small>
+						</div>
+					</div>
+				</div>
+
+				<div class="card is-customwidth">
+					<header class="card-header">
+						<p class="card-header-title">Urban Dictionary</p>
+						<a class="card-header-icon card-toggle">
+							<i class="fa fa-angle-down"></i>
+						</a>
+					</header>
+					<div class="card-content is-hidden">
+						<div class="content">
+							"Define a word from Urban Dictionary.
+							<br />
+							<code>]urban &lt;word&gt;</code><br />
+							<small>Aliases: define</small><br />
+							<small>Cooldown: 4 seconds</small>
+						</div>
+					</div>
+				</div>
+
+				<div class="card is-customwidth">
+					<header class="card-header">
 						<p class="card-header-title">User Info</p>
 						<a class="card-header-icon card-toggle">
 							<i class="fa fa-angle-down"></i>
@@ -829,6 +868,24 @@
 							<small>Required Permission: manageGuild</small><br />
 							<small>Aliases: set, config</small><br />
 							<small>Cooldown: 3 seconds</small>
+						</div>
+					</div>
+				</div>
+
+				<div class="card is-customwidth">
+					<header class="card-header">
+						<p class="card-header-title">Softban</p>
+						<a class="card-header-icon card-toggle">
+							<i class="fa fa-angle-down"></i>
+						</a>
+					</header>
+					<div class="card-content is-hidden">
+						<div class="content">
+							Kicks a user and deletes their messages from the past 3 days.
+							<br />
+							<code>}softban &lt;@user&gt; [reason]</code><br />
+							<small>Required Permission: banMembers</small><br />
+							<small>Cooldown: 2 seconds</small>
 						</div>
 					</div>
 				</div>
