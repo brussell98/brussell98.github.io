@@ -1,79 +1,52 @@
-@import url("https://fonts.googleapis.com/css?family=Exo:400,600")
+@import url("https://fonts.googleapis.com/css?family=Roboto")
 
-$exo: 'exo', 'sans-serif'
-$white: #fafafa
-$gray: #dedede
-$gray-darken: #a7a7a7
-
-=animate-in()
-	position: relative
-	animation: fadeDown 1.2s cubic-bezier(0.22, 0.61, 0.36, 1)
-	-webkit-animnation: fadeDown 1.2s cubic-bezier(0.22, 0.61, 0.36, 1)
-	-moz-animation: fadeDown 1.2s cubic-bezier(0.22, 0.61, 0.36, 1)
-
-@keyframes fadeDown
-	0%
-		opacity: 0
-		top: -60px
-	100%
-		opacity: 1
-		top: 0
-
-@-webkit-keyframes fadeDown
-	0%
-		opacity: 0
-		top: -60px
-	100%
-		opacity: 1
-		top: 0
-
-@-moz-keyframes fadeDown
-	0%
-		opacity: 0
-		top: -60px
-	100%
-		opacity: 1
-		top: 0
+$roboto: 'Roboto', 'sans-serif'
 
 body
-	background-image: url("./images/dark_bg_squares.jpg")
-	background-repeat: no-repeat
-	background-size: 100%
-	background-attachment: fixed
-	background-position: center
-	+animate-in
+	background-color: #FFF
+	margin: 100px 50px
 
-.wrap
-	margin: 160px 24%
-	text-align: center
-	h1
-		font-family: $exo
-		font-weight: 600
-		font-size: 64px
-		color: $white
-		text-shadow: 1px 2px 5px #444
-	h2
-		font-family: $exo
-		font-weight: 600
-		font-size: 50px
-		color: $white
-		text-shadow: 1px 2px 5px #444
-		margin: 40px 0 20px 0
-	p
-		font-family: $exo
-		font-weight: 400
-		font-size: 26px
-		color: $gray
-	a
-		font-family: $exo
-		font-weight: 400
-		font-size: 26px
-		color: $gray
-		display: block
-		transition: .4s
-		text-decoration: none
-		&:hover, &:active
-			color: $gray-darken
-			text-decoration: underline
-		& ~ a
-			margin-top: 15px
+.wrapper
+	margin: 0 auto
+	max-width: 700px
+	box-shadow: 1px 5px 20px 0px #DDDDDD
+	-webkit-box-shadow: 1px 5px 20px 0px #DDDDDD
+	-moz-box-shadow: 1px 5px 20px 0px #DDDDDD
+	-o-box-shadow: 1px 5px 20px 0px #DDDDDD
+	.block
+		background-color: #FBFBFB
+		border-radius: 0 0 3px 3px
+		margin-bottom: 50px
+		text-align: center
+		font-family: $roboto
+		&:before
+			content: ' '
+			background-color: #FD3434
+			height: 20px
+			width: 100%
+			position: relative
+			top: 0
+			display: block
+			border-radius: 3px 3px 0 0
+		h1
+			margin: 20px 10px 10px 10px
+		h2
+			font-size: 1.35em
+			margin: 20px 10px 15px 10px
+		p
+			margin-bottom: 0
+			padding-bottom: 20px
+		table
+			margin: 0 auto
+			width: 80%
+			padding-bottom: 20px
+			margin-top: 10px
+			td
+				width: 50%
+				padding-bottom: 10px
+
+a:link, a:visited
+	color: #E00000
+
+a:hover, a:active
+	color: #FF4040
