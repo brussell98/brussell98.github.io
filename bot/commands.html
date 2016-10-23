@@ -2,12 +2,12 @@
 <html lang="en-US">
 <head>
 	<meta charset="utf-8">
-    <title>Mirai Bot - Commands</title>
-    <meta name="author" content="Brussell">
-    <meta name="description" content="All of Mirai's commands, including their attributes.">
+	<title>Mirai Bot - Commands</title>
+	<meta name="author" content="Brussell">
+	<meta name="description" content="All of Mirai's commands, including their attributes.">
 	<meta name="keywords" content="Mirai, discord, bot, commands, anime, twitch, weather, open source, reminders, osu">
-    <link rel="icon" type="image/jpg" href="../images/icon.jpg">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<link rel="icon" type="image/jpg" href="../images/icon.jpg">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 	<meta name="theme-color" content="#42afe3">
 
 	<meta property="og:type" content="website" />
@@ -19,7 +19,39 @@
 	<meta property="og:locale" content="en-US" />
 
 	<link rel="stylesheet" href="css/master.min.css" charset="utf-8">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+	<script src="js/master.js" charset="utf-8"></script>
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-72190085-1', 'auto');
+		ga('send', 'pageview');
+	</script>
+	<script type="text/javascript">
+		['normal', 'moderation'].forEach(function(t) {
+			document.getElementById(t + '-tab').addEventListener('click', function(e) {
+				if (e.currentTarget.classList.contains('is-active') === false) {
+					var toSearch = e.currentTarget.parentNode.parentNode.parentNode.parentNode.children;
+					for (var i = 2; i < toSearch.length; i++) {
+						if (toSearch[i].id === t) {
+							toSearch[i].classList.remove('is-hidden');
+							continue;
+						}
+						if (toSearch[i].classList.contains('is-hidden') === false)
+							toSearch[i].classList.add('is-hidden');
+					}
+					var toSearch = toSearch[0].parentNode.children[0].children[0].children; //ugh
+					for (var i = 0; i < toSearch.length; i++) {
+						if (toSearch[i].classList.contains('is-active'))
+							toSearch[i].classList.remove('is-active')
+					}
+					e.currentTarget.parentNode.classList.add('is-active');
+				}
+			});
+		});
+	</script>
 </head>
 <body>
 	<section class="hero is-medium is-bold is-info">
@@ -305,7 +337,7 @@
 						<div class="content">
 							Convert to another currency. Replace "CODE" with the three letter currency code.
 							<br />
-							<code>]currency &lt;ammoun&gt;> &lt;CODE&gt; to &lt;CODE&gt;</code><br />
+							<code>]currency &lt;ammoun&gt; &lt;CODE&gt; to &lt;CODE&gt;</code><br />
 							<small>Aliases: convert</small><br />
 							<small>Cooldown: 5 seconds</small><br />
 						</div>
@@ -971,36 +1003,4 @@
 		</div>
 	</section>
 </body>
-<script src="js/master.js" charset="utf-8"></script>
-<script>
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-	ga('create', 'UA-72190085-1', 'auto');
-	ga('send', 'pageview');
-</script>
-<script type="text/javascript">
-	['normal', 'moderation'].forEach(function(t) {
-		document.getElementById(t + '-tab').addEventListener('click', function(e) {
-			if (e.currentTarget.classList.contains('is-active') === false) {
-				var toSearch = e.currentTarget.parentNode.parentNode.parentNode.parentNode.children;
-				for (var i = 2; i < toSearch.length; i++) {
-					if (toSearch[i].id === t) {
-						toSearch[i].classList.remove('is-hidden');
-						continue;
-					}
-					if (toSearch[i].classList.contains('is-hidden') === false)
-						toSearch[i].classList.add('is-hidden');
-				}
-				var toSearch = toSearch[0].parentNode.children[0].children[0].children; //ugh
-				for (var i = 0; i < toSearch.length; i++) {
-					if (toSearch[i].classList.contains('is-active'))
-						toSearch[i].classList.remove('is-active')
-				}
-				e.currentTarget.parentNode.classList.add('is-active');
-			}
-		});
-	});
-</script>
 </html>
