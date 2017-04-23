@@ -1,0 +1,101 @@
+$flower: 'Arima Madurai', sans-serif
+$red-pink: #d12845
+$dark-red: #441421
+$orange: #de6046
+$blue-light: #3ab3c2
+$blue-dark: #3c618a
+$wine: #130315
+
+html
+	font-size: 100%
+	body
+		margin: 0
+
+*
+	box-sizing: border-box
+
+.sidebar
+	width: 300px
+	height: 100vh
+	padding: 20px
+	background-color: $wine
+	.avatar
+		width: 260px
+		height: 260px
+		border: 2px solid $dark-red
+		border-radius: 20px
+	.username
+		color: $orange
+		font-family: $flower
+		font-weight: 700
+		font-size: 2.5rem
+		text-align: center
+		margin: 20px
+	.bio
+		color: $orange
+		font-family: $flower
+		margin: 20px
+	.links
+		width: 260px
+		left: 20px
+		text-align: center
+		position: absolute
+		bottom: 0
+		margin: 40px 0
+		.link
+			display: block
+			padding: 5px 10px
+			background-color: $wine
+			border: 2px solid transparent
+			border-radius: 5px
+			margin: 20px
+			transform: skewX(-15deg)
+			transition: background-color .2s ease-in-out, border-color .2s ease-in-out
+			&:hover
+				background-color: $red-pink
+				border: 2px solid $dark-red
+			a
+				display: block
+				font-size: 1.5rem
+				font-family: $flower
+				text-decoration: none
+				color: #fff
+				transform: skewX(15deg)
+
+.main
+	position: absolute
+	left: 300px
+	top: 0
+	padding: 20px
+	padding-left: 40px
+	background-color: #381634
+	width: calc(100vw - 300px)
+	height: 100vh
+	.project
+		.title
+			text-align: center
+			display: block
+			padding: 5px 10px
+			background-color: $wine
+			border: 2px solid transparent
+			border-radius: 5px
+			margin: 20px
+			transform: skewX(-15deg)
+			&:hover
+				a
+					color: $blue-dark
+			a
+				display: block
+				font-size: 1.25rem
+				font-family: $flower
+				text-decoration: none
+				color: #fff
+				transform: skewX(15deg)
+				transition: color .2s ease-in-out
+		.body
+			font-size: 1.1rem
+			font-family: $flower
+			color: $blue-light
+			margin: 10px 30px
+		& + .project
+			margin-top: 60px

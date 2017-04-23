@@ -1,0 +1,13 @@
+{
+	"name": "brussell.me",
+	"version": "1.0.0",
+	"description": "Personal website",
+	"author": "brussell98",
+	"private": true,
+	"dependencies": {
+
+	},
+	"devDependencies": {
+		"node-sass": "*"
+	}
+}
